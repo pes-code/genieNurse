@@ -35,8 +35,8 @@ check_session_id();
                 <input type="date" name="deadline">
             </div>
 
-
             <div class="hidden_box">
+                <input type="text" name="u_id" value="<?= $_SESSION["u_id"] ?>" readonly>
                 <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
                 <!--【案】将来的にline実装-->
                 <!--<input type="hidden" name="name" value="<?= $_SESSION["name"] ?>" readonly>-->

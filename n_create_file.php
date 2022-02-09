@@ -14,6 +14,7 @@ if (
     exit();
 }
 
+$n_id = $_POST['n_id'];
 $office_name = $_POST['office_name'];
 $comment = $_POST['comment'];
 $link = $_POST['link'];
@@ -51,9 +52,10 @@ $mail = $_POST['mail'];
 // ファイル保存処理など
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO nurse_service(id, office_name, comment, link, tel, mail, created_at, updated_at) VALUES(NULL, :office_name, :comment, :link, :tel, :mail, now(), now())';
+$sql = 'INSERT INTO nurse_service(id, n_id, office_name, comment, link, tel, mail, created_at, updated_at) VALUES(NULL, :n_id, :office_name, :comment, :link, :tel, :mail, now(), now())';
 
 $stmt = $pdo->prepare($sql);
+$stmt->bindValue(':n_id', $n_id, PDO::PARAM_STR);
 $stmt->bindValue(':office_name', $office_name, PDO::PARAM_STR);
 $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
 $stmt->bindValue(':link', $link, PDO::PARAM_STR);

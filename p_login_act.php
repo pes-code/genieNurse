@@ -31,8 +31,11 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
 } else { //上記データがある場合はセッション変数にデータを入れる。
     $_SESSION = array(); //一旦セッション変数を空にする。
     $_SESSION["session_id"] = session_id();
-    $_SESSION["is_admin"] = $val["is_admin"];
+
+    $_SESSION["u_id"] = $val["u_id"];
     $_SESSION["name"] = $val["name"];
+
+    $_SESSION["is_admin"] = $val["is_admin"];
     $_SESSION["mail"] = $val["mail"]; ////【試行】mailで個別的なデータの参照処理をする
 
     //////////////////////////////////////////////
@@ -40,7 +43,6 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
     $_SESSION["handlename"] = $val["handlename"];
     //////////////////////////////////////////////
 
-    $_SESSION["id"] = $val["id"];
     header("Location:needs_input.php");
     exit();
 }

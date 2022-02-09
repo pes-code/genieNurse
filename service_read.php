@@ -14,15 +14,13 @@
     include("n_functions.php");
     check_session_id();
 
-    $user_id = $_SESSION['id'];
+    $user_id = $_SESSION['n_id']; ///////////////////ここはなぜn_idじゃないといけないの？あとで確認
 
     $pdo = connect_to_db();
 
-    //Like機能
-    //$sql = 'SELECT * FROM will_table LEFT OUTER JOIN (SELECT todo_id, COUNT(id) AS like_count FROM like_table GROUP BY todo_id) AS result_table ON todo_table.id = result_table.todo_id';
-    //現在ログイン中のアカウントのデータのみを出力する&1アカウント1レコードしか入力できないようにする（editへジャンプするようにするか）///$sql = 'SELECT * FROM will_table WHERE id=///この部分に何を入れるか？///';
+    $nid = $_SESSION["n_id"];
 
-    $sql = 'SELECT * FROM nurse_service WHERE is_deleted=0  '; //ORDER BY date ASC
+    $sql = 'SELECT * FROM nurse_service WHERE n_id=' . $nid . ' AND is_deleted=0 '; //ORDER BY date ASC
 
     $stmt = $pdo->prepare($sql);
 
@@ -52,9 +50,6 @@
      <a href='mailto:{$record["mail"]}'>📧</a>
      </td>
      </div>
-      <td>
-       <a href='service_edit.php?id={$record["id"]}'>edit</a>
-      </td>
       <td>
        <a href='service_delete.php?id={$record["id"]}'>delete</a>
       </td> 

@@ -32,6 +32,7 @@ if (
     // !isset($_POST['np6']) || $_POST['np6'] == '' ||
     // !isset($_POST['np7']) || $_POST['np7'] == '' ||
     // !isset($_POST['np8']) || $_POST['np8'] == '' ||
+    ///////////////////////////////////!isset($_POST['item']) || $_POST['item'] == '' ||
     // !isset($_POST['item1']) || $_POST['item1'] == '' ||
     // !isset($_POST['item2']) || $_POST['item2'] == '' ||
     // !isset($_POST['item3']) || $_POST['item3'] == '' ||
@@ -72,7 +73,8 @@ $office_name = $_POST["office_name"];
 // $np6 = $_POST["np6"];
 // $np7 = $_POST["np7"];
 // $np8 = $_POST["np8"];
-// $item1 = $_POST["item1"];
+//////////////////////$item = $_POST["item"];
+//$item1 = $_POST["item1"];
 // $item2 = $_POST["item2"];
 // $item3 = $_POST["item3"];
 // $item4 = $_POST["item4"];
@@ -127,7 +129,7 @@ if ($stmt->fetchColumn() > 0) {
     exit();
 }
 //↓後ほどlicense_img,と:license_img, skil[], np[], item[],を忘れず入れる
-$sql = 'INSERT INTO nurse_table(id, name, sex, birthday, address, tel, mail, pass, nurse_number, advance_license, office_name, link, appeal, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :nurse_number, :advance_license, :office_name, :link, :appeal, 0, 0, sysdate(), sysdate())';
+$sql = 'INSERT INTO nurse_table(n_id, name, sex, birthday, address, tel, mail, pass, nurse_number, advance_license, office_name, link, appeal, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :nurse_number, :advance_license, :office_name, :link, :appeal, 0, 0, sysdate(), sysdate())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -157,6 +159,7 @@ $stmt->bindValue(':office_name', $office_name, PDO::PARAM_STR);
 // $stmt->bindValue(':np6', $np6, PDO::PARAM_STR);
 // $stmt->bindValue(':np7', $np7, PDO::PARAM_STR);
 // $stmt->bindValue(':np8', $np8, PDO::PARAM_STR);
+//////////////////////////////////$stmt->bindValue(':item', $item, PDO::PARAM_STR);
 // $stmt->bindValue(':item1', $item1, PDO::PARAM_STR);
 // $stmt->bindValue(':item2', $item2, PDO::PARAM_STR);
 // $stmt->bindValue(':item3', $item3, PDO::PARAM_STR);

@@ -16,7 +16,7 @@ if (
     exit();
 }
 
-
+$u_id = $_POST['u_id'];
 $handlename = $_POST['handlename'];
 $sex = $_POST['sex'];
 $need_title = $_POST['need_title'];
@@ -31,9 +31,10 @@ $mail = $_POST['mail'];
 // ファイル保存処理など
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO patient_needs(id, handlename, sex, need_title, comment, reward, deadline, mail, created_at, updated_at) VALUES(NULL, :handlename, :sex, :need_title, :comment, :reward, :deadline, :mail, now(), now())';
+$sql = 'INSERT INTO patient_needs(id, u_id, handlename, sex, need_title, comment, reward, deadline, mail, created_at, updated_at) VALUES(NULL, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :mail, now(), now())';
 
 $stmt = $pdo->prepare($sql);
+$stmt->bindValue(':u_id', $u_id, PDO::PARAM_STR);
 $stmt->bindValue(':handlename', $handlename, PDO::PARAM_STR);
 $stmt->bindValue(':sex', $sex, PDO::PARAM_STR);
 $stmt->bindValue(':need_title', $need_title, PDO::PARAM_STR);

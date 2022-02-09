@@ -31,18 +31,23 @@ check_session_id();
                 item: <textarea rows="10" cols="50" name="item" placeholder="例】・吸引機 ・車いす ・介護用タクシー"></textarea>
                 /////checkboxで選択できる、その他free欄も設置/////
             </div>-->
+
             <!--<div>
                 time: <input type="date" name="time">
                 /////複数の活動日を入力する/////
             </div>-->
+
             <div>
+                <input type="hidden" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
                 <input type="hidden" name="link" value="<?= $_SESSION["link"] ?>" readonly>
                 <input type="hidden" name="tel" value="<?= $_SESSION["tel"] ?>" readonly>
                 <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
             </div>
+
             <!--<div>
                 <input type="file" name="upfile" accept="video/*" capture="camera" />
             </div>-->
+
             <div>
                 <button>submit</button>
             </div>

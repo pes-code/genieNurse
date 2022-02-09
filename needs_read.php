@@ -14,7 +14,7 @@
     include("functions.php");
     check_session_id();
 
-    $user_id = $_SESSION['id'];
+    $user_id = $_SESSION['u_id']; ////////////////なぜココはu_idじゃないとダメか確認する。
 
     $pdo = connect_to_db();
 
@@ -22,7 +22,10 @@
     //$sql = 'SELECT * FROM will_table LEFT OUTER JOIN (SELECT todo_id, COUNT(id) AS like_count FROM like_table GROUP BY todo_id) AS result_table ON todo_table.id = result_table.todo_id';
     //現在ログイン中のアカウントのデータのみを出力する&1アカウント1レコードしか入力できないようにする（editへジャンプするようにするか）///$sql = 'SELECT * FROM will_table WHERE id=///この部分に何を入れるか？///';
 
-    $sql = 'SELECT * FROM patient_needs WHERE is_deleted=0  '; //ORDER BY date ASC
+    $uid = $_SESSION["u_id"];
+
+
+    $sql = 'SELECT * FROM patient_needs WHERE u_id=' . $uid . ' AND is_deleted=0  '; //ORDER BY date ASC
 
     $stmt = $pdo->prepare($sql);
 
@@ -53,9 +56,6 @@
      <a href='mailto:{$record["mail"]}'>📧</a>
      </td>
     </div>
-      <td>
-       <a href='p_edit.php?id={$record["id"]}'>edit</a>
-      </td>
       <td>
        <a href='p_delete.php?id={$record["id"]}'>delete</a>
       </td> 

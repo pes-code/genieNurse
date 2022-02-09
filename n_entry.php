@@ -58,14 +58,13 @@
                     <label><input type="checkbox" name="skil2" value="食事介助">食事介助</label>
                     <label><input type="checkbox" name="skil3" value="排泄介助">排泄介助</label>
                     <label><input type="checkbox" name="skil4" value="環境整備">環境整備</label>
-                </div>
+                </div>          
                 <div>
                     <label><input type="checkbox" name="skil5" value="外泊同伴">外泊同伴</label>
                     <label><input type="checkbox" name="skil6" value="通院同伴">通院同伴</label>
                     <label><input type="checkbox" name="skil7" value="入院同伴">入院同伴</label>
                     <label><input type="checkbox" name="skil8" value="健康相談">健康相談</label>
                 </div>
-
                 <div><label>[medical practice]</label><br>
                     <label><input type="checkbox" name="np1" value="気切チューブ交換">気切チューブ交換</label>
                     <label><input type="checkbox" name="np2" value="人工呼吸器設定">人工呼吸器設定</label>
@@ -78,30 +77,31 @@
                     <label><input type="checkbox" name="np7" value="動脈穿刺">動脈穿刺</label>
                     <label><input type="checkbox" name="np8" value="Picc留置">Picc留置</label>
                 </div>
-            </div>
+            </div>-->
 
-            <div><label>[item]</label><br>
-                <div>
-                    <label><input type="checkbox" name="item1" value="AED">AED</label>
-                    <label><input type="checkbox" name="item2" value="吸引機">吸引機</label>
-                    <label><input type="checkbox" name="item3" value="リクライニング車椅子">リクライニング車いす</label>
-                    <label><input type="checkbox" name="item4" value="介護用自動車">介護用自動車</label>
+            <!--   <div><label>[item]</label><br>
+                    <div>
+                        <label><input type="checkbox" name="item[]" value="AED">AED</label>
+                        <label><input type="checkbox" name="item[]" value="吸引機">吸引機</label>
+                        <label><input type="checkbox" name="item[]" value="リクライニング車椅子">リクライニング車いす</label>
+                        <label><input type="checkbox" name="item[]" value="介護用自動車">介護用自動車</label>
+                    </div>-->
+
+            <!--<div>
+                        <label><input type="text" name="item_other" placeholder="other_item"></label>
+                    </div>
                 </div>
                 <div>
-                    <label><input type="text" name="item_other" placeholder="other_item"></label>
-                </div>
-            </div>
-            <div>
-                <label>[staff]</label><br>
-                <select name="staff">
-                    <?php
-                    //for ($staff = 0; $staff <= 100; $staff++) {
-                    //    echo "<option value='{$staff}'>{$staff}</option>";
-                    //}
-                    ?>
-                </select>
-            </div>
-                -->
+                    <label>[staff]</label><br>
+                    <select name="staff">
+                        <?php
+                        //for ($staff = 0; $staff <= 100; $staff++) {
+                        //    echo "<option value='{$staff}'>{$staff}</option>";
+                        //}
+                        ?>
+                    </select>
+                </div>-->
+
             <div>
                 <input type="text" name="link" placeholder="HP_URL">
             </div>

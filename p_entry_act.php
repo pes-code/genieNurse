@@ -44,7 +44,7 @@ if ($stmt->fetchColumn() > 0) {
     exit();
 }
 
-$sql = 'INSERT INTO patient_table(id, name, sex, birthday, address, tel, mail, pass, handlename, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :handlename, 0, 0, sysdate(), sysdate())';
+$sql = 'INSERT INTO patient_table(u_id, name, sex, birthday, address, tel, mail, pass, handlename, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :handlename, 0, 0, sysdate(), sysdate())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);

@@ -32,6 +32,8 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
     $_SESSION = array(); //一旦セッション変数を空にする。
     $_SESSION["session_id"] = session_id();
 
+    $_SESSION["n_id"] = $val["n_id"];
+    $_SESSION["office_name"] = $val["office_name"];
 
     /////↓ログインに成功したらDBから該当データを取得してくる////
     $_SESSION["is_admin"] = $val["is_admin"];
@@ -41,9 +43,7 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
     $_SESSION["mail"] = $val["mail"];
     //////////////////////////////////////////////////////////
 
-    $_SESSION["office_name"] = $val["office_name"];
-    $_SESSION["mail"] = $val["mail"]; ////【試行】mailで個別的なデータの参照処理をする
-    $_SESSION["id"] = $val["id"];
+
     header("Location:service_input.php");
     exit();
 }
