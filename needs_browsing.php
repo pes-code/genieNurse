@@ -14,7 +14,7 @@
     include("functions.php");
     check_session_id();
 
-    $user_id = $_SESSION['id'];
+    $user_id = $_SESSION['u_id'];
 
     $pdo = connect_to_db();
 
@@ -78,7 +78,7 @@
             </tbody>
         </table>
     </fieldset>
-    <a href="service_input.php">serviceInput</a><br>
+    <a href="service_input.php">ServiceInput</a><br>
     <a href="p_logout.php">Logout</a>
 </body>
 

@@ -15,7 +15,7 @@
     include("n_functions.php");
     check_session_id();
 
-    $user_id = $_SESSION['id'];
+    $user_id = $_SESSION['u_id'];
 
     $pdo = connect_to_db();
 
@@ -44,7 +44,7 @@
     foreach ($result as $record) {
         $output .= "
     <tr class=''>
-    <div class=''>
+    <div class=''>   
      <td class=''><h6>office<br></h6><a href='nurse_prof.php'>{$record["office_name"]}</a></td> 
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
      <td class=''><h6>contact<br></h6>

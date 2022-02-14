@@ -7,7 +7,7 @@ $id = $_GET["id"];
 
 $pdo = connect_to_db();
 
-$sql = "DELETE FROM nurse_service WHERE id=:id";
+$sql = "DELETE FROM patient_needs WHERE id=:id";
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
@@ -19,5 +19,5 @@ try {
     exit();
 }
 
-header("Location:nueeds_read.php");
+header("Location:needs_read.php");
 exit();

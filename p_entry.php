@@ -33,7 +33,7 @@
                 <input type="text" name="mail" placeholder="lampgoshigoshi@gmail.com">
             </div>
             <div>
-                <input type="text" name="pass" placeholder="半角英数字6文字">
+                <input type="text" name="pass" placeholder="半角英数字6文字以上">
             </div>
             <div>
                 <input type="text" name="handlename" placeholder="アラジン">

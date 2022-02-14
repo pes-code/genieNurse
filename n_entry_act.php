@@ -13,7 +13,9 @@ if (
     !isset($_POST['mail']) || $_POST['mail'] == '' ||
     !isset($_POST['pass']) || $_POST['pass'] == '' ||
     !isset($_POST['nurse_number']) || $_POST['nurse_number'] == '' ||
-    //!isset($_FILES['license_img']) || $_FILES['license_img'] == '' ||
+
+    !isset($_FILES['license_img']) || $_FILES['license_img'] == '' ||
+
     !isset($_POST['advance_license']) || $_POST['advance_license'] == '' ||
     !isset($_POST['office_name']) || $_POST['office_name'] == '' ||
     // !isset($_POST['skil1']) || $_POST['skil1'] == '' ||
@@ -54,7 +56,9 @@ $tel = $_POST["tel"];
 $mail = $_POST["mail"];
 $pass = $_POST["pass"];
 $nurse_number = $_POST["nurse_number"];
-//$license_img = $_FILES["license_img"];
+
+$license_img = $_FILES["license_img"];
+
 $advance_license = $_POST["advance_license"];
 $office_name = $_POST["office_name"];
 // $skil1 = $_POST["skil1"];
@@ -84,29 +88,29 @@ $link = $_POST["link"];
 $appeal = $_POST["appeal"];
 
 //imgデータのチェック
-//if (isset($_FILES['license_img']) && $_FILES['license_img']['error'] == 0) {
-// 情報の取得
-//    $uploaded_file_name = $_FILES['license_img']['name'];
-//    $temp_path  = $_FILES['license_img']['tmp_name'];
-//    $directory_path = 'nurseupload/';
+if (isset($_FILES['license_img']) && $_FILES['license_img']['error'] == 0) {
+    // 情報の取得
+    $uploaded_file_name = $_FILES['license_img']['name'];
+    $temp_path  = $_FILES['license_img']['tmp_name'];
+    $directory_path = 'nurseupload/';
 
-// imgデータのファイル名が重複しないようにする記述
-//   $extension = pathinfo($uploaded_file_name, PATHINFO_EXTENSION);
-//    $unique_name = date('YmdHis') . md5(session_id()) . '.' . $extension;
-//    $save_path = $directory_path . $unique_name;
+    // imgデータのファイル名が重複しないようにする記述
+    $extension = pathinfo($uploaded_file_name, PATHINFO_EXTENSION);
+    $unique_name = date('YmdHis') . md5(session_id()) . '.' . $extension;
+    $save_path = $directory_path . $unique_name;
 
-//    if (is_uploaded_file($temp_path)) {
-//        if (move_uploaded_file($temp_path, $save_path)) {
-//            chmod($save_path, 0644);
-//        } else {
-//            exit('Error:アップロードできませんでした');
-//        }
-//    } else {
-//        exit('Error:画像がありません');
-//    }
-//} else {
-//    exit('Error:画像が送信されていません');
-//}
+    if (is_uploaded_file($temp_path)) {
+        if (move_uploaded_file($temp_path, $save_path)) {
+            chmod($save_path, 0644);
+        } else {
+            exit('Error:アップロードできませんでした');
+        }
+    } else {
+        exit('Error:画像がありません');
+    }
+} else {
+    exit('Error:画像が送信されていません');
+}
 ///////////////////////////////////////////////////
 
 $pdo = connect_to_db();
@@ -129,7 +133,7 @@ if ($stmt->fetchColumn() > 0) {
     exit();
 }
 //↓後ほどlicense_img,と:license_img, skil[], np[], item[],を忘れず入れる
-$sql = 'INSERT INTO nurse_table(n_id, name, sex, birthday, address, tel, mail, pass, nurse_number, advance_license, office_name, link, appeal, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :nurse_number, :advance_license, :office_name, :link, :appeal, 0, 0, sysdate(), sysdate())';
+$sql = 'INSERT INTO nurse_table(n_id, name, sex, birthday, address, tel, mail, pass, nurse_number, license_img, advance_license, office_name, link, appeal, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :nurse_number, :license_img, :advance_license, :office_name, :link, :appeal, 0, 0, sysdate(), sysdate())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -140,7 +144,9 @@ $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
 $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 $stmt->bindValue(':nurse_number', $nurse_number, PDO::PARAM_STR);
-//$stmt->bindValue(':license_img', $save_path, PDO::PARAM_STR);
+
+$stmt->bindValue(':license_img', $save_path, PDO::PARAM_STR);
+
 $stmt->bindValue(':advance_license', $advance_license, PDO::PARAM_STR);
 $stmt->bindValue(':office_name', $office_name, PDO::PARAM_STR);
 // $stmt->bindValue(':skil1', $skil1, PDO::PARAM_STR);

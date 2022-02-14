@@ -38,10 +38,13 @@
             <div>
                 <input type="text" name="nurse_number" placeholder="license_number">
             </div>
-            <!--<看護師免許の写し↓-->
-            <!--<div>
+
+            <!--看護師免許の写し↓---------------------------------------------------------------->
+            <div>
                 <input type="file" name="license_img" accept="image/*" capture="camera" />
-            </div>-->
+            </div>
+            <!---------------------------------------------------------------------------------->
+
             <div>
                 <input type="text" name="advance_license" placeholder="advance_license">
             </div>
