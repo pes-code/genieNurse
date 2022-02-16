@@ -13,41 +13,17 @@ if (
     !isset($_POST['mail']) || $_POST['mail'] == '' ||
     !isset($_POST['pass']) || $_POST['pass'] == '' ||
     !isset($_POST['nurse_number']) || $_POST['nurse_number'] == '' ||
-
-    !isset($_FILES['license_img']) || $_FILES['license_img'] == '' ||
-
+    !isset($_FILES['id_f_img']) || $_FILES['id_f_img'] == '' ||
+    !isset($_FILES['id_b_img']) || $_FILES['id_b_img'] == '' ||
     !isset($_POST['advance_license']) || $_POST['advance_license'] == '' ||
     !isset($_POST['office_name']) || $_POST['office_name'] == '' ||
-    // !isset($_POST['skil1']) || $_POST['skil1'] == '' ||
-    // !isset($_POST['skil2']) || $_POST['skil2'] == '' ||
-    // !isset($_POST['skil3']) || $_POST['skil3'] == '' ||
-    // !isset($_POST['skil4']) || $_POST['skil4'] == '' ||
-    // !isset($_POST['skil5']) || $_POST['skil5'] == '' ||
-    // !isset($_POST['skil6']) || $_POST['skil6'] == '' ||
-    // !isset($_POST['skil7']) || $_POST['skil7'] == '' ||
-    // !isset($_POST['skil8']) || $_POST['skil8'] == '' ||
-    // !isset($_POST['np1']) || $_POST['np1'] == '' ||
-    // !isset($_POST['np2']) || $_POST['np2'] == '' ||
-    // !isset($_POST['np3']) || $_POST['np3'] == '' ||
-    // !isset($_POST['np4']) || $_POST['np4'] == '' ||
-    // !isset($_POST['np5']) || $_POST['np5'] == '' ||
-    // !isset($_POST['np6']) || $_POST['np6'] == '' ||
-    // !isset($_POST['np7']) || $_POST['np7'] == '' ||
-    // !isset($_POST['np8']) || $_POST['np8'] == '' ||
-    ///////////////////////////////////!isset($_POST['item']) || $_POST['item'] == '' ||
-    // !isset($_POST['item1']) || $_POST['item1'] == '' ||
-    // !isset($_POST['item2']) || $_POST['item2'] == '' ||
-    // !isset($_POST['item3']) || $_POST['item3'] == '' ||
-    // !isset($_POST['item4']) || $_POST['item4'] == '' ||
-    // !isset($_POST['item_other']) || $_POST['item_other'] == '' ||
-    // !isset($_POST['staff']) || $_POST['staff'] == '' ||
-    !isset($_POST['link']) || $_POST['link'] == '' ||
-    !isset($_POST['appeal']) || $_POST['appeal'] == ''
+    !isset($_FILES['face_img']) || $_FILES['face_img'] == '' ||
+    !isset($_FILES['license_img']) || $_FILES['license_img'] == ''
 ) {
     echo json_encode(["error_msg" => "no input123"]);
     exit();
 }
-
+//$n_id = $_POST["n_id"];
 $name = $_POST["name"];
 $sex = $_POST["sex"];
 $birthday = $_POST["birthday"];
@@ -56,51 +32,35 @@ $tel = $_POST["tel"];
 $mail = $_POST["mail"];
 $pass = $_POST["pass"];
 $nurse_number = $_POST["nurse_number"];
-
+$id_f_img = $_FILES["id_f_img"];
+$id_b_img = $_FILES["id_b_img"];
+$face_img = $_FILES["face_img"];
 $license_img = $_FILES["license_img"];
-
 $advance_license = $_POST["advance_license"];
 $office_name = $_POST["office_name"];
-// $skil1 = $_POST["skil1"];
-// $skil2 = $_POST["skil2"];
-// $skil3 = $_POST["skil3"];
-// $skil4 = $_POST["skil4"];
-// $skil5 = $_POST["skil5"];
-// $skil6 = $_POST["skil6"];
-// $skil7 = $_POST["skil7"];
-// $skil8 = $_POST["skil8"];
-// $np1 = $_POST["np1"];
-// $np2 = $_POST["np2"];
-// $np3 = $_POST["np3"];
-// $np4 = $_POST["np4"];
-// $np5 = $_POST["np5"];
-// $np6 = $_POST["np6"];
-// $np7 = $_POST["np7"];
-// $np8 = $_POST["np8"];
-//////////////////////$item = $_POST["item"];
-//$item1 = $_POST["item1"];
-// $item2 = $_POST["item2"];
-// $item3 = $_POST["item3"];
-// $item4 = $_POST["item4"];
-// $item_other = $_POST["item_other"];
 // $staff = $_POST["staff"];
 $link = $_POST["link"];
 $appeal = $_POST["appeal"];
 
-//imgデータのチェック
-if (isset($_FILES['license_img']) && $_FILES['license_img']['error'] == 0) {
-    // 情報の取得
-    $uploaded_file_name = $_FILES['license_img']['name'];
-    $temp_path  = $_FILES['license_img']['tmp_name'];
-    $directory_path = 'nurseupload/';
+//[id_f_img]////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//imgデータのチェック（データがあるか、データにエラーがないか）※正しくデータが送信されていれば，ファイル自体は tmp 領域に保存された状態になっている//
+if (isset($_FILES['id_f_img']) && $_FILES['id_f_img']['error'] == 0) {
 
-    // imgデータのファイル名が重複しないようにする記述
-    $extension = pathinfo($uploaded_file_name, PATHINFO_EXTENSION);
-    $unique_name = date('YmdHis') . md5(session_id()) . '.' . $extension;
-    $save_path = $directory_path . $unique_name;
+    //imgデータのファイルを指定の場所に保存するために必要な情報を取得する
+    $uploaded_file_name = $_FILES['id_f_img']['name']; //ファイル名
+    $temp_path  = $_FILES['id_f_img']['tmp_name']; //一時保存されている場所(=tmp領域)
+    $directory_path = 'id_f_upload/'; //保存場所(id_f_upload)の指定
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    if (is_uploaded_file($temp_path)) {
-        if (move_uploaded_file($temp_path, $save_path)) {
+    //ファイル名が重複することを防ぐ//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    $extension = pathinfo($uploaded_file_name, PATHINFO_EXTENSION); //ファイルの拡張子の種類を取得する
+    $unique_name = date('YmdHis') . md5(session_id()) . '.' . $extension; //ファイルに複雑な名前(日付とsessionIDを利用)をつけて，末尾に.(カンマ)と拡張子を追加する
+    $save_path = $directory_path . $unique_name; //指定の保存場所を追加し，保存用のパスを作成（upload/hogehoge.png のような形になる
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //ファイル名の準備ができたら，tmp 領域から指定の保存場所へファイルを移動する(その際に、tmp 領域にファイルが存在しているか&指定のパスでファイルの保存が成功したかをCheckする)
+    if (is_uploaded_file($temp_path)) { //tmp 領域にファイルが存在しているか
+        if (move_uploaded_file($temp_path, $save_path)) { //指定のパスでファイルの保存が成功したか
             chmod($save_path, 0644);
         } else {
             exit('Error:アップロードできませんでした');
@@ -111,14 +71,97 @@ if (isset($_FILES['license_img']) && $_FILES['license_img']['error'] == 0) {
 } else {
     exit('Error:画像が送信されていません');
 }
-///////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//[id_b_img]////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($_FILES['id_b_img']) && $_FILES['id_b_img']['error'] == 0) {
+
+    $uploaded_file_name_1 = $_FILES['id_b_img']['name'];
+    $temp_path_1  = $_FILES['id_b_img']['tmp_name'];
+    $directory_path_1 = 'id_b_upload/';
+
+    $extension_1 = pathinfo($uploaded_file_name_1, PATHINFO_EXTENSION);
+    $unique_name_1 = date('YmdHis') . md5(session_id()) . '.' . $extension_1;
+    $save_path_1 = $directory_path_1 . $unique_name_1;
+
+    if (is_uploaded_file($temp_path_1)) {
+        if (move_uploaded_file($temp_path_1, $save_path_1)) {
+            chmod($save_path_1, 0644);
+        } else {
+            exit('Error:アップロードできませんでした');
+        }
+    } else {
+        exit('Error:画像がありません');
+    }
+} else {
+    exit('Error:画像が送信されていません');
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//[license_img]/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($_FILES['license_img']) && $_FILES['license_img']['error'] == 0) {
+
+    $uploaded_file_name_2 = $_FILES['license_img']['name'];
+    $temp_path_2  = $_FILES['license_img']['tmp_name'];
+    $directory_path_2 = 'license_upload/';
+
+    // imgデータのファイル名が重複しないようにする記述
+    $extension_2 = pathinfo($uploaded_file_name_2, PATHINFO_EXTENSION);
+    $unique_name_2 = date('YmdHis') . md5(session_id()) . '.' . $extension_2;
+    $save_path_2 = $directory_path_2 . $unique_name_2;
+
+    if (is_uploaded_file($temp_path_2)) {
+        if (move_uploaded_file($temp_path_2, $save_path_2)) {
+            chmod($save_path_2, 0644);
+        } else {
+            exit('Error:アップロードできませんでした');
+        }
+    } else {
+        exit('Error:画像がありません');
+    }
+} else {
+    exit('Error:画像が送信されていません');
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//[face_img]////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (isset($_FILES['face_img']) && $_FILES['face_img']['error'] == 0) {
+
+    $uploaded_file_name_3 = $_FILES['face_img']['name'];
+    $temp_path_3 = $_FILES['face_img']['tmp_name'];
+    $directory_path_3 = 'face_upload/';
+
+    $extension_3 = pathinfo($uploaded_file_name_3, PATHINFO_EXTENSION);
+    $unique_name_3 = date('YmdHis') . md5(session_id()) . '.' . $extension_3;
+    $save_path_3 = $directory_path_3 . $unique_name_3;
+
+    if (is_uploaded_file($temp_path_3)) {
+        if (move_uploaded_file($temp_path_3, $save_path_3)) {
+            chmod($save_path_3, 0644);
+        } else {
+            exit('Error:アップロードできませんでした');
+        }
+    } else {
+        exit('Error:画像がありません');
+    }
+} else {
+    exit('Error:画像が送信されていません');
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 $pdo = connect_to_db();
 
-$sql = 'SELECT COUNT(*) FROM nurse_table WHERE name=:name';
+$sql = 'SELECT COUNT(*) FROM nurse_table WHERE name=:name AND sex=:sex AND birthday=:birthday AND nurse_number=:nurse_number';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
+$stmt->bindValue(':sex', $sex, PDO::PARAM_STR);
+$stmt->bindValue(':birthday', $birthday, PDO::PARAM_STR);
+$stmt->bindValue(':nurse_number', $nurse_number, PDO::PARAM_STR);
 
 try {
     $status = $stmt->execute();
@@ -132,8 +175,8 @@ if ($stmt->fetchColumn() > 0) {
     echo '<a href="n_login.php">login</a>';
     exit();
 }
-//↓後ほどlicense_img,と:license_img, skil[], np[], item[],を忘れず入れる
-$sql = 'INSERT INTO nurse_table(n_id, name, sex, birthday, address, tel, mail, pass, nurse_number, license_img, advance_license, office_name, link, appeal, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :nurse_number, :license_img, :advance_license, :office_name, :link, :appeal, 0, 0, sysdate(), sysdate())';
+//↓後ほどskil[], np[], item[],staffを忘れず入れる
+$sql = 'INSERT INTO nurse_table(n_id, name, sex, birthday, address, tel, mail, pass, nurse_number, advance_license, office_name, link, appeal, id_f_img, id_b_img, license_img, face_img, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :nurse_number, :advance_license, :office_name, :link, :appeal, :id_f_img, :id_b_img, :license_img, :face_img, 0, 0, sysdate(), sysdate())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -144,36 +187,15 @@ $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
 $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 $stmt->bindValue(':nurse_number', $nurse_number, PDO::PARAM_STR);
-
-$stmt->bindValue(':license_img', $save_path, PDO::PARAM_STR);
-
 $stmt->bindValue(':advance_license', $advance_license, PDO::PARAM_STR);
 $stmt->bindValue(':office_name', $office_name, PDO::PARAM_STR);
-// $stmt->bindValue(':skil1', $skil1, PDO::PARAM_STR);
-// $stmt->bindValue(':skil2', $skil2, PDO::PARAM_STR);
-// $stmt->bindValue(':skil3', $skil3, PDO::PARAM_STR);
-// $stmt->bindValue(':skil4', $skil4, PDO::PARAM_STR);
-// $stmt->bindValue(':skil5', $skil5, PDO::PARAM_STR);
-// $stmt->bindValue(':skil6', $skil6, PDO::PARAM_STR);
-// $stmt->bindValue(':skil7', $skil7, PDO::PARAM_STR);
-// $stmt->bindValue(':skil8', $skil8, PDO::PARAM_STR);
-// $stmt->bindValue(':np1', $np1, PDO::PARAM_STR);
-// $stmt->bindValue(':np2', $np2, PDO::PARAM_STR);
-// $stmt->bindValue(':np3', $np3, PDO::PARAM_STR);
-// $stmt->bindValue(':np4', $np4, PDO::PARAM_STR);
-// $stmt->bindValue(':np5', $np5, PDO::PARAM_STR);
-// $stmt->bindValue(':np6', $np6, PDO::PARAM_STR);
-// $stmt->bindValue(':np7', $np7, PDO::PARAM_STR);
-// $stmt->bindValue(':np8', $np8, PDO::PARAM_STR);
-//////////////////////////////////$stmt->bindValue(':item', $item, PDO::PARAM_STR);
-// $stmt->bindValue(':item1', $item1, PDO::PARAM_STR);
-// $stmt->bindValue(':item2', $item2, PDO::PARAM_STR);
-// $stmt->bindValue(':item3', $item3, PDO::PARAM_STR);
-// $stmt->bindValue(':item4', $item4, PDO::PARAM_STR);
-// $stmt->bindValue(':item_other', $item_other, PDO::PARAM_STR);
 // $stmt->bindValue(':staff', $staff, PDO::PARAM_STR);
 $stmt->bindValue(':link', $link, PDO::PARAM_STR);
 $stmt->bindValue(':appeal', $appeal, PDO::PARAM_STR);
+$stmt->bindValue(':id_f_img', $save_path, PDO::PARAM_STR);
+$stmt->bindValue(':id_b_img', $save_path_1, PDO::PARAM_STR);
+$stmt->bindValue(':license_img', $save_path_2, PDO::PARAM_STR);
+$stmt->bindValue(':face_img', $save_path_3, PDO::PARAM_STR);
 
 try {
     $status = $stmt->execute();

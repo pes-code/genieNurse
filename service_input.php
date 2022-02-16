@@ -2,6 +2,8 @@
 session_start();
 include("n_functions.php");
 check_session_id();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +20,9 @@ check_session_id();
 
         <fieldset>
             <legend>[Nurse]Service Input </legend>
+            <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
             <div><label>[office]</label>
-                <input type="text" name="office_name" value="<?= $_SESSION["office_name"] ?>" readonly>
+                <input type="text" name="office_name" value="<?= $_SESSION["office_name"] ?>">
             </div>
             <!--<div><label>[advance]</label>
                 <input type="text" name="advance_license" value="<?= $_SESSION["advance_license"] ?>" readonly>
@@ -43,10 +46,6 @@ check_session_id();
                 <input type="hidden" name="tel" value="<?= $_SESSION["tel"] ?>" readonly>
                 <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
             </div>
-
-            <!--<div>
-                <input type="file" name="upfile" accept="video/*" capture="camera" />
-            </div>-->
 
             <div>
                 <button>submit</button>

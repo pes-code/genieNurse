@@ -8,9 +8,9 @@
 </head>
 
 <body>
-    <form action="n_login_act.php" method="POST">
+    <form action="n_edit_login_act.php" method="POST">
         <fieldset>
-            <legend>NurseLogin</legend>
+            <legend>NurseEdit</legend>
             <div>
                 <input type="text" name="office_name" placeholder="office_name">
             </div>
@@ -21,12 +21,11 @@
                 <input type="text" name="pass" placeholder="pass">
             </div>
             <div>
-                <button>Login</button>
+                <button>Edit</button>
             </div>
         </fieldset>
         <p><a href="p_login.php">UserLogin</a></p>
         <p><a href="n_entry.php">NurseEntry</a></p>
-        <p><a href="n_edit_login.php">NurseEdit</a></p>
 
     </form>
 

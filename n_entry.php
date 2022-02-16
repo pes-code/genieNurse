@@ -35,26 +35,33 @@
             <div>
                 <input type="text" name="pass" placeholder="pass">
             </div>
+
+            <!--身分証明------------------------------------------------------------------>
             <div>
-                <input type="text" name="nurse_number" placeholder="license_number">
+                <h6>身分証明写し(表面)
+                    <input type="file" name="id_f_img" accept="image/*" capture="camera" />
+                </h6>
+                <h6>身分証明写し(裏面)
+                    <input type="file" name="id_b_img" accept="image/*" capture="camera" />
+                </h6>
             </div>
 
-            <!--看護師免許の写し↓---------------------------------------------------------------->
-            <div>
-                <input type="file" name="license_img" accept="image/*" capture="camera" />
-            </div>
-            <!---------------------------------------------------------------------------------->
-
-            <div>
-                <input type="text" name="advance_license" placeholder="advance_license">
-            </div>
         </fieldset>
 
         <fieldset>
             <legend>OfficeEntry</legend>
+            <!---顔写真------------------------------------------------------------------->
+            <div>
+                <h6>顔写真
+                    <input type="file" name="face_img" accept="image/*" capture="camera" />
+                </h6>
+            </div>
+
             <div>
                 <input type="text" name="office_name" placeholder="office_name">
             </div>
+
+
             <!--<div>
                 <div><label>[skil]</label><br>
                     <label><input type="checkbox" name="skil1" value="入浴介助">入浴介助</label>
@@ -112,6 +119,22 @@
             <div>
                 <textarea rows="10" cols="50" name="appeal" placeholder="appeal"></textarea>
             </div>
+
+            <div>
+                <input type="text" name="nurse_number" placeholder="license_number">
+            </div>
+
+            <!--看護師免許---------------------------------------------------------------->
+            <div>
+                <h6>看護師免許写し
+                    <input type="file" name="license_img" accept="image/*" capture="camera" />
+                </h6>
+            </div>
+
+            <div>
+                <input type="text" name="advance_license" placeholder="advance_license">
+            </div>
+
 
             <div>
                 <button>Entry</button>

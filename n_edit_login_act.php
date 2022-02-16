@@ -10,7 +10,6 @@ $pass = $_POST["pass"];
 
 $sql = 'SELECT * FROM nurse_table WHERE office_name=:office_name AND mail=:mail AND pass=:pass AND is_deleted=0';
 
-
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':office_name', $office_name, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
@@ -27,29 +26,27 @@ $val = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
     echo "<p>ログイン情報に誤りがあります．</p>";
-    echo '<a href="n_login.php">ログイン画面へ</a>';
+    echo '<a href="n_edit_login.php">編集ログイン画面へ</a>';
     exit();
 } else { //上記データがある場合はセッション変数にデータを入れる。
-
-
     $_SESSION = array(); //一旦セッション変数を空にする。
     $_SESSION["session_id"] = session_id();
 
     $_SESSION["n_id"] = $val["n_id"];
-    $_SESSION["office_name"] = $val["office_name"];
-
-    /////↓ログインに成功したらDBから該当データを取得してくる////
-    $_SESSION["is_admin"] = $val["is_admin"];
-    $_SESSION["advance_license"] = $val["advance_license"];
-    $_SESSION["link"] = $val["link"];
+    $_SESSION["name"] = $val["name"];
+    $_SESSION["sex"] = $val["sex"];
+    $_SESSION["birthday"] = $val["birthday"];
+    $_SESSION["address"] = $val["address"];
     $_SESSION["tel"] = $val["tel"];
     $_SESSION["mail"] = $val["mail"];
-    $_SESSION["face_img"] = $val["face_img"];
-    //////////////////////////////////////////////////////////
+    $_SESSION["pass"] = $val["pass"];
+    $_SESSION["office_name"] = $val["office_name"];
+    $_SESSION["face_img"] = $val["face_img"]; //$_FILES[""],$_SESSION
+    $_SESSION["appeal"] = $val["appeal"];
+    $_SESSION["link"] = $val["link"];
+    $_SESSION["advance_license"] = $val["advance_license"];
 
-    //var_dump($_SESSION);
-    //exit();
 
-    header("Location:service_input.php");
+    header("Location:n_edit.php");
     exit();
 }
