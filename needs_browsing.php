@@ -14,7 +14,7 @@
     include("functions.php");
     check_session_id();
 
-    $user_id = $_SESSION['u_id'];
+    $user_id = $_SESSION['n_id'];
 
     $pdo = connect_to_db();
 
