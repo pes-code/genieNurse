@@ -38,6 +38,12 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
     $_SESSION["n_id"] = $val["n_id"];
     $_SESSION["office_name"] = $val["office_name"];
 
+
+    // var_dump($_SESSION);
+    // exit();
+
+
+
     /////↓ログインに成功したらDBから該当データを取得してくる////
     $_SESSION["is_admin"] = $val["is_admin"];
     $_SESSION["advance_license"] = $val["advance_license"];

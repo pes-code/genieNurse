@@ -3,6 +3,9 @@ session_start();
 include("n_functions.php");
 check_session_id();
 
+// var_dump($_SESSION);
+// exit();
+
 
 ?>
 
