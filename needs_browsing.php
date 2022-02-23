@@ -22,9 +22,9 @@
 
     //$sql = 'SELECT * FROM patient_needs LEFT OUTER JOIN (SELECT needs_id, COUNT(id) AS appo_count FROM appo_table GROUP BY needs_id) AS appo_count_table ON patient_needs.needs_id = appo_count_table.needs_id';
 
-    //$sql = 'SELECT * FROM patient_needs WHERE is_deleted=0';
+    $sql = 'SELECT * FROM patient_needs WHERE is_deleted=0';
 
-    $sql = 'SELECT *,COUNT(appo_table.id) FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.needs_id = appo_table.needs_id GROUP BY patient_needs.needs_id';
+    //$sql = 'SELECT *,COUNT(appo_table.id) FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.needs_id = appo_table.needs_id GROUP BY patient_needs.needs_id';
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
