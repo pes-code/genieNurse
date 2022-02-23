@@ -18,9 +18,9 @@
 
     $pdo = connect_to_db();
 
-    $uid = $_SESSION["u_id"];
+    $u_id = $_SESSION["u_id"];
 
-    $sql = 'SELECT * FROM patient_needs WHERE u_id=' . $uid . ' AND is_deleted=0  '; //ORDER BY date ASC
+    $sql = 'SELECT * FROM patient_needs WHERE u_id=' . $u_id . ' AND is_deleted=0  '; //ORDER BY date ASC
 
     $stmt = $pdo->prepare($sql);
 
@@ -48,9 +48,12 @@
      <td class=''><h6>contact<br></h6>
      <a href='mailto:{$record["mail"]}'>📧</a>
      </td>
-    </div>
+                                   
+                                              <td class=''><h6>needsID<br></h6>{$record["needs_id"]}</td>
+
+     </div>
       <td>
-       <a href='needs_delete.php?id={$record["id"]}'>delete</a>
+       <a href='needs_delete.php?needs_id={$record["needs_id"]}'>delete</a>
       </td> 
   </tr>
   

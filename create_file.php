@@ -25,15 +25,20 @@ $reward = $_POST['reward'];
 $deadline = $_POST['deadline'];
 $mail = $_POST['mail'];
 
-//var_dump($_POST);
-//exit();
+// var_dump($_POST);
+// exit();
 
 // ファイル保存処理など
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO patient_needs(id, u_id, handlename, sex, need_title, comment, reward, deadline, mail, created_at, updated_at) VALUES(NULL, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :mail, now(), now())';
+$sql = 'INSERT INTO patient_needs(needs_id, u_id, handlename, sex, need_title, comment, reward, deadline, mail, created_at, updated_at) VALUES(null, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :mail, now(), now())';
 
 $stmt = $pdo->prepare($sql);
+
+/////////////////////////////////////////////////////////////
+//$stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);//
+/////////////////////////////////////////////////////////////
+
 $stmt->bindValue(':u_id', $u_id, PDO::PARAM_STR);
 $stmt->bindValue(':handlename', $handlename, PDO::PARAM_STR);
 $stmt->bindValue(':sex', $sex, PDO::PARAM_STR);
@@ -50,6 +55,9 @@ try {
     echo json_encode(["sql error" => "{$e->getMessage()}"]);
     exit();
 }
+
+// var_dump($_POST);
+// exit();
 
 header("Location:needs_input.php");
 exit();

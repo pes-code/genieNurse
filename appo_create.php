@@ -7,6 +7,8 @@ include('n_functions.php');
 $n_id = $_POST['n_id'];
 $needs_id = $_POST['needs_id'];
 
+//$needs_id = $_GET['needs_id'];
+
 
 $pdo = connect_to_db();
 
@@ -41,7 +43,6 @@ if ($appo_count != 0) {
 //////////////////////////////////////////////////////////
 
 
-//$sql = 'INSERT INTO appo_table (id, n_id, needs_id, created_at) VALUES (NULL, :n_id, :needs_id, now())';
 
 
 $stmt = $pdo->prepare($sql);

@@ -43,6 +43,10 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
     $_SESSION["handlename"] = $val["handlename"];
     //////////////////////////////////////////////
 
+    // var_dump($_SESSION);
+    // exit();
+
+
     header("Location:needs_input.php");
     exit();
 }

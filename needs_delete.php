@@ -3,14 +3,14 @@ session_start();
 include("functions.php");
 check_session_id();
 
-$id = $_GET["id"];
+$needs_id = $_GET["needs_id"];
 
 $pdo = connect_to_db();
 
-$sql = "DELETE FROM patient_needs WHERE id=:id";
+$sql = "DELETE FROM patient_needs WHERE needs_id=:needs_id";
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_INT);
 
 try {
     $status = $stmt->execute();
