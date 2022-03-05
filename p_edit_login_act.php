@@ -41,6 +41,7 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
     $_SESSION["mail"] = $val["mail"];
     $_SESSION["pass"] = $val["pass"];
     $_SESSION["handlename"] = $val["handlename"];
+    $_SESSION["adl"] = $val["adl"];
 
     header("Location:p_edit.php");
     exit();

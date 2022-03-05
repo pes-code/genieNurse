@@ -1,10 +1,11 @@
+<!--appoNurse閲覧画面-->
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genieNurse [NursingService read]</title>
+    <title>genieNurse</title>
 </head>
 
 <body>
@@ -14,15 +15,20 @@
     include("n_functions.php");
     check_session_id();
 
-    // $user_id = $_SESSION['n_id']; ///////////////////ここはなぜn_idじゃないといけないの？あとで確認
-    $n_id = $_SESSION["n_id"];
+    $u_id = $_SESSION['u_id'];
+    $needs_id = $_POST["needs_id"];
+
+    // var_dump($_POST);
+    // var_dump($_SESSION);
+    // exit();
 
     $pdo = connect_to_db();
 
-
-    $sql = 'SELECT * FROM nurse_service WHERE n_id=' . $n_id . ' AND is_deleted=0 '; //ORDER BY date ASC
+    //$sql = 'SELECT * FROM nurse_service WHERE is_deleted=0  '; //ORDER BY date ASC
+    $sql = 'SELECT * FROM appo_table LEFT OUTER JOIN nurse_table ON appo_table.n_id=nurse_table.n_id WHERE needs_id=:needs_id';
 
     $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);
 
     try {
         $status = $stmt->execute();
@@ -31,59 +37,43 @@
         exit();
     }
 
+
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
     $output = "";
     foreach ($result as $record) {
         $output .= "
     <tr class=''>
     <div class=''>
-     
-     <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
+    </div>
+    <div class=''> 
+     <td class=''><h6>office<br></h6><a href='review.php'>{$record["office_name"]}</a></td> 
      <td class=''><h6>contact<br></h6>
      <a href='{$record["link"]}'>🖥️</a>
-     <a href=tel:'{$record["tel"]}'>📞</a>
-     <a href='mailto:{$record["mail"]}'>📧</a>
      </td>
      </div>
-      <td>
-       <a href='service_delete.php?id={$record["id"]}'>delete</a>
-      </td> 
   </tr>
   
   ";
     }
     ?>
 
-
     <fieldset>
-        <legend>
-            <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-            <a href='n_prof.php'><?= $_SESSION['office_name'] ?></a>
-        </legend>
+        <legend>genieNurse[NursingService]</legend>
         <table>
             <thead>
-                <tr>
-                    <th></th>
-                </tr>
             </thead>
             <tbody>
                 <?= $output ?>
             </tbody>
         </table>
     </fieldset>
-    <a href="service_input.php">NursingService Input</a><br>
+    <a href="needs_input.php">UserNeeds Input</a>
     <a href="n_logout.php">Logout</a>
 </body>
-
 <!--css-->
 <style>
-    img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%
-    }
-
     body {
         background: -moz-linear-gradient(top, #FFC778, #FFF);
         background: -webkit-linear-gradient(top, #FFC778, #FFF);

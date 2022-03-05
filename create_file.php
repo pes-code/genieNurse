@@ -6,7 +6,7 @@ check_session_id();
 if (
     !isset($_POST['handlename']) || $_POST['handlename'] == '' ||
     !isset($_POST['sex']) || $_POST['sex'] == '' ||
-    !isset($_POST['need_title']) || $_POST['need_title'] == '' ||
+    // !isset($_POST['need_title']) || $_POST['need_title'] == '' ||
     !isset($_POST['comment']) || $_POST['comment'] == '' ||
     !isset($_POST['reward']) || $_POST['reward'] == '' ||
     !isset($_POST['deadline']) || $_POST['deadline'] == '' ||
@@ -19,7 +19,7 @@ if (
 $u_id = $_POST['u_id'];
 $handlename = $_POST['handlename'];
 $sex = $_POST['sex'];
-$need_title = $_POST['need_title'];
+// $need_title = $_POST['need_title'];
 $comment = $_POST['comment'];
 $reward = $_POST['reward'];
 $deadline = $_POST['deadline'];
@@ -31,7 +31,7 @@ $mail = $_POST['mail'];
 // ファイル保存処理など
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO patient_needs(needs_id, u_id, handlename, sex, need_title, comment, reward, deadline, mail, created_at, updated_at) VALUES(null, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :mail, now(), now())';
+$sql = 'INSERT INTO patient_needs(needs_id, u_id, handlename, sex, comment, reward, deadline, mail, created_at, updated_at) VALUES(null, :u_id, :handlename, :sex, :comment, :reward, :deadline, :mail, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 
@@ -42,7 +42,7 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':u_id', $u_id, PDO::PARAM_STR);
 $stmt->bindValue(':handlename', $handlename, PDO::PARAM_STR);
 $stmt->bindValue(':sex', $sex, PDO::PARAM_STR);
-$stmt->bindValue(':need_title', $need_title, PDO::PARAM_STR);
+// $stmt->bindValue(':need_title', $need_title, PDO::PARAM_STR);
 $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
 $stmt->bindValue(':reward', $reward, PDO::PARAM_STR);
 $stmt->bindValue(':deadline', $deadline, PDO::PARAM_STR);

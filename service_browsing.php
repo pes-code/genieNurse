@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    <h1>genieNurse</h1>
     <?php
     session_start();
     include("n_functions.php");
@@ -48,7 +48,7 @@
     </div>
     <div class=''> 
      <td class=''><h6>comment<br></h6><img src='{$record["face_img"]}' height='50px' oncontextmenu='return false;'></td>
-     <td class=''><h6>office<br></h6><a href='n_review.php'>{$record["office_name"]}</a></td> 
+     <td class=''><h6>office<br></h6><a href='review.php'>{$record["office_name"]}</a></td> 
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
      <td class=''><h6>contact<br></h6>
      <a href='{$record["link"]}'>🖥️</a>
@@ -78,7 +78,26 @@
 </body>
 <!--css-->
 <style>
+    body {
+        background: -moz-linear-gradient(top, #FFC778, #FFF);
+        background: -webkit-linear-gradient(top, #FFC778, #FFF);
+        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    /* body {
+        background: -moz-linear-gradient(top, #FFF, #FFC778);
+        background: -webkit-linear-gradient(top, #FFF, #FFC778);
+        background: linear-gradient(to bottom, #FFF, #FFC778);
+        background-repeat: no-repeat;
+    } */
 </style>
 <!--css-->
+
 
 </html>

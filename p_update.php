@@ -16,7 +16,9 @@ if (
     !isset($_POST['tel']) || $_POST['tel'] == '' ||
     !isset($_POST['mail']) || $_POST['mail'] == '' ||
     !isset($_POST['pass']) || $_POST['pass'] == '' ||
-    !isset($_POST['handlename']) || $_POST['handlename'] == ''
+    !isset($_POST['handlename']) || $_POST['handlename'] == '' ||
+    !isset($_POST['adl']) || $_POST['adl'] == ''
+
 ) {
     exit('paramError');
 }
@@ -29,12 +31,13 @@ $tel = $_POST["tel"];
 $mail = $_POST["mail"];
 $pass = $_POST["pass"];
 $handlename = $_POST["handlename"];
+$adl = $_POST["adl"];
 $u_id = $_POST["u_id"];
 
 
 $pdo = connect_to_db();
 
-$sql = "UPDATE patient_table SET name=:name, sex=:sex, birthday=:birthday, address=:address, tel=:tel, mail=:mail, pass=:pass, handlename=:handlename, updated_at=now() WHERE u_id=:u_id";
+$sql = "UPDATE patient_table SET name=:name, sex=:sex, birthday=:birthday, address=:address, tel=:tel, mail=:mail, pass=:pass, handlename=:handlename, adl=:adl, updated_at=now() WHERE u_id=:u_id";
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -45,6 +48,7 @@ $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
 $stmt->bindValue(':handlename', $handlename, PDO::PARAM_STR);
+$stmt->bindValue(':adl', $adl, PDO::PARAM_STR);
 $stmt->bindValue(':u_id', $u_id, PDO::PARAM_INT);
 
 try {

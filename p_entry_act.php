@@ -9,7 +9,9 @@ if (
     !isset($_POST['tel']) || $_POST['tel'] == '' ||
     !isset($_POST['mail']) || $_POST['mail'] == '' ||
     !isset($_POST['pass']) || $_POST['pass'] == '' ||
-    !isset($_POST['handlename']) || $_POST['handlename'] == ''
+    !isset($_POST['handlename']) || $_POST['handlename'] == '' ||
+    !isset($_POST['adl']) || $_POST['adl'] == ''
+
 ) {
     echo json_encode(["error_msg" => "no input321"]);
     exit();
@@ -23,6 +25,7 @@ $tel = $_POST["tel"];
 $mail = $_POST["mail"];
 $pass = $_POST["pass"];
 $handlename = $_POST["handlename"];
+$adl = $_POST["adl"];
 
 $pdo = connect_to_db();
 
@@ -44,7 +47,7 @@ if ($stmt->fetchColumn() > 0) {
     exit();
 }
 
-$sql = 'INSERT INTO patient_table(u_id, name, sex, birthday, address, tel, mail, pass, handlename, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :handlename, 0, 0, sysdate(), sysdate())';
+$sql = 'INSERT INTO patient_table(u_id, name, sex, birthday, address, tel, mail, pass, handlename, adl, is_admin, is_deleted, created_at, updated_at) VALUES(NULL, :name, :sex, :birthday, :address, :tel, :mail, :pass, :handlename, :adl, 0, 0, sysdate(), sysdate())';
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -55,6 +58,7 @@ $stmt->bindValue(':tel', $tel, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
 $stmt->bindValue(':handlename', $handlename, PDO::PARAM_STR);
+$stmt->bindValue(':adl', $adl, PDO::PARAM_STR);
 
 
 

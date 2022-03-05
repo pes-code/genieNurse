@@ -15,6 +15,7 @@ $pdo = connect_to_db();
 ///////////////////////////////////////////////////////////
 
 $sql = 'SELECT COUNT(*) FROM appo_table WHERE n_id=:n_id AND needs_id=:needs_id';
+
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':n_id', $n_id, PDO::PARAM_STR);
 $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);
@@ -41,9 +42,6 @@ if ($appo_count != 0) {
 }
 
 //////////////////////////////////////////////////////////
-
-
-
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':n_id', $n_id, PDO::PARAM_STR);

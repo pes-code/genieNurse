@@ -10,21 +10,19 @@ check_session_id();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genieNurse</title>
+    <title>genieNurse [Users Needs Input]</title>
 </head>
 
 <body>
+    <h1>genieNurse</h1>
     <form action="create_file.php" method="POST">
         <!--↑画像をUPする場合はenctype="multipart/form-data"を入れる-->
         <fieldset>
-            <legend>[Users] Needs Input</legend>
-            <div><label>[handlename]</label>
-                <input type="text" name="handlename" value="<?= $_SESSION["handlename"] ?>" readonly>
-                <input type="text" name="sex" value="<?= $_SESSION["sex"] ?>" readonly>
-            </div>
-            <div><label>[title]</label>
+            <legend><?= $_SESSION["handlename"] ?></legend>
+
+            <!-- <div><label>[title]</label>
                 <input type="text" name="need_title" placeholder="例】入浴介助をして下さい">
-            </div>
+            </div> -->
             <div><label>[comment]</label><br>
                 <textarea rows="10" cols="50" name="comment" placeholder="例】今週の火曜日に入浴介助してくださる方を探しています。女性の方でお願いします。"></textarea>
             </div>
@@ -35,16 +33,17 @@ check_session_id();
                 <input type="date" name="deadline">
             </div>
 
-            <div class="hidden_box">
 
+            <div class="hidden_box">
                 <input type="hidden" name="u_id" value="<?= $_SESSION["u_id"] ?>" readonly>
+                <input type="hidden" name="name" value="<?= $_SESSION["name"] ?>" readonly>
+                <input type="hidden" name="handlename" value="<?= $_SESSION["handlename"] ?>" readonly>
+                <input type="hidden" name="sex" value="<?= $_SESSION["sex"] ?>" readonly>
                 <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
+                <input type="hidden" name="birthday" value="<?= $_SESSION["birthday"] ?>" readonly>
                 <!--【案】将来的にline実装-->
-                <!--<input type="hidden" name="name" value="<?= $_SESSION["name"] ?>" readonly>-->
             </div>
-            <!-- <div>
-                <input type="file" name="upfile" accept="video/*" capture="camera" />
-            </div> -->
+
             <div>
                 <button>submit</button>
             </div>
@@ -55,5 +54,49 @@ check_session_id();
     </form>
 
 </body>
+
+<style>
+    body {
+        background: -moz-linear-gradient(top, #FFC778, #FFF);
+        background: -webkit-linear-gradient(top, #FFC778, #FFF);
+        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    /* body {
+        background: -moz-linear-gradient(top, #FFF, #FFC778);
+        background: -webkit-linear-gradient(top, #FFF, #FFC778);
+        background: linear-gradient(to bottom, #FFF, #FFC778);
+        background-repeat: no-repeat;
+    } */
+</style>
+
+<!--css-->
+<style>
+    body {
+        background: -moz-linear-gradient(top, #FFC778, #FFF);
+        background: -webkit-linear-gradient(top, #FFC778, #FFF);
+        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    /* body {
+        background: -moz-linear-gradient(top, #FFF, #FFC778);
+        background: -webkit-linear-gradient(top, #FFF, #FFC778);
+        background: linear-gradient(to bottom, #FFF, #FFC778);
+        background-repeat: no-repeat;
+    } */
+</style>
+<!--css-->
 
 </html>

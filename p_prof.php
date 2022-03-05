@@ -1,10 +1,11 @@
+<!--appoNurse閲覧画面-->
 <!DOCTYPE html>
 <html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genieNurse</title>
+    <title>genieNurse[UsersProf]</title>
 </head>
 
 <body>
@@ -14,15 +15,17 @@
     include("functions.php");
     check_session_id();
 
-    // $user_id = $_SESSION['u_id']; ////////////////なぜココはu_idじゃないとダメか確認する。
-    $u_id = $_SESSION["u_id"];
+    $u_id = $_POST['u_id'];
 
     $pdo = connect_to_db();
 
+    // var_dump($_POST);
+    // exit();
 
-    $sql = 'SELECT * FROM patient_needs WHERE u_id=' . $u_id . ' AND is_deleted=0  '; //ORDER BY date ASC
+    $sql = 'SELECT * FROM patient_table WHERE u_id=:u_id';
 
     $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':u_id', $u_id, PDO::PARAM_STR);
 
     try {
         $status = $stmt->execute();
@@ -31,64 +34,43 @@
         exit();
     }
 
-
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 
     $output = "";
     foreach ($result as $record) {
-        $output .= "
-    <tr class=''>
-    <div class=''>
-    
-    <td><form action='p_prof.php' method='POST'>
-        <td class=''>
-        <button>{$record["handlename"]}</button>
-        <input type='hidden' name='u_id' value='{$record["u_id"]}' readonly> 
-        </td> 
-        </form></td> 
-         <td class=''><h6>sex<br></h6>{$record["sex"]}</td>
-    
-     <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
-     <td class=''><h6>reward<br></h6>{$record["reward"]}</td>
-     <td class=''><h6>deadline<br></h6>{$record["deadline"]}</td>
-     <td class=''><h6>contact<br></h6>
-     <a href='mailto:{$record["mail"]}'>📧</a>
-     </td>
-
-        <td><form action='appo_brows.php' method='POST'><button>appoNurse</button>
-        <td class=''>
-        <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly> 
-        </td> 
-        </form></td> 
-
-     </div>
-      <td>
-       <a href='needs_delete.php?needs_id={$record["needs_id"]}'>delete</a>
-      </td> 
-  </tr>
-  
-  ";
+        //         $output .= "
+        //             <tr class=''>
+        //             <td class=''></td> 
+        //             </tr> 
+        //   ";
     }
+
+    //年齢を計算する関数//////////////////////////////////
+    $birthday = $record["birthday"];
+    $today = date('Ymd');
+    $age = floor(($today - $birthday) / 10000) . '歳';
+    /////////////////////////////////////////////////////
     ?>
 
     <fieldset>
-        <legend>UserNeeds</legend>
-
-
+        <legend><?= $record["handlename"] ?></legend>
         <table>
             <thead>
-                <tr class="">
-                    <th></th>
-                </tr>
             </thead>
             <tbody>
-                <?= $output ?>
+                <label>年齢</label>
+                <?= $age ?><br>
+                <label>性別</label>
+                <?= $record["sex"] ?><br>
+                <label>ADL</label>
+                <?= $record["adl"] ?><br>
+                <label>Mail</label>
+                <?= "<a href='mailto:{$record["mail"]}'>📧</a>" ?>
             </tbody>
         </table>
     </fieldset>
-    <a href="needs_input.php">Needs Input</a><br>
-    <a href="p_logout.php">Logout</a>
+    <a href="needs_input.php">UserNeeds Input</a>
+    <a href="n_logout.php">Logout</a>
 </body>
 
 <style>
@@ -102,7 +84,6 @@
         align-items: center;
         flex-direction: column;
     }
-
 
     /* body {
         background: -moz-linear-gradient(top, #FFF, #FFC778);

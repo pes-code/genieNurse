@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <h1>genieNurse</h1>
     <form action="n_edit_login_act.php" method="POST">
         <fieldset>
             <legend>NurseEdit</legend>

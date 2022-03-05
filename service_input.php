@@ -6,7 +6,6 @@ check_session_id();
 // var_dump($_SESSION);
 // exit();
 
-
 ?>
 
 <!DOCTYPE html>
@@ -15,18 +14,29 @@ check_session_id();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genieNurse</title>
+    <title>genieNurse[Nurse Service Input]</title>
 </head>
 
 <body>
+    <h1>genieNurse</h1>
     <form action="n_create_file.php" method="POST" enctype="multipart/form-data">
 
         <fieldset>
-            <legend>[Nurse]Service Input </legend>
-            <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-            <div><label>[office]</label>
-                <input type="text" name="office_name" value="<?= $_SESSION["office_name"] ?>">
-            </div>
+            <legend>
+                <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
+                <a href='n_prof.php'><?= $_SESSION['office_name'] ?></a>
+            </legend>
+
+            <!--css-->
+            <style>
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%
+                }
+            </style>
+            <!--css-->
+
             <!--<div><label>[advance]</label>
                 <input type="text" name="advance_license" value="<?= $_SESSION["advance_license"] ?>" readonly>
             </div>-->
@@ -45,6 +55,7 @@ check_session_id();
 
             <div>
                 <input type="hidden" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
+                <input type="hidden" name="office_name" value="<?= $_SESSION["office_name"] ?>">
                 <input type="hidden" name="link" value="<?= $_SESSION["link"] ?>" readonly>
                 <input type="hidden" name="tel" value="<?= $_SESSION["tel"] ?>" readonly>
                 <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
@@ -61,5 +72,28 @@ check_session_id();
     </form>
 
 </body>
+
+<!--css-->
+<style>
+    body {
+        background: -moz-linear-gradient(top, #FFC778, #FFF);
+        background: -webkit-linear-gradient(top, #FFC778, #FFF);
+        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    /* body {
+        background: -moz-linear-gradient(top, #FFF, #FFC778);
+        background: -webkit-linear-gradient(top, #FFF, #FFC778);
+        background: linear-gradient(to bottom, #FFF, #FFC778);
+        background-repeat: no-repeat;
+    } */
+</style>
+<!--css-->
 
 </html>

@@ -1,10 +1,7 @@
 <?php
 session_start();
-include("n_functions.php");
+include("functions.php");
 check_session_id();
-
-// var_dump($_SESSION);
-// exit();
 ?>
 
 
@@ -19,21 +16,36 @@ check_session_id();
 
 <body>
     <h1>genieNurse</h1>
-    <form action="admin_research_act.php" method="POST" enctype="multipart/form-data">
+    <form action="review_act.php" method="POST">
         <fieldset>
-            <legend>NurseResearch</legend>
-            <div>
-                <input type="text" name="office_name" placeholder="office_name">
+            <legend>Review Input</legend>
+            <div><label>review</label>
+                <!--後程ランプにする-->
+                <select name="lamp">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
             </div>
+            <div><label>comment</label>
+                <textarea rows="10" cols="50" name="appeal" placeholder="appeal"></textarea>
+            </div>
+            <!--hiddenへ変更-->
+            <input type="text" name="u_id" value="<?= $_SESSION["u_id"] ?>" readonly>
+            <input type="text" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
+
             <div>
-                <button>Research</button>
+                <button>Input</button>
             </div>
         </fieldset>
-        <p><a href="index.html">TOP</a></p>
-
+        <p><a href="review.php">Review</a></p>
     </form>
 
 </body>
+
+<!--css-->
 <style>
     body {
         background: -moz-linear-gradient(top, #FFC778, #FFF);
@@ -54,5 +66,6 @@ check_session_id();
         background-repeat: no-repeat;
     } */
 </style>
+<!--css-->
 
 </html>

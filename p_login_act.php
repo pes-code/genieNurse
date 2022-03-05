@@ -34,6 +34,7 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
 
     $_SESSION["u_id"] = $val["u_id"];
     $_SESSION["name"] = $val["name"];
+    $_SESSION["birthday"] = $val["birthday"];
 
     $_SESSION["is_admin"] = $val["is_admin"];
     $_SESSION["mail"] = $val["mail"]; ////【試行】mailで個別的なデータの参照処理をする
@@ -45,7 +46,6 @@ if (!$val) { //$val(=name,mail,passのデータ)があるかチェック
 
     // var_dump($_SESSION);
     // exit();
-
 
     header("Location:needs_input.php");
     exit();
