@@ -12,34 +12,34 @@
     <form action="p_entry_act.php" method="POST">
         <fieldset>
             <legend>UsersEntry</legend>
-            <div><label>なまえ</label>
+            <div>
                 <input type="text" name="name" placeholder="安良 仁">
             </div>
-            <div><label>性別</label>
+            <div>
                 <select name="sex">
                     <option>男</option>
                     <option>女</option>
                 </select>
             </div>
-            <div><label>生年月日</label>
+            <div>
                 <input type="text" name="birthday" placeholder="20220101">
             </div>
-            <div><label>住所</label>
+            <div>
                 <input type="text" name="address" placeholder="○○県□□市△△町×丁目××番地">
             </div>
-            <div><label>電話</label>
+            <div>
                 <input type="tel" name="tel" placeholder="09012345678">
             </div>
-            <div><label>メール</label>
+            <div>
                 <input type="text" name="mail" placeholder="lampgoshigoshi@gmail.com">
             </div>
-            <div><label>パスワード</label>
+            <div>
                 <input type="text" name="pass" placeholder="半角英数字6文字以上">
             </div>
-            <div><label>ハンドルネーム</label>
+            <div>
                 <input type="text" name="handlename" placeholder="アラジン">
             </div>
-            <div><label>日常生活自立度</label>
+            <div>
                 <select name="adl">
                     <option>OO</option>
                     <option>J1</option>
@@ -64,6 +64,20 @@
 
 <!--css-->
 <style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
+
     body {
         background: -moz-linear-gradient(top, #FFC778, #FFF);
         background: -webkit-linear-gradient(top, #FFC778, #FFF);
@@ -74,14 +88,6 @@
         align-items: center;
         flex-direction: column;
     }
-
-
-    /* body {
-        background: -moz-linear-gradient(top, #FFF, #FFC778);
-        background: -webkit-linear-gradient(top, #FFF, #FFC778);
-        background: linear-gradient(to bottom, #FFF, #FFC778);
-        background-repeat: no-repeat;
-    } */
 </style>
 <!--css-->
 

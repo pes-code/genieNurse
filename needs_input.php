@@ -18,7 +18,7 @@ check_session_id();
     <form action="create_file.php" method="POST">
         <!--↑画像をUPする場合はenctype="multipart/form-data"を入れる-->
         <fieldset>
-            <legend><?= $_SESSION["handlename"] ?></legend>
+            <legend><a href="p_edit_login.php"><?= $_SESSION["handlename"] ?></a></legend>
 
             <!-- <div><label>[title]</label>
                 <input type="text" name="need_title" placeholder="例】入浴介助をして下さい">
@@ -56,6 +56,20 @@ check_session_id();
 </body>
 
 <style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
+
     body {
         background: -moz-linear-gradient(top, #FFC778, #FFF);
         background: -webkit-linear-gradient(top, #FFC778, #FFF);
@@ -66,14 +80,6 @@ check_session_id();
         align-items: center;
         flex-direction: column;
     }
-
-
-    /* body {
-        background: -moz-linear-gradient(top, #FFF, #FFC778);
-        background: -webkit-linear-gradient(top, #FFF, #FFC778);
-        background: linear-gradient(to bottom, #FFF, #FFC778);
-        background-repeat: no-repeat;
-    } */
 </style>
 
 <!--css-->

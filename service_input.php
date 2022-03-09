@@ -24,7 +24,7 @@ check_session_id();
         <fieldset>
             <legend>
                 <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-                <a href='n_prof.php'><?= $_SESSION['office_name'] ?></a>
+                <a href='n_edit_login.php'><?= $_SESSION['office_name'] ?></a>
             </legend>
 
             <!--css-->
@@ -48,10 +48,6 @@ check_session_id();
                 /////checkboxで選択できる、その他free欄も設置/////
             </div>-->
 
-            <!--<div>
-                time: <input type="date" name="time">
-                /////複数の活動日を入力する/////
-            </div>-->
 
             <div>
                 <input type="hidden" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>

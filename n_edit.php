@@ -73,6 +73,20 @@ check_session_id();
 </body>
 <!--css-->
 <style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
+
     body {
         background: -moz-linear-gradient(top, #FFC778, #FFF);
         background: -webkit-linear-gradient(top, #FFC778, #FFF);
@@ -83,14 +97,6 @@ check_session_id();
         align-items: center;
         flex-direction: column;
     }
-
-
-    /* body {
-        background: -moz-linear-gradient(top, #FFF, #FFC778);
-        background: -webkit-linear-gradient(top, #FFF, #FFC778);
-        background: linear-gradient(to bottom, #FFF, #FFC778);
-        background-repeat: no-repeat;
-    } */
 </style>
 <!--css-->
 

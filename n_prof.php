@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genieNurse</title>
+    <title>genieNurse[UsersProf]</title>
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     $n_id = $_POST['n_id'];
 
     $pdo = connect_to_db();
-    // var_dump($_SESSION);
+
     // var_dump($_POST);
     // exit();
 
@@ -38,20 +38,18 @@
 
     $output = "";
     foreach ($result as $record) {
-        $output .= "
-            <tr class=''>
-            <div class=''>
-            <td>
-            <input type='text' name='appeal' value='{$record["appeal"]}' readonly> 
-            </td>
-            </div>
-            <td class=''><h6>contact<br></h6>
-            <a href=tel:'{$record["tel"]}'>📞</a>
-            <a href='mailto:{$record["mail"]}'>📧</a>
-            <a href='{$record["link"]}'>🖥️</a>
-            </tr>
-  ";
+        // $output .= "
+        //             <tr class=''>
+        //             <td class=''></td> 
+        //             </tr> 
+        //   ";
     }
+
+    //年齢を計算する関数//////////////////////////////////
+    $birthday = $record["birthday"];
+    $today = date('Ymd');
+    $age = floor(($today - $birthday) / 10000) . '歳';
+    /////////////////////////////////////////////////////
     ?>
 
     <fieldset>
@@ -60,22 +58,37 @@
             <thead>
             </thead>
             <tbody>
-
-                <?= $output ?>
-
+                <label>age</label>
+                <?= $age ?><br>
+                <label>sex</label>
+                <?= $record["sex"] ?><br>
+                <label>Contact</label>
+                <?= "<a href=tel:'{$record["tel"]}'>📞</a>" ?>
+                <?= "<a href='mailto:{$record["mail"]}'>📧</a>" ?>
+                <?= "<a href='{$record["link"]}'>🖥️</a>" ?>
             </tbody>
         </table>
     </fieldset>
-    <form action="review_input.php" method="POST">
-        <input type='hidden' name='n_id' value=<?= $record["n_id"] ?> readonly>
-        <button>Review Input</button>
-    </form>
-    <!-- <a href="review_input.php">Review Input</a> -->
+    <a href="needs_input.php">UserNeeds Input</a>
     <a href="n_logout.php">Logout</a>
 </body>
 
 <!--css-->
 <style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
+
     body {
         background: -moz-linear-gradient(top, #FFC778, #FFF);
         background: -webkit-linear-gradient(top, #FFC778, #FFF);
@@ -86,13 +99,6 @@
         align-items: center;
         flex-direction: column;
     }
-
-    /* body {
-        background: -moz-linear-gradient(top, #FFF, #FFC778);
-        background: -webkit-linear-gradient(top, #FFF, #FFC778);
-        background: linear-gradient(to bottom, #FFF, #FFC778);
-        background-repeat: no-repeat;
-    } */
 </style>
 <!--css-->
 

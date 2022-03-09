@@ -19,11 +19,10 @@
 
     $pdo = connect_to_db();
 
-    //Like機能
-    //$sql = 'SELECT * FROM will_table LEFT OUTER JOIN (SELECT todo_id, COUNT(id) AS like_count FROM like_table GROUP BY todo_id) AS result_table ON todo_table.id = result_table.todo_id';
-    //現在ログイン中のアカウントのデータのみを出力する&1アカウント1レコードしか入力できないようにする（editへジャンプするようにするか）///$sql = 'SELECT * FROM will_table WHERE id=///この部分に何を入れるか？///';
+    // var_dump($_SESSION);
+    // exit();
 
-    $sql = 'SELECT * FROM nurse_service WHERE is_deleted=0  '; //ORDER BY date ASC
+    $sql = 'SELECT * FROM nurse_service WHERE is_deleted=0  ';
 
     $stmt = $pdo->prepare($sql);
 
@@ -44,17 +43,17 @@
     foreach ($result as $record) {
         $output .= "
     <tr class=''>
-    <div class=''>
-    </div>
     <div class=''> 
      <td class=''><h6>comment<br></h6><img src='{$record["face_img"]}' height='50px' oncontextmenu='return false;'></td>
-     <td class=''><h6>office<br></h6><a href='review.php'>{$record["office_name"]}</a></td> 
+
+    <td><form action='n_prof.php' method='POST'>
+        <td class=''>
+        <button>{$record["office_name"]}</button>
+        <input type='hidden' name='n_id' value='{$record["n_id"]}' readonly> 
+        </td> 
+        </form></td> 
+     </div>
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
-     <td class=''><h6>contact<br></h6>
-     <a href='{$record["link"]}'>🖥️</a>
-     <a href=tel:'{$record["tel"]}'>📞</a>
-     <a href='mailto:{$record["mail"]}'>📧</a>
-     </td>
      </div>
   </tr>
   

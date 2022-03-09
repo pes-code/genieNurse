@@ -38,28 +38,23 @@
         $output .= "
     <tr class=''>
     <div class=''>
-     
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
-     <td class=''><h6>contact<br></h6>
-     <a href='{$record["link"]}'>🖥️</a>
-     <a href=tel:'{$record["tel"]}'>📞</a>
-     <a href='mailto:{$record["mail"]}'>📧</a>
-     </td>
      </div>
       <td>
        <a href='service_delete.php?id={$record["id"]}'>delete</a>
       </td> 
   </tr>
-  
   ";
     }
     ?>
 
-
     <fieldset>
         <legend>
             <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-            <a href='n_prof.php'><?= $_SESSION['office_name'] ?></a>
+            <form action='n_prof.php' method='POST'>
+                <button><?= $_SESSION['office_name'] ?></button>
+                <input type='hidden' name='n_id' value=<?= $record["n_id"] ?> readonly>
+            </form>
         </legend>
         <table>
             <thead>

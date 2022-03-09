@@ -41,19 +41,19 @@
     <tr class=''>
     <div class=''>
     
-    <td><form action='p_prof.php' method='POST'>
+    <td>
+        <form action='p_prof.php' method='POST'>
         <td class=''>
         <button>{$record["handlename"]}</button>
         <input type='hidden' name='u_id' value='{$record["u_id"]}' readonly> 
         </td> 
-        </form></td> 
-         <td class=''><h6>sex<br></h6>{$record["sex"]}</td>
-    
+        </form>
+    </td> 
+
+     <td class=''><h6>sex<br></h6>{$record["sex"]}</td>
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
      <td class=''><h6>reward<br></h6>{$record["reward"]}</td>
      <td class=''><h6>deadline<br></h6>{$record["deadline"]}</td>
-     <td class=''><h6>contact<br></h6>
-     <a href='mailto:{$record["mail"]}'>📧</a>
      </td>
 
         <td><form action='appo_brows.php' method='POST'><button>appoNurse</button>
@@ -92,6 +92,20 @@
 </body>
 
 <style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
+
     body {
         background: -moz-linear-gradient(top, #FFC778, #FFF);
         background: -webkit-linear-gradient(top, #FFC778, #FFF);
@@ -102,14 +116,6 @@
         align-items: center;
         flex-direction: column;
     }
-
-
-    /* body {
-        background: -moz-linear-gradient(top, #FFF, #FFC778);
-        background: -webkit-linear-gradient(top, #FFF, #FFC778);
-        background: linear-gradient(to bottom, #FFF, #FFC778);
-        background-repeat: no-repeat;
-    } */
 </style>
 
 <!--css-->

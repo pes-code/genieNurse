@@ -2,6 +2,10 @@
 session_start();
 include("functions.php");
 check_session_id();
+
+// var_dump($_POST);
+// exit();
+
 ?>
 
 
@@ -29,12 +33,12 @@ check_session_id();
                     <option>5</option>
                 </select>
             </div>
-            <div><label>comment</label>
+            <!-- <div><label>comment</label>
                 <textarea rows="10" cols="50" name="appeal" placeholder="appeal"></textarea>
-            </div>
+            </div> -->
             <!--hiddenへ変更-->
             <input type="text" name="u_id" value="<?= $_SESSION["u_id"] ?>" readonly>
-            <input type="text" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
+            <input type="text" name="n_id" value="<?= $_POST["n_id"] ?>" readonly>
 
             <div>
                 <button>Input</button>

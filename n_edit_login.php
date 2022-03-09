@@ -31,5 +31,28 @@
     </form>
 
 </body>
+<!--css-->
+<style>
+    body {
+        background: -moz-linear-gradient(top, #FFC778, #FFF);
+        background: -webkit-linear-gradient(top, #FFC778, #FFF);
+        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-repeat: no-repeat;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    /* body {
+        background: -moz-linear-gradient(top, #FFF, #FFC778);
+        background: -webkit-linear-gradient(top, #FFF, #FFC778);
+        background: linear-gradient(to bottom, #FFF, #FFC778);
+        background-repeat: no-repeat;
+    } */
+</style>
+<!--css-->
+
 
 </html>
