@@ -15,17 +15,17 @@
     <div class="btn-wrap">
         <a href="p_login.php" class="btn btn-border-shadow">
             <!--アラジンっぽいロゴ-->
-            USERS
+            <img class="aladdin" src="img/Aladdin.jpg">USERS
         </a>
 
         <a href="n_login.php" class="btn btn-border-shadow">
             <!--ジーニーっぽいロゴ-->
-            NURSE
+            <img class="genie" src='img/genie1.jpg'>NURSE
         </a>
 
         <a href="admin_login.php" class="btn btn-border-shadow">
             <!--ランプのロゴ-->
-            ADMIN
+            <img class="lamp" src='img/lamp-icon.jpg'>ADMIN
         </a>
     </div>
 </body>
@@ -46,11 +46,8 @@
 
 
     body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -119,6 +116,13 @@
     a.btn-border-shadow:hover:before {
         top: 0;
         left: 0;
+    }
+
+    img {
+        object-fit: cover;
+        width: 25px;
+        height: 20px;
+        margin: 0 5px 0 0;
     }
 </style>
 

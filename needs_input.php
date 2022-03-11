@@ -20,16 +20,17 @@ check_session_id();
         <fieldset>
             <legend><a href="p_edit_login.php"><?= $_SESSION["handlename"] ?></a></legend>
 
-            <!-- <div><label>[title]</label>
+            <div><label>[title]</label><br>
                 <input type="text" name="need_title" placeholder="例】入浴介助をして下さい">
-            </div> -->
+            </div>
+
             <div><label>[comment]</label><br>
                 <textarea rows="10" cols="50" name="comment" placeholder="例】今週の火曜日に入浴介助してくださる方を探しています。女性の方でお願いします。"></textarea>
             </div>
-            <div><label>[reward]</label>
+            <div><label>[reward]</label><br>
                 <input type="text" name="reward" placeholder="例】5000円">
             </div>
-            <div><label>[deadline]</label>
+            <div><label>[deadline]</label><br>
                 <input type="date" name="deadline">
             </div>
 
@@ -55,6 +56,7 @@ check_session_id();
 
 </body>
 
+
 <style>
     *,
     *:before,
@@ -69,25 +71,8 @@ check_session_id();
         font-size: 50%;
     }
 
-
     body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
-        background-repeat: no-repeat;
-
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-</style>
-
-<!--css-->
-<style>
-    body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-color: #FFCC99;
         background-repeat: no-repeat;
 
         display: flex;
@@ -95,13 +80,46 @@ check_session_id();
         flex-direction: column;
     }
 
+    fieldset {
+        padding: 20px;
+        border: 4px solid;
+        border-color: black;
+        border-radius: 1.3rem;
+    }
 
-    /* body {
-        background: -moz-linear-gradient(top, #FFF, #FFC778);
-        background: -webkit-linear-gradient(top, #FFF, #FFC778);
-        background: linear-gradient(to bottom, #FFF, #FFC778);
-        background-repeat: no-repeat;
-    } */
+    input {
+        font-size: 0.3rem;
+        font-weight: 700;
+        line-height: 0.3;
+        position: relative;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 0.5em;
+        color: #212529;
+        border-radius: 0.5rem;
+        margin: 5px;
+        border: 2px solid;
+        border-color: black;
+        width: 200px;
+
+    }
+
+    textarea {
+        font-size: 0.3rem;
+        font-weight: 700;
+        position: relative;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 0.5em;
+        color: #212529;
+        border-radius: 0.5rem;
+        margin: 5px;
+        border: 2px solid;
+        border-color: black;
+        width: 200px;
+    }
 </style>
 <!--css-->
 

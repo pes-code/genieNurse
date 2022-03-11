@@ -1,6 +1,6 @@
 <?php
 include('functions.php');
-
+//データがきちんと入力されているかチェック//
 if (
     !isset($_POST['name']) || $_POST['name'] == '' ||
     !isset($_POST['sex']) || $_POST['sex'] == '' ||

@@ -4,25 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>genieNurse [NursingService read]</title>
+    <title>genieNurse</title>
 </head>
 
 <body>
     <h1>genieNurse</h1>
     <?php
     session_start();
-    include("n_functions.php");
+    include("functions.php");
     check_session_id();
 
-    // $user_id = $_SESSION['n_id']; ///////////////////ここはなぜn_idじゃないといけないの？あとで確認
-    $n_id = $_SESSION["n_id"];
+    $needs_id = $_POST["needs_id"];
 
     $pdo = connect_to_db();
 
+    // var_dump($_POST);
+    // exit();
 
-    $sql = 'SELECT * FROM nurse_service WHERE n_id=' . $n_id . ' AND is_deleted=0 '; //ORDER BY date ASC
 
+    $sql = 'SELECT * FROM patient_needs WHERE needs_id=:needs_id AND is_deleted=0';
     $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_INT);
+
+
 
     try {
         $status = $stmt->execute();
@@ -31,54 +35,70 @@
         exit();
     }
 
+
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 
     $output = "";
     foreach ($result as $record) {
         $output .= "
-    <tr class=''>
-    <div class=''>
-     <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
-     </div>
-      <td>
-       <a href='service_delete.php?id={$record["id"]}'>delete</a>
-      </td> 
-  </tr>
-  ";
+      ";
     }
+
     ?>
 
     <fieldset>
         <legend>
-            <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-            <form action='n_prof.php' method='POST'>
-                <button><?= $_SESSION['office_name'] ?></button>
-                <input type='hidden' name='n_id' value=<?= $record["n_id"] ?> readonly>
+            <?= "
+          <div class='p_prof'>           
+           <form action='p_prof.php' method='POST'>
+             <button class='handlename'>{$record["handlename"]}</button>
+             <input type='hidden' name='u_id' value='{$record["u_id"]}' readonly>
             </form>
+            </div>
+            " ?>
         </legend>
+
+
         <table>
             <thead>
-                <tr>
+                <tr class="">
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <?= $output ?>
+                <?= "" ?>
+                <?= "
+          <tr class=''>
+           <div class=''>
+            <div class='tag'>
+             <div class='need_title'>
+              <h6>{$record['need_title']}</h6>
+             </div>
+
+             <div class='needs_comment'>
+              <p>{$record['comment']}</p>
+             </div>
+             
+             <div class='reward'>
+              <h6>reward<br>{$record['reward']}</h6>
+             </div>
+             
+             <div class='deadline'>
+              <h6>deadline<br>{$record['deadline']}</h6>
+             </div>
+            </div>
+           </div>
+          </tr>
+        " ?>
             </tbody>
         </table>
     </fieldset>
-    <a href="service_input.php">NursingService Input</a><br>
-    <a href="n_logout.php">Logout</a>
+    <a href="needs_input.php">Needs Input</a><br>
+    <a href="p_logout.php">Logout</a>
 </body>
 
-<!--css-->
 <style>
-    img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%
-    }
-
     *,
     *:before,
     *:after {
@@ -123,9 +143,27 @@
         border: 2px solid;
         border-color: black;
         width: 200px;
+    }
 
+    .handlename {
+        border-radius: 30px;
+    }
+
+    .tag {
+        min-width: 250px;
+        max-width: 600px;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: whitesmoke;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    button {
+        cursor: pointer;
     }
 </style>
-<!--css-->
+
 
 </html>

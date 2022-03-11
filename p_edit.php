@@ -50,7 +50,7 @@ check_session_id();
             <div>
                 <input type="text" name="handlename" value="<?= $_SESSION["handlename"] ?>" placeholder="アラジン">
             </div>
-            <div><label>日常生活自立度</label>
+            <div>
                 <select name="adl">
                     <option>OO</option>
                     <option>J1</option>
@@ -62,9 +62,10 @@ check_session_id();
                     <option>C1</option>
                     <option>C2</option>
                 </select>
+            </div>
+            <div>
                 <a href="img/2022-03-05.png">日常生活自立度</a>
             </div>
-
             <div>
                 <input type="hidden" name="u_id" value="<?= $_SESSION["u_id"] ?>" readonly>
             </div>
@@ -91,17 +92,60 @@ check_session_id();
         font-size: 50%;
     }
 
-
     body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-color: #FFCC99;
         background-repeat: no-repeat;
 
         display: flex;
         align-items: center;
         flex-direction: column;
     }
+
+    fieldset {
+        padding: 20px;
+        border: 4px solid;
+        border-color: black;
+        border-radius: 1.3rem;
+    }
+
+    input {
+        font-size: 0.3rem;
+        font-weight: 700;
+        line-height: 0.3;
+        position: relative;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 0.5em;
+        color: #212529;
+        border-radius: 0.5rem;
+        margin: 5px;
+        border: 2px solid;
+        border-color: black;
+        width: 200px;
+
+    }
+
+    select {
+        font-size: 0.3rem;
+        font-weight: 700;
+        line-height: 0.3;
+        position: relative;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 0.5em;
+        color: #212529;
+        border-radius: 0.5rem;
+        margin: 5px;
+        border: 2px solid;
+        border-color: black;
+        width: 200px;
+    }
+
+    /* .name {
+        background-image: url(img/name.jpg);
+    } */
 </style>
 <!--css-->
 

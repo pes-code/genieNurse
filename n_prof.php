@@ -58,14 +58,14 @@
             <thead>
             </thead>
             <tbody>
-                <label>age</label>
+                <label>[age]</label>
                 <?= $age ?><br>
-                <label>sex</label>
+                <label>[sex]</label>
                 <?= $record["sex"] ?><br>
-                <label>Contact</label>
-                <?= "<a href=tel:'{$record["tel"]}'>📞</a>" ?>
-                <?= "<a href='mailto:{$record["mail"]}'>📧</a>" ?>
-                <?= "<a href='{$record["link"]}'>🖥️</a>" ?>
+                <label>[Contact]</label><br>
+                <?= "<a href=tel:'{$record["tel"]}'><img src='img/tel.jpg'></a>" ?>
+                <?= "<a href='mailto:{$record["mail"]}'><img src='img/mail.jpg'></a>" ?>
+                <?= "<a href='{$record["link"]}'><img src='img/link.jpg'></a>" ?>
             </tbody>
         </table>
     </fieldset>
@@ -86,19 +86,52 @@
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
         font-size: 50%;
+
     }
 
-
     body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-color: #FFCC99;
         background-repeat: no-repeat;
 
         display: flex;
         align-items: center;
         flex-direction: column;
     }
+
+    fieldset {
+        padding: 20px;
+        border: 4px solid;
+        border-color: black;
+        border-radius: 1.3rem;
+    }
+
+    input {
+        font-size: 0.3rem;
+        font-weight: 700;
+        line-height: 0.3;
+        position: relative;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 0.5em;
+        color: #212529;
+        border-radius: 0.5rem;
+        margin: 5px;
+        border: 2px solid;
+        border-color: black;
+        width: 200px;
+
+    }
+
+    img {
+        width: 25px;
+        height: 25px;
+        margin: 5px;
+    }
+
+    /* .name {
+        background-image: url(img/name.jpg);
+    } */
 </style>
 <!--css-->
 

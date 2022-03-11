@@ -30,8 +30,8 @@ check_session_id();
             </div>
             <div>
                 <select name="sex" value="<?= $_SESSION["sex"] ?>" readonly>
-                    <option>Man</option>
-                    <option>Woman</option>
+                    <option>男</option>
+                    <option>女</option>
                 </select>
             </div>
             <div>
@@ -64,8 +64,6 @@ check_session_id();
             <div>
                 <input type="text" name="advance_license" value="<?= $_SESSION["advance_license"] ?>" readonly>
             </div>
-
-
             <div>
                 <img src="<?= $_SESSION["id_f_img"] ?>" height=50px oncontextmenu='return false;'>
             </div>
@@ -78,23 +76,31 @@ check_session_id();
             <div>
                 <img src="<?= $_SESSION["license_img"] ?>" height=50px oncontextmenu='return false;'>
             </div>
-
-
             <!--
     <div>
     <button>Edit</button>
     </div>
     -->
-
         </fieldset>
         <p><a href="index.html">TOP</a></p>
     </form>
 </body>
 <style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
     body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-color: #FFCC99;
         background-repeat: no-repeat;
 
         display: flex;
@@ -102,13 +108,29 @@ check_session_id();
         flex-direction: column;
     }
 
+    fieldset {
+        padding: 20px;
+        border: 4px solid;
+        border-color: black;
+        border-radius: 1.3rem;
+    }
 
-    /* body {
-        background: -moz-linear-gradient(top, #FFF, #FFC778);
-        background: -webkit-linear-gradient(top, #FFF, #FFC778);
-        background: linear-gradient(to bottom, #FFF, #FFC778);
-        background-repeat: no-repeat;
-    } */
+    input {
+        font-size: 0.3rem;
+        font-weight: 700;
+        line-height: 0.3;
+        position: relative;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 0.5em;
+        color: #212529;
+        border-radius: 0.5rem;
+        margin: 5px;
+        border: 2px solid;
+        border-color: black;
+        width: 200px;
+    }
 </style>
 
 </html>

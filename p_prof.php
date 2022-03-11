@@ -65,7 +65,7 @@
                 <label>ADL</label>
                 <?= $record["adl"] ?><br>
                 <label>Mail</label>
-                <?= "<a href='mailto:{$record["mail"]}'>📧</a>" ?>
+                <?= "<a href='mailto:{$record["mail"]}'><img src='img/mail.jpg'></a>" ?>
             </tbody>
         </table>
     </fieldset>
@@ -88,14 +88,25 @@
     }
 
     body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-color: #FFCC99;
         background-repeat: no-repeat;
 
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+    fieldset {
+        padding: 20px;
+        border: 4px solid;
+        border-color: black;
+        border-radius: 1.3rem;
+    }
+
+    img {
+        width: 25px;
+        height: 25px;
+        margin: 5px;
     }
 </style>
 <!--css-->
