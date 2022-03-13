@@ -51,24 +51,25 @@
     $age = floor(($today - $birthday) / 10000) . '歳';
     /////////////////////////////////////////////////////
     ?>
-
-    <fieldset>
-        <legend><?= $record["office_name"] ?></legend>
-        <table>
-            <thead>
-            </thead>
-            <tbody>
-                <label>[age]</label>
-                <?= $age ?><br>
-                <label>[sex]</label>
-                <?= $record["sex"] ?><br>
-                <label>[Contact]</label><br>
-                <?= "<a href=tel:'{$record["tel"]}'><img src='img/tel.jpg'></a>" ?>
-                <?= "<a href='mailto:{$record["mail"]}'><img src='img/mail.jpg'></a>" ?>
-                <?= "<a href='{$record["link"]}'><img src='img/link.jpg'></a>" ?>
-            </tbody>
-        </table>
-    </fieldset>
+    <div class="input_form">
+        <fieldset>
+            <legend><?= $record["office_name"] ?></legend>
+            <table>
+                <thead>
+                </thead>
+                <tbody>
+                    <label>[age]</label>
+                    <?= $age ?><br>
+                    <label>[sex]</label>
+                    <?= $record["sex"] ?><br>
+                    <label>[Contact]</label><br>
+                    <?= "<a href=tel:'{$record["tel"]}'><img src='img/tel.jpg'></a>" ?>
+                    <?= "<a href='mailto:{$record["mail"]}'><img src='img/mail.jpg'></a>" ?>
+                    <?= "<a href='{$record["link"]}'><img src='img/link.jpg'></a>" ?>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
     <a href="needs_input.php">UserNeeds Input</a>
     <a href="n_logout.php">Logout</a>
 </body>
@@ -98,6 +99,10 @@
         flex-direction: column;
     }
 
+    .input_form {
+        width: 30%;
+    }
+
     fieldset {
         padding: 20px;
         border: 4px solid;
@@ -119,7 +124,7 @@
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 200px;
+        width: 100%;
 
     }
 

@@ -82,22 +82,23 @@
   ";
     }
     ?>
+    <div class="input_form">
+        <fieldset>
+            <legend>genieNurse[UsersNeeds]</legend>
 
-    <fieldset>
-        <legend>genieNurse[UsersNeeds]</legend>
+            <table>
+                <thead>
+                    <tr class="">
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
 
-        <table>
-            <thead>
-                <tr class="">
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-
-                <?= $output ?>
-            </tbody>
-        </table>
-    </fieldset>
+                    <?= $output ?>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
     <a href="service_input.php">ServiceInput</a><br>
     <a href="p_logout.php">Logout</a>
 </body>
@@ -124,6 +125,11 @@
         align-items: center;
         flex-direction: column;
     }
+
+    .input_form {
+        width: 30%;
+    }
+
 
     .handlename {
         border-radius: 30px;
@@ -182,6 +188,14 @@
     img {
         width: 30px;
     }
+
+
+    /* <?php
+        if ($record["sex"] == "男") { ?>.handlename {
+        background-color: #6495ED;
+    }
+
+    <?php } ?> */
 </style>
 <!--css-->
 

@@ -62,7 +62,7 @@
     </div>
 
     <div class='appo'>
-     <form action='appo_brows.php' method='POST'><button class='lamp'> <img src='img/lamp-icon.jpg'></button>
+     <form action='appo_brows.php' method='POST'><button class='lamp'><img src='img/lamp-icon.jpg'></button>
       <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly> 
      </form> 
     </div>

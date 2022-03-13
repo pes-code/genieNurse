@@ -9,141 +9,104 @@
 
 <body>
     <h1>genieNurse</h1>
-    <form action="n_entry_act.php" method="POST" enctype="multipart/form-data">
-        <fieldset>
-            <legend>NurseEntry</legend>
-            <div>
-                <input type="text" name="name" placeholder="name">
-            </div>
-            <div>
-                <select name="sex" placeholder="sex">
-                    <option>男</option>
-                    <option>女</option>
-                </select>
-            </div>
-            <div>
-                <input type="text" name="birthday" placeholder="birthday">
-            </div>
-            <div>
-                <input type="text" name="address" placeholder="address">
-            </div>
-            <div>
-                <input type="text" name="tel" placeholder="tel">
-            </div>
-            <div>
-                <input type="text" name="mail" placeholder="mail">
-            </div>
-            <div>
-                <input type="text" name="pass" placeholder="pass">
-            </div>
-
-            <!--身分証明------------------------------------------------------------------>
-            <div>
-                <h6>身分証明写し(表面)<br>
-                    <input type="file" name="id_f_img" accept="image/*" capture="camera" />
-                </h6>
-                <h6>身分証明写し(裏面)<br>
-                    <input type="file" name="id_b_img" accept="image/*" capture="camera" />
-                </h6>
-            </div>
-
-        </fieldset>
-
-        <fieldset>
-            <legend>OfficeEntry</legend>
-            <!---顔写真------------------------------------------------------------------->
-            <div>
-                <h6>顔写真<br>
-                    <input type="file" name="face_img" accept="image/*" capture="camera" />
-                </h6>
-            </div>
-
-            <div>
-                <input type="text" name="office_name" placeholder="office_name">
-            </div>
-
-
-            <!--<div>
-                <div><label>[skil]</label><br>
-                    <label><input type="checkbox" name="skil1" value="入浴介助">入浴介助</label>
-                    <label><input type="checkbox" name="skil2" value="食事介助">食事介助</label>
-                    <label><input type="checkbox" name="skil3" value="排泄介助">排泄介助</label>
-                    <label><input type="checkbox" name="skil4" value="環境整備">環境整備</label>
-                </div>          
-                <div>
-                    <label><input type="checkbox" name="skil5" value="外泊同伴">外泊同伴</label>
-                    <label><input type="checkbox" name="skil6" value="通院同伴">通院同伴</label>
-                    <label><input type="checkbox" name="skil7" value="入院同伴">入院同伴</label>
-                    <label><input type="checkbox" name="skil8" value="健康相談">健康相談</label>
+    <div class="input_form">
+        <form action="n_entry_act.php" method="POST" enctype="multipart/form-data">
+            <fieldset>
+                <legend>NurseEntry</legend>
+                <div title="アナタのお名前を全角，フルネームでご記入ください。">
+                    <input type="text" name="name" placeholder="name">
                 </div>
-                <div><label>[medical practice]</label><br>
-                    <label><input type="checkbox" name="np1" value="気切チューブ交換">気切チューブ交換</label>
-                    <label><input type="checkbox" name="np2" value="人工呼吸器設定">人工呼吸器設定</label>
-                    <label><input type="checkbox" name="np3" value="胃婁ボタン交換">胃婁ボタン交換</label>
-                    <label><input type="checkbox" name="np4" value="輸液">輸液</label>
-                </div>
-                <div>
-                    <label><input type="checkbox" name="np5" value="栄養剤調整">栄養剤調整</label>
-                    <label><input type="checkbox" name="np6" value="褥瘡処置">褥瘡処置</label>
-                    <label><input type="checkbox" name="np7" value="動脈穿刺">動脈穿刺</label>
-                    <label><input type="checkbox" name="np8" value="Picc留置">Picc留置</label>
-                </div>
-            </div>-->
-
-            <!--   <div><label>[item]</label><br>
-                    <div>
-                        <label><input type="checkbox" name="item[]" value="AED">AED</label>
-                        <label><input type="checkbox" name="item[]" value="吸引機">吸引機</label>
-                        <label><input type="checkbox" name="item[]" value="リクライニング車椅子">リクライニング車いす</label>
-                        <label><input type="checkbox" name="item[]" value="介護用自動車">介護用自動車</label>
-                    </div>-->
-
-            <!--<div>
-                        <label><input type="text" name="item_other" placeholder="other_item"></label>
-                    </div>
-                </div>
-                <div>
-                    <label>[staff]</label><br>
-                    <select name="staff">
-                        <?php
-                        //for ($staff = 0; $staff <= 100; $staff++) {
-                        //    echo "<option value='{$staff}'>{$staff}</option>";
-                        //}
-                        ?>
+                <div title="クリックして、アナタの性別をお選びください。">
+                    <select name="sex" placeholder="sex">
+                        <option>男</option>
+                        <option>女</option>
                     </select>
-                </div>-->
+                </div>
+                <div title="生年月日を西暦，半角数字でご記入ください。
+    【注】スペースや「/(ｽﾗｯｼｭ)」は不要です。
+    【例】1955年1月15日生まれ→19550115">
+                    <input type="text" name="birthday" placeholder="birthday">
+                </div>
+                <div title="アナタの住所をご記入ください。
+    ※サイト内で表示される事はありませんので、他者に漏洩する心配はありません。">
+                    <input type="text" name="address" placeholder="address">
+                </div>
+                <div title="アナタの電話番号を半角数字でご記入ください。
+    【注】スペースや「-(ﾊｲﾌﾝ)」は不要です。">
+                    <input type="text" name="tel" placeholder="tel">
+                </div>
+                <div title="アナタのメールアドレスを半角英数字でご記入ください。">
+                    <input type="text" name="mail" placeholder="mail">
+                </div>
+                <div title="お好きなパスワードを設定してください。
+    【注】お忘れないようにご注意ください。">
+                    <input type="text" name="pass" placeholder="pass">
+                </div>
 
-            <div>
-                <input type="text" name="link" placeholder="HP_URL">
-            </div>
+                <!--身分証明------------------------------------------------------------------>
+                <div title="運転免許証やマイナンバーカードなどの身分がわかる証明書の写真を添付してください。
+    【注】見切れや影などにご注意の上、免許証の内容が全て把握できる写真を添付してください。
+    【注】必ず表と裏の両方を添付してください。">
+                    <h6>身分証明写し(表面)<br>
+                        <input type="file" name="id_f_img" accept="image/*" capture="camera" />
+                    </h6>
+                    <h6>身分証明写し(裏面)<br>
+                        <input type="file" name="id_b_img" accept="image/*" capture="camera" />
+                    </h6>
+                </div>
 
-            <div>
-                <textarea rows="10" cols="50" name="appeal" placeholder="appeal"></textarea>
-            </div>
+            </fieldset>
 
-            <div>
-                <input type="text" name="nurse_number" placeholder="license_number">
-            </div>
+            <fieldset>
+                <legend>OfficeEntry</legend>
+                <!---顔写真------------------------------------------------------------------->
+                <div title="アナタの顔写真を添付してください。
+    ※サイト内で表示される写真となります。">
+                    <h6>顔写真<br>
+                        <input type="file" name="face_img" accept="image/*" capture="camera" />
+                    </h6>
+                </div>
 
-            <!--看護師免許---------------------------------------------------------------->
-            <div>
-                <h6>看護師免許写し<br>
-                    <input type="file" name="license_img" accept="image/*" capture="camera" />
-                </h6>
-            </div>
+                <div title="オフィスネームを設定してください。
+    【注】サイト内ではこのオフィスネームが表示されます。">
+                    <input type="text" name="office_name" placeholder="office_name">
+                </div>
 
-            <div>
-                <input type="text" name="advance_license" placeholder="advance_license">
-            </div>
+                <div title="お持ちのWEBサイトなどがあればURLをご記入ください。">
+                    <input type="text" name="link" placeholder="HP_URL">
+                </div>
 
-            <div>
-                <button>Entry</button>
-            </div>
-        </fieldset>
+                <div title="セールスコメントなど自由にご記入ください。">
+                    <textarea rows="10" cols="50" name="appeal" placeholder="appeal"></textarea>
+                </div>
 
-        <!-- <p><a href="p_entry.php">UsersEntry</a></p> -->
-        <p><a href="n_login.php">NurseLogin</a></p>
-    </form>
+                <div title="看護師免許の登録番号をご記入ください。
+    【注】お間違いのないようにお願いします。">
+                    <input type="text" name="nurse_number" placeholder="license_number">
+                </div>
+
+                <!--看護師免許---------------------------------------------------------------->
+                <div title="看護師免許の全体写真を撮影して添付してください。
+    【注】見切れや影などにご注意の上、免許証の内容が全て把握できる写真を添付してください。">
+                    <h6>看護師免許写し<br>
+                        <input type="file" name="license_img" accept="image/*" capture="camera" />
+                    </h6>
+                </div>
+
+                <div title="看護師免許の他に関連する免許をお持ちの場合、自由にご記入ください。
+    【例】認定看護師，専門看護師，学会認定士など">
+                    <input type="text" name="advance_license" placeholder="advance_license">
+                </div>
+
+                <div>
+                    <button>Entry</button>
+                </div>
+            </fieldset>
+
+            <!-- <p><a href="p_entry.php">UsersEntry</a></p> -->
+            <p><a href="n_login.php">NurseLogin</a></p>
+        </form>
+    </div>
 </body>
 <!--css-->
 <style>
@@ -163,10 +126,13 @@
     body {
         background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+    .input_form {
+        width: 30%;
     }
 
     fieldset {
@@ -177,6 +143,7 @@
     }
 
     input,
+    select,
     textarea {
         font-size: 0.3rem;
         font-weight: 700;
@@ -191,25 +158,8 @@
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 200px;
+        width: 100%;
 
-    }
-
-    select {
-        font-size: 0.3rem;
-        font-weight: 700;
-        line-height: 0.3;
-        position: relative;
-        padding: 1rem 4rem;
-        cursor: pointer;
-        text-align: center;
-        letter-spacing: 0.5em;
-        color: #212529;
-        border-radius: 0.5rem;
-        margin: 5px;
-        border: 2px solid;
-        border-color: black;
-        width: 200px;
     }
 
     /* .name {

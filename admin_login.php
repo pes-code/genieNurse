@@ -10,21 +10,23 @@
 <body>
     <h1>genieNurse</h1>
     <form action="admin_login_act.php" method="POST">
-        <fieldset>
-            <legend>AdminLogin</legend>
-            <div>
-                <input type="text" name="name" placeholder="name">
-            </div>
-            <div>
-                <input type="text" name="mail" placeholder="mail">
-            </div>
-            <div>
-                <input type="text" name="pass" placeholder="pass">
-            </div>
-            <div>
-                <button>Login</button>
-            </div>
-        </fieldset>
+        <div class="input_form">
+            <fieldset>
+                <legend>AdminLogin</legend>
+                <div>
+                    <input type="text" name="name" placeholder="name">
+                </div>
+                <div>
+                    <input type="text" name="mail" placeholder="mail">
+                </div>
+                <div>
+                    <input type="text" name="pass" placeholder="pass">
+                </div>
+                <div>
+                    <button>Login</button>
+                </div>
+            </fieldset>
+        </div>
         <p><a href="index.html">TOP</a></p>
 
 
@@ -54,6 +56,11 @@
         flex-direction: column;
     }
 
+
+    .input_form {
+        width: 30%;
+    }
+
     fieldset {
         padding: 20px;
         border: 4px solid;
@@ -75,7 +82,7 @@
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 200px;
+        width: 100%;
 
     }
 </style>

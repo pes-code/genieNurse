@@ -19,55 +19,57 @@ check_session_id();
 <body>
     <h1>genieNurse</h1>
     <form action="n_update.php" method="POST" enctype="multipart/form-data">
-        <fieldset>
-            <legend>NurseEdit</legend>
-            <div>
-                <input type="text" name="name" value="<?= $_SESSION["name"] ?>" placeholder="安良 仁">
-            </div>
-            <div>
-                <select name="sex" value="<?= $_SESSION["sex"] ?>" placeholder="sex">
-                    <option>Man</option>
-                    <option>Woman</option>
-                </select>
-            </div>
-            <div>
-                <input type="date" name="birthday" value="<?= $_SESSION["birthday"] ?>">
-            </div>
-            <div>
-                <input type="text" name="address" value="<?= $_SESSION["address"] ?>" placeholder="address">
-            </div>
-            <div>
-                <input type="text" name="tel" value="<?= $_SESSION["tel"] ?>" placeholder="tel">
-            </div>
-            <div>
-                <input type="text" name="mail" value="<?= $_SESSION["mail"] ?>" placeholder="lampgoshigoshi@gmail.com">
-            </div>
-            <div>
-                <input type="text" name="pass" value="<?= $_SESSION["pass"] ?>" placeholder="半角英数字6文字以上">
-            </div>
-            <div>
-                <input type="text" name="office_name" value="<?= $_SESSION["office_name"] ?>" placeholder="アラジン">
-            </div>
-            <div>
-                <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-                <input type="file" name="face_img">
-            </div>
-            <div>
-                <input type="text" name="link" value="<?= $_SESSION["link"] ?>" placeholder="URL">
-            </div>
-            <div>
-                <input type="text" name="advance_license" value="<?= $_SESSION["advance_license"] ?>" placeholder="advance_license">
-            </div>
-            <div>
-                <textarea rows="10" cols="50" name="appeal" placeholder="appeal"><?= $_SESSION["appeal"] ?></textarea>
-            </div>
-            <div>
-                <input type="hidden" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
-            </div>
-            <div>
-                <button>Edit</button>
-            </div>
-        </fieldset>
+        <div class="input_form">
+            <fieldset>
+                <legend>NurseEdit</legend>
+                <div>
+                    <input type="text" name="name" value="<?= $_SESSION["name"] ?>" placeholder="安良 仁">
+                </div>
+                <div>
+                    <select name="sex" value="<?= $_SESSION["sex"] ?>" placeholder="sex">
+                        <option>Man</option>
+                        <option>Woman</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="date" name="birthday" value="<?= $_SESSION["birthday"] ?>">
+                </div>
+                <div>
+                    <input type="text" name="address" value="<?= $_SESSION["address"] ?>" placeholder="address">
+                </div>
+                <div>
+                    <input type="text" name="tel" value="<?= $_SESSION["tel"] ?>" placeholder="tel">
+                </div>
+                <div>
+                    <input type="text" name="mail" value="<?= $_SESSION["mail"] ?>" placeholder="lampgoshigoshi@gmail.com">
+                </div>
+                <div>
+                    <input type="text" name="pass" value="<?= $_SESSION["pass"] ?>" placeholder="半角英数字6文字以上">
+                </div>
+                <div>
+                    <input type="text" name="office_name" value="<?= $_SESSION["office_name"] ?>" placeholder="アラジン">
+                </div>
+                <div>
+                    <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
+                    <input type="file" name="face_img">
+                </div>
+                <div>
+                    <input type="text" name="link" value="<?= $_SESSION["link"] ?>" placeholder="URL">
+                </div>
+                <div>
+                    <input type="text" name="advance_license" value="<?= $_SESSION["advance_license"] ?>" placeholder="advance_license">
+                </div>
+                <div>
+                    <textarea rows="10" cols="50" name="appeal" placeholder="appeal"><?= $_SESSION["appeal"] ?></textarea>
+                </div>
+                <div>
+                    <input type="hidden" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
+                </div>
+                <div>
+                    <button>Edit</button>
+                </div>
+            </fieldset>
+        </div>
         <p><a href="index.html">Cancel</a></p>
     </form>
 </body>
@@ -95,6 +97,10 @@ check_session_id();
         flex-direction: column;
     }
 
+    .input_form {
+        width: 30%;
+    }
+
     fieldset {
         padding: 20px;
         border: 4px solid;
@@ -102,24 +108,7 @@ check_session_id();
         border-radius: 1.3rem;
     }
 
-    input {
-        font-size: 0.3rem;
-        font-weight: 700;
-        line-height: 0.3;
-        position: relative;
-        padding: 1rem 4rem;
-        cursor: pointer;
-        text-align: center;
-        letter-spacing: 0.5em;
-        color: #212529;
-        border-radius: 0.5rem;
-        margin: 5px;
-        border: 2px solid;
-        border-color: black;
-        width: 200px;
-
-    }
-
+    input,
     select {
         font-size: 0.3rem;
         font-weight: 700;
@@ -134,8 +123,10 @@ check_session_id();
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 200px;
+        width: 100%;
+
     }
+
 
     /* .name {
         background-image: url(img/name.jpg);

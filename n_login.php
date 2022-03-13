@@ -9,28 +9,29 @@
 
 <body>
     <h1>genieNurse</h1>
-    <form action="n_login_act.php" method="POST">
-        <fieldset>
-            <legend>NurseLogin</legend>
-            <div>
-                <input type="text" name="office_name" placeholder="office_name">
-            </div>
-            <div>
-                <input type="text" name="mail" placeholder="mail">
-            </div>
-            <div>
-                <input type="text" name="pass" placeholder="pass">
-            </div>
-            <div>
-                <button>Login</button>
-            </div>
-        </fieldset>
-        <p><a href="n_entry.php">NurseEntry</a></p>
-        <p><a href="n_edit_login.php">NurseEdit</a></p>
-        <p><a href="index.html">Top</a></p>
+    <div class="input_form">
+        <form action="n_login_act.php" method="POST">
+            <fieldset>
+                <legend>NurseLogin</legend>
+                <div>
+                    <input type="text" name="office_name" placeholder="office_name">
+                </div>
+                <div>
+                    <input type="text" name="mail" placeholder="mail">
+                </div>
+                <div>
+                    <input type="text" name="pass" placeholder="pass">
+                </div>
+                <div>
+                    <button>Login</button>
+                </div>
+            </fieldset>
+            <p><a href="n_entry.php">NurseEntry</a></p>
+            <p><a href="n_edit_login.php">NurseEdit</a></p>
+            <p><a href="index.html">Top</a></p>
 
-    </form>
-
+        </form>
+    </div>
 </body>
 
 <!--css-->
@@ -57,6 +58,10 @@
         flex-direction: column;
     }
 
+    .input_form {
+        width: 30%;
+    }
+
     fieldset {
         padding: 20px;
         border: 4px solid;
@@ -78,7 +83,7 @@
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 200px;
+        width: 100%;
 
     }
 

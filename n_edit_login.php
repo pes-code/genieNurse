@@ -10,21 +10,23 @@
 <body>
     <h1>genieNurse</h1>
     <form action="n_edit_login_act.php" method="POST">
-        <fieldset>
-            <legend>NurseEdit</legend>
-            <div>
-                <input type="text" name="office_name" placeholder="office_name">
-            </div>
-            <div>
-                <input type="text" name="mail" placeholder="mail">
-            </div>
-            <div>
-                <input type="text" name="pass" placeholder="pass">
-            </div>
-            <div>
-                <button>Edit</button>
-            </div>
-        </fieldset>
+        <div class="input_form">
+            <fieldset>
+                <legend>NurseEdit</legend>
+                <div>
+                    <input type="text" name="office_name" placeholder="office_name">
+                </div>
+                <div>
+                    <input type="text" name="mail" placeholder="mail">
+                </div>
+                <div>
+                    <input type="text" name="pass" placeholder="pass">
+                </div>
+                <div>
+                    <button>Edit</button>
+                </div>
+            </fieldset>
+        </div>
         <p><a href="p_login.php">UserLogin</a></p>
         <p><a href="n_entry.php">NurseEntry</a></p>
 
@@ -55,6 +57,10 @@
         flex-direction: column;
     }
 
+    .input_form {
+        width: 30%;
+    }
+
     fieldset {
         padding: 20px;
         border: 4px solid;
@@ -76,7 +82,7 @@
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 200px;
+        width: 100%;
 
     }
 

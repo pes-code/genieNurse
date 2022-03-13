@@ -44,17 +44,23 @@
         $output .= "
     <tr class=''>
     <div class=''> 
-     <td class=''><h6>comment<br></h6><img src='{$record["face_img"]}' height='50px' oncontextmenu='return false;'></td>
+     <td class=''>
+     <img class='face' src='{$record["face_img"]}' height='50px' oncontextmenu='return false;'>    
+     </td>
 
-    <td><form action='n_prof.php' method='POST'>
-        <td class=''>
-        <button>{$record["office_name"]}</button>
-        <input type='hidden' name='n_id' value='{$record["n_id"]}' readonly> 
-        </td> 
-        </form></td> 
      </div>
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
      </div>
+
+     <td><form action='n_prof.php' method='POST'>
+    <div class=''>
+     <td class=''><h6>office</h6>
+      <p>{$record["office_name"]}</p>
+        <button><img class='lamp' src='img/lamp-icon.jpg'></button>
+        <input type='hidden' name='n_id' value='{$record["n_id"]}' readonly> 
+    
+        </form></td> 
+    </div>
   </tr>
   
   ";
@@ -122,6 +128,32 @@
         border-color: black;
         width: 200px;
 
+    }
+
+    .face {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%
+    }
+
+    .tag {
+        background-color: white;
+        margin: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    button {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+    }
+
+    .lamp {
+        width: 30px;
+        background-color: white;
+
+        /* border: 0px; */
     }
 </style>
 <!--css-->

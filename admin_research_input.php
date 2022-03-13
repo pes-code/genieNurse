@@ -20,15 +20,17 @@ check_session_id();
 <body>
     <h1>genieNurse</h1>
     <form action="admin_research_act.php" method="POST" enctype="multipart/form-data">
-        <fieldset>
-            <legend>NurseResearch</legend>
-            <div>
-                <input type="text" name="office_name" placeholder="office_name">
-            </div>
-            <div>
-                <button>Research</button>
-            </div>
-        </fieldset>
+        <div class="input_form">
+            <fieldset>
+                <legend>NurseResearch</legend>
+                <div>
+                    <input type="text" name="office_name" placeholder="office_name">
+                </div>
+                <div>
+                    <button>Research</button>
+                </div>
+            </fieldset>
+        </div>
         <p><a href="index.html">TOP</a></p>
 
     </form>
@@ -57,6 +59,11 @@ check_session_id();
         flex-direction: column;
     }
 
+
+    .input_form {
+        width: 30%;
+    }
+
     fieldset {
         padding: 20px;
         border: 4px solid;
@@ -78,7 +85,7 @@ check_session_id();
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 200px;
+        width: 100%;
 
     }
 </style>

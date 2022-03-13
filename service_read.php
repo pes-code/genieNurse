@@ -41,43 +41,74 @@
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
      </div>
       <td>
-       <a href='service_delete.php?id={$record["id"]}'>delete</a>
+       <a href='service_delete.php?id={$record["id"]}'><img src='img/dustbox.jpg'></a>
       </td> 
   </tr>
   ";
     }
     ?>
-
-    <fieldset>
-        <legend>
-            <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-            <form action='n_prof.php' method='POST'>
-                <button><?= $_SESSION['office_name'] ?></button>
-                <input type='hidden' name='n_id' value=<?= $record["n_id"] ?> readonly>
-            </form>
-        </legend>
-        <table>
-            <thead>
-                <tr>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?= $output ?>
-            </tbody>
-        </table>
-    </fieldset>
+    <div class="input_form">
+        <fieldset>
+            <legend>
+                <div class="office_box">
+                    <div class="">
+                        <img class="face" src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
+                    </div>
+                    <div class="n_prof">
+                        <form action='n_prof.php' method='POST'>
+                            <button><?= $_SESSION['office_name'] ?></button>
+                            <input type='hidden' name='n_id' value=<?= $record["n_id"] ?> readonly>
+                        </form>
+                    </div>
+                </div>
+            </legend>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?= $output ?>
+                </tbody>
+            </table>
+        </fieldset>
+    </div>
     <a href="service_input.php">NursingService Input</a><br>
     <a href="n_logout.php">Logout</a>
 </body>
 
 <!--css-->
 <style>
-    img {
+    .office_box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* .n_prof {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+    } */
+
+    .face {
         width: 50px;
         height: 50px;
         border-radius: 50%
     }
+
+    img {
+        width: 30px;
+    }
+
+    button {
+        /* border: 3px solid; */
+        /* border-color: black; */
+        border: none;
+        background: none;
+    }
+
 
     *,
     *:before,
@@ -95,7 +126,6 @@
     body {
         background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -123,7 +153,6 @@
         border: 2px solid;
         border-color: black;
         width: 200px;
-
     }
 </style>
 <!--css-->

@@ -47,38 +47,98 @@
      <button>{$record["office_name"]}</button>
      <input type='hidden' name='n_id' value='{$record["n_id"]}' readonly>
      </form></td> 
-     </div>
+    </div>
   </tr>  
   ";
     }
     ?>
+    <div class="input_form">
+        <fieldset>
+            <legend>NursingService</legend>
+            <div class='appo_office'>
+                <table>
+                    <thead>
+                    <tbody>
 
-    <fieldset>
-        <legend>NursingService</legend>
-        <table>
-            <thead>
-            <tbody>
-                <?= $output ?>
-            </tbody>
-            </thead>
-        </table>
-    </fieldset>
+                        <?= $output ?>
+
+                    </tbody>
+                    </thead>
+                </table>
+            </div>
+        </fieldset>
+    </div>
     <a href="needs_input.php">UserNeeds Input</a>
     <a href="n_logout.php">Logout</a>
 </body>
 
+
 <!--css-->
 <style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
     body {
-        background: -moz-linear-gradient(top, #FFC778, #FFF);
-        background: -webkit-linear-gradient(top, #FFC778, #FFF);
-        background: linear-gradient(to bottom, #FFC778, #FFF);
+        background-color: #FFCC99;
         background-repeat: no-repeat;
 
         display: flex;
         align-items: center;
         flex-direction: column;
     }
+
+    .input_form {
+        width: 30%;
+    }
+
+    fieldset {
+        padding: 20px;
+        border: 4px solid;
+        border-color: black;
+        border-radius: 1.3rem;
+    }
+
+    .appo_office {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    /* input,
+    select {
+        font-size: 0.3rem;
+        font-weight: 700;
+        line-height: 0.3;
+        position: relative;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        text-align: center;
+        letter-spacing: 0.5em;
+        color: #212529;
+        border-radius: 0.5rem;
+        margin: 5px;
+        border: 2px solid;
+        border-color: black;
+        width: 100%;
+
+    }
+ */
+
+
+    /* .name {
+        background-image: url(img/name.jpg);
+    } */
 </style>
 <!--css-->
 
