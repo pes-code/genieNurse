@@ -1,4 +1,3 @@
-<!--サービス閲覧画面-->
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -15,16 +14,17 @@
     include("n_functions.php");
     check_session_id();
 
-    $u_id = $_SESSION['u_id'];
+    $id = $_POST["id"];
 
     $pdo = connect_to_db();
 
-    // var_dump($_SESSION);
+    // var_dump($_POST);
     // exit();
 
-    $sql = 'SELECT * FROM nurse_service WHERE is_deleted=0  ';
 
+    $sql = 'SELECT * FROM nurse_service WHERE id=:id AND is_deleted=0';
     $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
 
 
@@ -42,64 +42,58 @@
     $output = "";
     foreach ($result as $record) {
         $output .= "
-<tr class='tag'>
-   <div class='office_box'>
-    <div class='office_name'>
-     <td>
-      <p>{$record["office_name"]}</p>
-     </td> 
-    </div>
-    <div class='face_box'>
-     <td>
-      <img class='face' src='{$record["face_img"]}' height='50px' oncontextmenu='return false;'>    
-     </td>
-    </div>
-   </div>
-    
-   <div class='service_comment'>
-    <td> 
-     <form action='service_comment.php' method='POST'>
-      <input type='hidden' name='id' value='{$record["id"]}' readonly>
-      <button class='service_title'>{$record["title"]}
-      <div class='reward'>
-       <h6>reward<br>{$record["reward"]}</h6>
-      </div>
-      </button>
-     </form>
-    </td>
-   </div>
-
-   <div class=''>
-    <td>
-     <form action='n_prof.php' method='POST'>
-      <h6>office</h6>
-       <button><img class='lamp' src='img/lamp-icon.jpg'></button>
-      <input type='hidden' name='n_id' value='{$record["n_id"]}' readonly> 
-     </form>
-    </td> 
-   </div>
-</tr>
-  
-  ";
+      ";
     }
-    //↑活動日はカレンダー表示で複数マーク表示できるようにする
+
     ?>
 
     <fieldset>
-        <legend>genieNurse[NursingService]</legend>
+        <legend>
+            <?= "
+          <div class='n_prof'>           
+           <form action='n_prof.php' method='POST'>
+             <button class='office_name'>{$record["office_name"]}</button>
+             <input type='hidden' name='n_id' value='{$record["n_id"]}' readonly>
+            </form>
+            </div>
+            " ?>
+        </legend>
+
+
         <table>
             <thead>
+                <tr class="">
+                    <th></th>
+                </tr>
             </thead>
             <tbody>
-                <?= $output ?>
+                <?= "
+          <tr class=''>
+           <div class=''>
+            <div class='tag'>
+             <div class='title'>
+              <h6>{$record['title']}</h6>
+             </div>
+
+             <div class='service_comment'>
+              <p>{$record['comment']}</p>
+             </div>
+             
+             <div class='reward'>
+              <h6>reward<br>{$record['reward']}</h6>
+             </div>
+             
+            </div>
+           </div>
+          </tr>
+        " ?>
             </tbody>
         </table>
     </fieldset>
-    <a href="needs_input.php">UserNeeds Input</a>
-    <a href="n_logout.php">Logout</a>
+    <a href="needs_input.php">Needs Input</a><br>
+    <a href="p_logout.php">Logout</a>
 </body>
 
-<!--css-->
 <style>
     *,
     *:before,
@@ -145,36 +139,27 @@
         border: 2px solid;
         border-color: black;
         width: 200px;
-
     }
 
-
-    .face {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%
+    .handlename {
+        border-radius: 30px;
     }
 
     .tag {
-        background-color: white;
-        margin: 5px;
+        min-width: 250px;
+        max-width: 600px;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: whitesmoke;
         display: flex;
         align-items: center;
+        flex-direction: column;
     }
 
     button {
         cursor: pointer;
-        border: none;
-        background-color: transparent;
-    }
-
-    .lamp {
-        width: 30px;
-        background-color: white;
-
     }
 </style>
-<!--css-->
 
 
 </html>

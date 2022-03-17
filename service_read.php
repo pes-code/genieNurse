@@ -38,6 +38,8 @@
         $output .= "
     <tr class=''>
     <div class=''>
+         <td class=''><h6>title<br></h6>{$record["title"]}</td>
+         <td class=''><h6>reward</h6>{$record["reward"]}</td>
      <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
      </div>
       <td>

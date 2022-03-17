@@ -9,34 +9,370 @@
 </head>
 
 <body>
-    <h1>genieNurse</h1>
-    <p>どちらでご利用ですか？</p>
+    <header>
+        <div class="top">
+            <div class="title_box">
+                <h1 class="title_text">genieNurse</h1>
+            </div>
+            <div class="top_box">
+                <div class="login_text"><a href="login.html">ログイン</a>
+                </div>
+                <div class="entry_text"><a href="entry.html">新規登録</a>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <div class="btn-wrap">
-        <a href="p_login.php" class="btn btn-border-shadow">
-            <!--アラジンっぽいロゴ-->
-            <img class="aladdin" src="img/Aladdin.jpg">USERS
-        </a>
+    <style>
+        header {
+            background: #ffbc7a;
+            width: 60%;
+            height: 10%;
+            position: fixed;
+            display: flex;
+        }
 
-        <a href="n_login.php" class="btn btn-border-shadow">
-            <!--ジーニーっぽいロゴ-->
-            <img class="genie" src='img/genie1.jpg'>NURSE
-        </a>
+        .top_box {
+            display: flex;
+            align-items: center;
+            /* justify-content: flex-end; */
 
+        }
+
+        .title_text {
+            font-size: large;
+        }
+
+        .login_text {
+            background-color: white;
+            border: black solid 3px;
+            border-radius: 5px;
+            padding: 0px 10px;
+            color: black;
+            font-size: medium;
+        }
+
+        .entry_text {
+            background-color: white;
+            border: black solid 3px;
+            border-radius: 5px;
+            padding: 0px 10px;
+            color: black;
+            font-size: medium;
+        }
+    </style>
+
+
+    <main>
+        <!-- タグ検索機能を実装する -->
+        <h3>サービスカテゴリー</h3>
+        <div class="category_box">
+            <div class="category_1">
+                <div class="categ_1">
+                    <a href="entry.html"><img src="img/foot-icon.png">
+                        <p>外出･外泊支援</p>
+                    </a>
+                </div>
+                <div class="categ_2">
+                    <a href="entry.html"><img src="img/life.jpg">
+                        <p>日常生活介助</p>
+                    </a>
+                </div>
+                <div class="categ_3"> <a href="entry.html"><img src="img/med-icon.jpg">
+                        <p>受診支援</p>
+                    </a>
+                </div>
+                <div class="categ_4">
+                    <a href="entry.html"> <img src="img/bed-icon.jpg">
+                        <p>入院支援</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category_2">
+                <div class="categ_5">
+                    <a href="entry.html"><img src="img/health-icon.jpg">
+                        <p>健康相談</p>
+                    </a>
+                </div>
+                <div class="categ_6">
+                    <a href="entry.html"><img src="img/drug-icon.jpg">
+                        <p>服薬管理</p>
+                    </a>
+                </div>
+                <div class="categ_7">
+                    <a href="entry.html"><img src="img/rehabili.jpg">
+                        <p>リハビリ</p>
+                    </a>
+                </div>
+                <div class="categ_8">
+                    <a href="entry.html"><img src="img/heart-icon.jpg">
+                        <p>その他</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .category_box {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+            }
+
+            .category_1,
+            .category_2 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 30px;
+            }
+
+            .categ_1,
+            .categ_2,
+            .categ_3,
+            .categ_4,
+            .categ_5,
+            .categ_6,
+            .categ_7,
+            .categ_8 {
+                text-align: center;
+            }
+
+            .categ_1 img,
+            .categ_2 img,
+            .categ_3 img,
+            .categ_4 img,
+            .categ_5 img,
+            .categ_6 img,
+            .categ_7 img,
+            .categ_8 img {
+                display: block;
+                border: gray solid;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                margin: 0px 50px;
+            }
+
+            /* .categ_1,
+            .categ_2,
+            .categ_3,
+            .categ_4,
+            .categ_5,
+            .categ_6,
+            .categ_7,
+            .categ_8 {} */
+
+            /* .category_box p {
+                width: 70px;
+                 margin: 40px 0 0 0; 
+            } */
+        </style>
+
+        <div class="service_box">
+            <h3>人気サービス</h3>
+            <div class="service_contents">
+                <div class="service_content_a">
+                    <div class="content_box_1">
+                        <a href="p_entry.php">
+                            <img src="img/tabi_1.jpg">
+                            <p>旅行に同行します</p>
+                            <p>10000円/日(旅費別途)</p>
+                        </a>
+                    </div>
+                    <div class="content_box_2">
+                        <a href="p_entry.php">
+                            <img src="img/ic_1.jpg">
+                            <p>医師の説明を解説します</p>
+                            <p>3000円/回</p>
+                        </a>
+                    </div>
+                    <div class="content_box_3">
+                        <a href="p_entry.php">
+                            <img src="img/hosp_1.jpg">
+                            <p>入院の準備をお手伝いします</p>
+                            <p>3000円/回</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="service_content_b">
+                    <div class="content_box_4">
+                        <a href="p_entry.php">
+                            <img src="img/consultation_1.jpg">
+                            <p>受診に同行します</p>
+                            <p>3000円/回</p>
+                        </a>
+                    </div>
+                    <div class="content_box_5">
+                        <a href="p_entry.php">
+                            <img src="img/bedside.jpg">
+                            <p>術後、ベッドサイドでお世話します</p>
+                            <p>10000円/日</p>
+                        </a>
+                    </div>
+                    <div class="content_box_6">
+                        <a href="p_entry.php">
+                            <img src="img/nyuuyoku.jpg">
+                            <p>入浴を介助します</p>
+                            <p>5000円/回</p>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service_other">
+                    <input id="acd-check" class="acd-check" type="checkbox">
+                    <label class="acd-label" for="acd-check">もっと見る</label>
+                    <div class="acd-contents">
+                        <div class="acd-content_a">
+                            <div class="content_box_7">
+                                <a href="p_entry.php">
+                                    <img src="img/sports_1.jpg">
+                                    <p>スポーツクラブの遠征に同行します</p>
+                                    <p>20000円/日</p>
+                                </a>
+                            </div>
+                            <div class="content_box_8">
+                                <a href="p_entry.php">
+                                    <img src="img/onsen.jpg">
+                                    <p>温泉にお連れ致します</p>
+                                    <p>30000円/回(交通費別途)</p>
+                                </a>
+                            </div>
+                            <div class="content_box_9">
+                                <a href="p_entry.php">
+                                    <img src="img/rehabili_01.jpg">
+                                    <p>aaa</p>
+                                    <p>000000円/日</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="acd-content_b">
+                            <div class="content_box_10">
+                                <a href="p_entry.php">
+                                    <img src="img/kaigo.jpg">
+                                    <p>bbb</p>
+                                    <p>00000円/日</p>
+                                </a>
+                            </div>
+                            <div class="content_box_11">
+                                <a href="p_entry.php">
+                                    <img src="img/kaigo_2.jpg">
+                                    <p>ccc</p>
+                                    <p>00000000円/回</p>
+                                </a>
+                            </div>
+                            <div class="content_box_12">
+                                <a href="p_entry.php">
+                                    <img src="img/syouni.jpg">
+                                    <p>ddd</p>
+                                    <p>000000円/日</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+            .service_content_a,
+            .service_content_b,
+            .acd-content_a,
+            .acd-content_b {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+            }
+
+            .content_box_1,
+            .content_box_2,
+            .content_box_3,
+            .content_box_4,
+            .content_box_5,
+            .content_box_6,
+            .content_box_7,
+            .content_box_8,
+            .content_box_9,
+            .content_box_10,
+            .content_box_11,
+            .content_box_12 {
+                background-color: #f5f5f5;
+                border-radius: 5px;
+                width: 25%;
+                height: 200px;
+                text-align: center;
+
+                margin: 5px;
+            }
+
+            .service_box img {
+                width: 90%;
+                height: 70%;
+                margin-top: 5px;
+
+            }
+
+
+
+            /*-------アコーディオンメニュー-------------------*/
+            .acd-check {
+                display: none;
+            }
+
+            .service_other {
+                text-align: center;
+            }
+
+
+            /* .acd-label { */
+            /* background: #333; */
+            /* color: #fff; */
+            /* display: block; */
+            /* margin-bottom: 1px; */
+            /* padding: 10px; */
+            /* } */
+
+            .acd-contents {
+                /* border: 1px solid #333; */
+                height: 0;
+                opacity: 0;
+                transition: 0.5s;
+                visibility: hidden;
+            }
+
+            .acd-check:checked+.acd-label+.acd-contents {
+                height: 100%;
+                opacity: 1;
+                visibility: visible;
+            }
+
+            /*-----------------------------------------------*/
+        </style>
+
+        </div>
+    </main>
+
+    <footer>
+        <h2>genieNurse</h2>
+
+    </footer>
+
+    <!-- <div class="admin">
         <a href="admin_login.php" class="btn btn-border-shadow">
-            <!--ランプのロゴ-->
             <img class="lamp" src='img/lamp-icon.jpg'>ADMIN
         </a>
-    </div>
+    </div> -->
 </body>
 
 <style>
-    *,
+    /* *,
     *:before,
     *:after {
         -webkit-box-sizing: inherit;
         box-sizing: inherit;
-    }
+    } */
 
     html {
         -webkit-box-sizing: border-box;
@@ -44,78 +380,30 @@
         font-size: 50%;
     }
 
-
     body {
-        background-color: #FFCC99;
+        /* background-color: #FFCC99; */
         background-repeat: no-repeat;
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
+    main {
+        margin-top: 100px;
+    }
+
+    h1 {
+        margin-left: 20px;
+    }
+
+    h3 {
+        margin-left: 20px;
+    }
+
     a {
         margin: 10px;
-    }
-
-    .btn-wrap {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin: 10px;
-    }
-
-    .btn,
-    a.btn,
-    button.btn {
-        font-size: 1.6rem;
-        font-weight: 700;
-        line-height: 1.5;
-        position: relative;
-        display: inline-block;
-        padding: 1rem 4rem;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s;
-        text-align: center;
-        vertical-align: middle;
         text-decoration: none;
-        letter-spacing: 0.1em;
-        color: #212529;
-        border-radius: 0.5rem;
-    }
-
-    a.btn-border-shadow {
-        padding: calc(1.5rem - 12px) 3rem 1.5rem;
-        background: #fff;
-    }
-
-    a.btn-border-shadow:before {
-        position: absolute;
-        top: -6px;
-        left: -6px;
-
-        width: 100%;
-        height: 100%;
-
-        content: "";
-        -webkit-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-
-        border: 3px solid #000;
-        border-radius: 0.5rem;
-    }
-
-    a.btn-border-shadow:hover {
-        padding: calc(1.5rem - 6px) 3rem;
-    }
-
-    a.btn-border-shadow:hover:before {
-        top: 0;
-        left: 0;
+        color: #000;
     }
 
     img {
@@ -125,5 +413,6 @@
         margin: 0 5px 0 0;
     }
 </style>
+
 
 </html>

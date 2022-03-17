@@ -4,15 +4,17 @@ include("n_functions.php");
 
 $pdo = connect_to_db();
 
-$office_name = $_POST["office_name"];
+// $office_name = $_POST["office_name"];
 $mail = $_POST["mail"];
 $pass = $_POST["pass"];
 
-$sql = 'SELECT * FROM nurse_table WHERE office_name=:office_name AND mail=:mail AND pass=:pass AND is_deleted=0';
+//↓検討の後追加 office_name=:office_name AND
+
+$sql = 'SELECT * FROM nurse_table WHERE mail=:mail AND pass=:pass AND is_deleted=0';
 
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':office_name', $office_name, PDO::PARAM_STR);
+// $stmt->bindValue(':office_name', $office_name, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
 

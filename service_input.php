@@ -37,17 +37,15 @@ check_session_id();
             </style>
             <!--css-->
 
-            <!--<div><label>[advance]</label>
-                <input type="text" name="advance_license" value="<?= $_SESSION["advance_license"] ?>" readonly>
-            </div>-->
-            <div><label>[comment]</label><br>
-                <textarea rows="5" cols="30" name="comment" placeholder="例】病院に付き添います"></textarea>
+            <div><label>[title]</label>
+                <input type="text" name="title" placeholder="「～ます」といった表現でシンプルに入力してください。">
             </div>
-            <!--<div>
-                item: <textarea rows="10" cols="50" name="item" placeholder="例】・吸引機 ・車いす ・介護用タクシー"></textarea>
-                /////checkboxで選択できる、その他free欄も設置/////
-            </div>-->
-
+            <div><label>[reward]</label>
+                <input type="text" name="reward" placeholder="最低賃金をご入力ください。">
+            </div>
+            <div><label>[comment]</label><br>
+                <textarea rows="5" cols="30" name="comment" placeholder="補足情報を自由に記載してください。"></textarea>
+            </div>
 
             <div>
                 <input type="hidden" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>

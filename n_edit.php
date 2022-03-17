@@ -18,8 +18,8 @@ check_session_id();
 
 <body>
     <h1>genieNurse</h1>
-    <form action="n_update.php" method="POST" enctype="multipart/form-data">
-        <div class="input_form">
+    <div class="input_form">
+        <form action="n_update.php" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>NurseEdit</legend>
                 <div>
@@ -69,9 +69,9 @@ check_session_id();
                     <button>Edit</button>
                 </div>
             </fieldset>
-        </div>
-        <p><a href="index.html">Cancel</a></p>
-    </form>
+            <p><a href="index.html">Cancel</a></p>
+        </form>
+    </div>
 </body>
 <!--css-->
 <style>

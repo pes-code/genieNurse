@@ -19,8 +19,8 @@ check_session_id();
 
 <body>
     <h1>genieNurse</h1>
-    <form action="admin_research_act.php" method="POST" enctype="multipart/form-data">
-        <div class="input_form">
+    <div class="input_form">
+        <form action="admin_research_act.php" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>NurseResearch</legend>
                 <div>
@@ -30,11 +30,9 @@ check_session_id();
                     <button>Research</button>
                 </div>
             </fieldset>
-        </div>
-        <p><a href="index.html">TOP</a></p>
-
-    </form>
-
+            <p><a href="index.html">TOP</a></p>
+        </form>
+    </div>
 </body>
 <style>
     *,

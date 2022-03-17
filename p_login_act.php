@@ -4,14 +4,14 @@ include("functions.php");
 
 $pdo = connect_to_db();
 
-$name = $_POST["name"];
+// $name = $_POST["name"];
 $mail = $_POST["mail"];
 $pass = $_POST["pass"];
 
-$sql = 'SELECT * FROM patient_table WHERE name=:name AND mail=:mail AND pass=:pass AND is_deleted=0';
+$sql = 'SELECT * FROM patient_table WHERE mail=:mail AND pass=:pass AND is_deleted=0';
 
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':name', $name, PDO::PARAM_STR);
+// $stmt->bindValue(':name', $name, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
 

@@ -12,9 +12,9 @@
     <form action="p_login_act.php" method="POST">
         <fieldset>
             <legend>UsersLogin</legend>
-            <div>
+            <!-- <div>
                 <input type="text" name="name" placeholder="name">
-            </div>
+            </div> -->
             <div>
                 <input type="text" name="mail" placeholder="mail">
             </div>

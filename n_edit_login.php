@@ -9,13 +9,13 @@
 
 <body>
     <h1>genieNurse</h1>
-    <form action="n_edit_login_act.php" method="POST">
-        <div class="input_form">
+    <div class="input_form">
+        <form action="n_edit_login_act.php" method="POST">
             <fieldset>
                 <legend>NurseEdit</legend>
-                <div>
+                <!-- <div>
                     <input type="text" name="office_name" placeholder="office_name">
-                </div>
+                </div> -->
                 <div>
                     <input type="text" name="mail" placeholder="mail">
                 </div>
@@ -26,12 +26,10 @@
                     <button>Edit</button>
                 </div>
             </fieldset>
-        </div>
-        <p><a href="p_login.php">UserLogin</a></p>
-        <p><a href="n_entry.php">NurseEntry</a></p>
-
-    </form>
-
+            <p><a href="p_login.php">UserLogin</a></p>
+            <p><a href="n_entry.php">NurseEntry</a></p>
+        </form>
+    </div>
 </body>
 <!--css-->
 <style>

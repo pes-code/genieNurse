@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>genieNurse</title>
+</head>
+
+<body>
+    <h1>genieNurse</h1>
+    <p>どちらでご利用ですか？</p>
+
+    <div class="btn-wrap">
+        <a href="p_login.php" class="btn btn-border-shadow">
+            <img class="aladdin" src="img/Aladdin.jpg">USERS
+        </a>
+
+        <a href="n_login.php" class="btn btn-border-shadow">
+            <img class="genie" src='img/genie1.jpg'>NURSE
+        </a>
+
+    </div>
+
+    <a href="index.html">Top</a>
+</body>
+
+<style>
+    *,
+    *:before,
+    *:after {
+        -webkit-box-sizing: inherit;
+        box-sizing: inherit;
+    }
+
+    html {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: 50%;
+    }
+
+
+    body {
+        background-color: #FFCC99;
+        background-repeat: no-repeat;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    a {
+        margin: 10px;
+    }
+
+    .btn-wrap {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .btn,
+    a.btn,
+    button.btn {
+        font-size: 1.6rem;
+        font-weight: 700;
+        line-height: 1.5;
+        position: relative;
+        display: inline-block;
+        padding: 1rem 4rem;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        text-align: center;
+        vertical-align: middle;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        color: #212529;
+        border-radius: 0.5rem;
+    }
+
+    a.btn-border-shadow {
+        padding: calc(1.5rem - 12px) 3rem 1.5rem;
+        background: #fff;
+    }
+
+    a.btn-border-shadow:before {
+        position: absolute;
+        top: -6px;
+        left: -6px;
+
+        width: 100%;
+        height: 100%;
+
+        content: "";
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+
+        border: 3px solid #000;
+        border-radius: 0.5rem;
+    }
+
+    a.btn-border-shadow:hover {
+        padding: calc(1.5rem - 6px) 3rem;
+    }
+
+    a.btn-border-shadow:hover:before {
+        top: 0;
+        left: 0;
+    }
+
+    img {
+        object-fit: cover;
+        width: 25px;
+        height: 20px;
+        margin: 0 5px 0 0;
+    }
+</style>
+
+</html>

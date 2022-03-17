@@ -18,14 +18,13 @@ check_session_id();
 
 <body>
     <h1>genieNurse</h1>
-    <form action="n_update.php" method="POST" enctype="multipart/form-data">
-        <div class="input_form">
+    <div class="input_form">
+        <form action="n_update.php" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>NurseEdit</legend>
                 <div>
                     <input type="text" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
                 </div>
-
                 <div>
                     <input type="text" name="name" value="<?= $_SESSION["name"] ?>" readonly>
                 </div>
@@ -77,11 +76,10 @@ check_session_id();
                 <div>
                     <img src="<?= $_SESSION["license_img"] ?>" height=50px oncontextmenu='return false;'>
                 </div>
-
             </fieldset>
-        </div>
-        <p><a href="index.html">TOP</a></p>
-    </form>
+            <p><a href="index.html">TOP</a></p>
+        </form>
+    </div>
 </body>
 <style>
     *,

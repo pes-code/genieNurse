@@ -9,8 +9,8 @@
 
 <body>
     <h1>genieNurse</h1>
-    <form action="admin_login_act.php" method="POST">
-        <div class="input_form">
+    <div class="input_form">
+        <form action="admin_login_act.php" method="POST">
             <fieldset>
                 <legend>AdminLogin</legend>
                 <div>
@@ -26,12 +26,9 @@
                     <button>Login</button>
                 </div>
             </fieldset>
-        </div>
-        <p><a href="index.html">TOP</a></p>
-
-
-    </form>
-
+            <p><a href="index.html">TOP</a></p>
+        </form>
+    </div>
 </body>
 <style>
     *,

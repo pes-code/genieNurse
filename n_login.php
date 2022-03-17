@@ -13,9 +13,9 @@
         <form action="n_login_act.php" method="POST">
             <fieldset>
                 <legend>NurseLogin</legend>
-                <div>
+                <!-- <div>
                     <input type="text" name="office_name" placeholder="office_name">
-                </div>
+                </div> -->
                 <div>
                     <input type="text" name="mail" placeholder="mail">
                 </div>
