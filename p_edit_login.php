@@ -12,20 +12,24 @@
     <form action="p_edit_login_act.php" method="POST">
         <fieldset>
             <legend>UsersEdit</legend>
-            <div>
-                <input type="text" name="name" placeholder="name">
-            </div>
-            <div>
-                <input type="text" name="mail" placeholder="mail">
-            </div>
-            <div>
-                <input type="text" name="pass" placeholder="pass">
-            </div>
-            <div>
-                <button>edit</button>
+            <dl>
+                <div>
+                    <dt><label>メールアドレス</label></dt>
+                    <dd><input type="text" name="mail" placeholder="mail"></dd>
+                </div>
+                <div>
+                    <dt><label>パスワード</label></dt>
+                    <dd><input type="text" name="pass" placeholder="pass">
+                    </dd>
+                </div>
+            </dl>
+            <div class="login_button">
+                <button>編集開始</button>
             </div>
         </fieldset>
-        <p><a href="p_login.php">UsersLogin</a></p>
+        <p><a href="p_entry.php">利用者登録</a></p>
+        <p><a href="index.html">トップ</a></p>
+
     </form>
 
 </body>
@@ -54,11 +58,24 @@
         flex-direction: column;
     }
 
+    form dl dt {
+        width: 70px;
+        padding: 20px 0;
+        margin-left: 20px;
+        float: left;
+        clear: both;
+    }
+
+    form dl dd {
+        padding: 10px 0 5px 5px;
+    }
+
+
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
     }
 
     input {
@@ -66,9 +83,9 @@
         font-weight: 700;
         line-height: 0.3;
         position: relative;
-        padding: 1rem 4rem;
+        padding: 7px 10px;
         cursor: pointer;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.5em;
         color: #212529;
         border-radius: 0.5rem;
@@ -76,6 +93,13 @@
         border: 2px solid;
         border-color: black;
         width: 200px;
+    }
+
+    .login_button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 33px;
     }
 </style>
 <!--css-->

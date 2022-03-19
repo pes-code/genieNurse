@@ -23,29 +23,48 @@ check_session_id();
 
         <fieldset>
             <legend>
-                <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
-                <a href='n_edit_login.php'><?= $_SESSION['office_name'] ?></a>
+                <div class="office_box">
+                    <img src="<?= $_SESSION["face_img"] ?>" height=50px oncontextmenu='return false;'>
+                    <a href='n_edit_login.php'><?= $_SESSION['office_name'] ?></a>
+                </div>
             </legend>
 
             <!--css-->
             <style>
+                .office_box {
+                    display: flex;
+                    align-items: center;
+                }
+
                 img {
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%
+                    margin: 5px 5px 0 5px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 5px
+                }
+
+                .office_box a {
+                    margin: 10px;
+                    text-decoration: none;
+                    color: #000;
+                    font-size: 10px;
                 }
             </style>
             <!--css-->
-
-            <div><label>[title]</label>
-                <input type="text" name="title" placeholder="「～ます」といった表現でシンプルに入力してください。">
-            </div>
-            <div><label>[reward]</label>
-                <input type="text" name="reward" placeholder="最低賃金をご入力ください。">
-            </div>
-            <div><label>[comment]</label><br>
-                <textarea rows="5" cols="30" name="comment" placeholder="補足情報を自由に記載してください。"></textarea>
-            </div>
+            <dl>
+                <div>
+                    <dt><label>タイトル</label></dt>
+                    <dd><input type="text" name="title" placeholder="「～ます」といった表現でシンプルに入力してください。"></dd>
+                </div>
+                <div>
+                    <dt><label>最低報酬</label></dt>
+                    <dd><input type="text" name="reward" placeholder="最低欲しい報酬をご入力ください。"></dd>
+                </div>
+                <div>
+                    <dt><label>詳細内容</label></dt>
+                    <dd><textarea rows="30" cols="30" name="comment" placeholder="補足情報を自由に記載してください。"></textarea></dd>
+                </div>
+            </dl>
 
             <div>
                 <input type="hidden" name="n_id" value="<?= $_SESSION["n_id"] ?>" readonly>
@@ -55,16 +74,14 @@ check_session_id();
                 <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
             </div>
 
-            <div>
-                <button>submit</button>
+            <div class="login_button">
+                <button>投稿</button>
             </div>
         </fieldset>
-        <a href="service_read.php">ServiceRead</a><br>
-        <a href="needs_browsing.php">UserNeeds</a><br>
-        <a href="n_logout.php">Logout</a>
-
+        <a href="service_read.php">投稿内容確認</a><br>
+        <a href="needs_browsing.php">ニーズ投稿一覧</a><br>
+        <a href="n_logout.php">ログアウト</a>
     </form>
-
 </body>
 
 <!--css-->
@@ -85,17 +102,36 @@ check_session_id();
     body {
         background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
+
+
+    form dl dt {
+        width: 70px;
+        padding: 20px 0;
+        margin-left: 20px;
+        float: left;
+        clear: both;
+    }
+
+    form dl dd {
+        padding: 10px 0 5px 5px;
+    }
+
+
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
+    }
+
+
+    label {
+        font-size: 10px;
     }
 
     input {
@@ -103,9 +139,9 @@ check_session_id();
         font-weight: 700;
         line-height: 0.3;
         position: relative;
-        padding: 1rem 4rem;
+        padding: 7px 10px;
         cursor: pointer;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.5em;
         color: #212529;
         border-radius: 0.5rem;
@@ -115,14 +151,13 @@ check_session_id();
         width: 200px;
     }
 
-
     textarea {
         font-size: 0.3rem;
         font-weight: 700;
         position: relative;
         padding: 1rem 4rem;
         cursor: pointer;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.5em;
         color: #212529;
         border-radius: 0.5rem;
@@ -130,6 +165,13 @@ check_session_id();
         border: 2px solid;
         border-color: black;
         width: 200px;
+    }
+
+    .login_button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 33px;
     }
 </style>
 <!--css-->

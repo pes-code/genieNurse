@@ -42,42 +42,42 @@
     $output = "";
     foreach ($result as $record) {
         $output .= "
-<tr class='tag'>
-   <div class='office_box'>
-    <div class='office_name'>
-     <td>
-      <p>{$record["office_name"]}</p>
-     </td> 
-    </div>
-    <div class='face_box'>
-     <td>
-      <img class='face' src='{$record["face_img"]}' height='50px' oncontextmenu='return false;'>    
-     </td>
-    </div>
-   </div>
-    
-   <div class='service_comment'>
-    <td> 
-     <form action='service_comment.php' method='POST'>
-      <input type='hidden' name='id' value='{$record["id"]}' readonly>
-      <button class='service_title'>{$record["title"]}
-      <div class='reward'>
-       <h6>reward<br>{$record["reward"]}</h6>
-      </div>
-      </button>
-     </form>
-    </td>
-   </div>
+<tr class='tag_box'>
+<div class='label'>
 
-   <div class=''>
-    <td>
+
+    
+  <div class='service_comment'>
+
+   <form action='service_comment.php' method='POST'>
+      <input type='hidden' name='id' value='{$record["id"]}' readonly>
+    <button class='service_title'>
+  
+  <div class='office_box'>
+   <div class='face_box'>
+      <img class='face' src='{$record["face_img"]}' height='50px' oncontextmenu='return false;'>    
+   </div>
+   <div class='office_name'>
+      <p>{$record["office_name"]}</p>
+   </div>
+  </div>
+
+    {$record["title"]}
+     <div class='reward'>
+       <h6>最低報酬<br></h6><p>￥{$record["reward"]}～</p>
+     </div>
+    </button>
+   </form>
+  </div>
+
+   <div class='appo'>
      <form action='n_prof.php' method='POST'>
-      <h6>office</h6>
        <button><img class='lamp' src='img/lamp-icon.jpg'></button>
       <input type='hidden' name='n_id' value='{$record["n_id"]}' readonly> 
      </form>
-    </td> 
    </div>
+
+</div>
 </tr>
   
   ";
@@ -95,8 +95,8 @@
             </tbody>
         </table>
     </fieldset>
-    <a href="needs_input.php">UserNeeds Input</a>
-    <a href="n_logout.php">Logout</a>
+    <a href="needs_input.php">ニーズ入力</a>
+    <a href="n_logout.php">ログアウト</a>
 </body>
 
 <!--css-->
@@ -117,50 +117,69 @@
     body {
         background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        border: solid 5px black;
+        border-radius: 5px;
     }
 
-    input {
-        font-size: 0.3rem;
-        font-weight: 700;
-        line-height: 0.3;
-        position: relative;
-        padding: 1rem 4rem;
-        cursor: pointer;
-        text-align: center;
-        letter-spacing: 0.5em;
-        color: #212529;
-        border-radius: 0.5rem;
+    .label {
+        background-color: white;
         margin: 5px;
-        border: 2px solid;
-        border-color: black;
-        width: 200px;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+        /* width: 500px; */
+    }
 
+    button {
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+
+    .service_title {
+        width: 300px;
+        /* min-width: 250px;
+        max-width: 600px; */
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: whitesmoke;
+
+    }
+
+    .service_comment {
+        /* width: 50%; */
+        height: 10%;
+        margin: 10px;
+
+    }
+
+    .office_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
 
     .face {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%
+        width: 30px;
+        height: 30px;
+        border-radius: 5px;
+        margin: 0 10px 0 0;
     }
 
-    .tag {
+    .tag_box {
         background-color: white;
         margin: 5px;
         display: flex;
         align-items: center;
     }
+
 
     button {
         cursor: pointer;
@@ -168,11 +187,25 @@
         background-color: transparent;
     }
 
+
+    /* .appo {
+        margin: 210px 10px 0 0;
+    } */
+
     .lamp {
         width: 30px;
+        margin: 170px 10px 10px 0;
         background-color: white;
-
+        border: 0px;
     }
+
+
+
+    /* .lamp {
+        width: 30px;
+        background-color: white;
+        margin: 200px 10px 0 0 0;
+    } */
 </style>
 <!--css-->
 

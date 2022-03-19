@@ -20,40 +20,41 @@ check_session_id();
         <fieldset>
             <legend><a href="p_edit_login.php"><?= $_SESSION["handlename"] ?></a></legend>
 
-            <div><label>[title]</label><br>
-                <input type="text" name="need_title" placeholder="例】入浴介助をして下さい">
-            </div>
+            <dl>
+                <dt><label>タイトル</label></dt>
+                <dd><input type="text" name="need_title" placeholder="例】入浴介助をして下さい">
+                </dd>
+                </div>
+                <dt><label>最大報酬</label></dt>
+                <dd><input type="text" name="reward" placeholder="例】5000円">
+                </dd>
+                </div>
+                <dt><label>詳細内容</label></dt>
+                <dd><textarea rows="30" cols="30" name="comment" placeholder="例】今週の火曜日に入浴介助してくださる方を探しています。女性の方でお願いします。"></textarea>
+                </dd>
+                </div>
+                <dt><label>日時</label></dt>
+                <dd><input type="date" name="deadline"></dd>
+                </div>
 
-            <div><label>[comment]</label><br>
-                <textarea rows="10" cols="50" name="comment" placeholder="例】今週の火曜日に入浴介助してくださる方を探しています。女性の方でお願いします。"></textarea>
-            </div>
-            <div><label>[reward]</label><br>
-                <input type="text" name="reward" placeholder="例】5000円">
-            </div>
-            <div><label>[deadline]</label><br>
-                <input type="date" name="deadline">
-            </div>
+                <div class="hidden_box">
+                    <input type="hidden" name="u_id" value="<?= $_SESSION["u_id"] ?>" readonly>
+                    <input type="hidden" name="name" value="<?= $_SESSION["name"] ?>" readonly>
+                    <input type="hidden" name="handlename" value="<?= $_SESSION["handlename"] ?>" readonly>
+                    <input type="hidden" name="sex" value="<?= $_SESSION["sex"] ?>" readonly>
+                    <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
+                    <input type="hidden" name="birthday" value="<?= $_SESSION["birthday"] ?>" readonly>
+                    <!--【案】将来的にline実装-->
+                </div>
 
-
-            <div class="hidden_box">
-                <input type="hidden" name="u_id" value="<?= $_SESSION["u_id"] ?>" readonly>
-                <input type="hidden" name="name" value="<?= $_SESSION["name"] ?>" readonly>
-                <input type="hidden" name="handlename" value="<?= $_SESSION["handlename"] ?>" readonly>
-                <input type="hidden" name="sex" value="<?= $_SESSION["sex"] ?>" readonly>
-                <input type="hidden" name="mail" value="<?= $_SESSION["mail"] ?>" readonly>
-                <input type="hidden" name="birthday" value="<?= $_SESSION["birthday"] ?>" readonly>
-                <!--【案】将来的にline実装-->
-            </div>
-
-            <div>
-                <button>submit</button>
-            </div>
+                <div class="login_button">
+                    <button>ログイン</button>
+                </div>
         </fieldset>
-        <a href="needs_read.php">UserNeeds</a><br>
-        <a href="service_browsing.php">NursingService</a><br>
-        <a href="p_logout.php">Logout</a><br>
+        <a href="needs_read.php">投稿内容確認</a><br>
+        <a href="service_browsing.php">サービス投稿一覧</a><br>
+        <a href="p_logout.php">ログアウト</a><br>
     </form>
-
 </body>
 
 
@@ -80,11 +81,29 @@ check_session_id();
         flex-direction: column;
     }
 
+    form dl dt {
+        width: 70px;
+        padding: 20px 0;
+        margin-left: 20px;
+        float: left;
+        clear: both;
+    }
+
+    form dl dd {
+        padding: 10px 0 5px 5px;
+    }
+
+
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
+    }
+
+
+    label {
+        font-size: 10px;
     }
 
     input {
@@ -92,9 +111,9 @@ check_session_id();
         font-weight: 700;
         line-height: 0.3;
         position: relative;
-        padding: 1rem 4rem;
+        padding: 7px 10px;
         cursor: pointer;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.5em;
         color: #212529;
         border-radius: 0.5rem;
@@ -102,7 +121,6 @@ check_session_id();
         border: 2px solid;
         border-color: black;
         width: 200px;
-
     }
 
     textarea {
@@ -111,7 +129,7 @@ check_session_id();
         position: relative;
         padding: 1rem 4rem;
         cursor: pointer;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.5em;
         color: #212529;
         border-radius: 0.5rem;
@@ -119,6 +137,13 @@ check_session_id();
         border: 2px solid;
         border-color: black;
         width: 200px;
+    }
+
+    .login_button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 33px;
     }
 </style>
 <!--css-->

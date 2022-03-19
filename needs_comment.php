@@ -61,40 +61,33 @@
 
 
         <table>
-            <thead>
-                <tr class="">
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?= "" ?>
-                <?= "
-          <tr class=''>
-           <div class=''>
-            <div class='tag'>
+            <?= "
+          <tr class='tag_box'>
+           <div class='label'>
+             
              <div class='need_title'>
-              <h6>{$record['need_title']}</h6>
+              <h4>{$record['need_title']}</h4>
              </div>
 
              <div class='needs_comment'>
               <p>{$record['comment']}</p>
              </div>
              
+             
              <div class='reward'>
-              <h6>reward<br>{$record['reward']}</h6>
+              <h6>最高報酬<br></h6><p>～￥{$record['reward']}</p>
              </div>
              
              <div class='deadline'>
-              <h6>deadline<br>{$record['deadline']}</h6>
+              <h6>日時<br></h6><p>{$record['deadline']}</p>
              </div>
-            </div>
+                         
            </div>
           </tr>
         " ?>
-            </tbody>
         </table>
     </fieldset>
-    <a href="needs_input.php">Needs Input</a><br>
+    <a href="needs_browsing.php">Back</a>
     <a href="p_logout.php">Logout</a>
 </body>
 
@@ -115,49 +108,27 @@
     body {
         background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
     }
 
-    input {
-        font-size: 0.3rem;
-        font-weight: 700;
-        line-height: 0.3;
-        position: relative;
-        padding: 1rem 4rem;
-        cursor: pointer;
-        text-align: center;
-        letter-spacing: 0.5em;
-        color: #212529;
-        border-radius: 0.5rem;
-        margin: 5px;
-        border: 2px solid;
-        border-color: black;
-        width: 200px;
+    .label {
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        flex-direction: column;
     }
 
     .handlename {
-        border-radius: 30px;
-    }
-
-    .tag {
-        min-width: 250px;
-        max-width: 600px;
-        padding: 10px;
-        box-sizing: border-box;
-        background-color: whitesmoke;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+        border-radius: 5px;
     }
 
     button {

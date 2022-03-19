@@ -53,7 +53,9 @@
     ?>
     <div class="input_form">
         <fieldset>
-            <legend><?= $record["office_name"] ?></legend>
+            <legend>
+                <?= $record["office_name"] ?>
+            </legend>
             <table>
                 <thead>
                 </thead>

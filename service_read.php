@@ -36,16 +36,28 @@
     $output = "";
     foreach ($result as $record) {
         $output .= "
-    <tr class=''>
-    <div class=''>
-         <td class=''><h6>title<br></h6>{$record["title"]}</td>
-         <td class=''><h6>reward</h6>{$record["reward"]}</td>
-     <td class=''><h6>comment<br></h6>{$record["comment"]}</td>
-     </div>
-      <td>
-       <a href='service_delete.php?id={$record["id"]}'><img src='img/dustbox.jpg'></a>
-      </td> 
-  </tr>
+<tr class='tag_box'>
+  <div class='label'>
+   
+   <div class='service_comment'>
+     <form action='service_comment.php' method='POST'>
+      <input type='hidden' name='id' value='{$record["id"]}' readonly>
+      <button class='service_title'>{$record["title"]}
+      <div class='reward'>
+       <h6>最低報酬<br>￥{$record["reward"]}～</h6>
+      </div>
+      </button>
+     </form>
+   </div>
+
+   <div class='button_box'>
+    <div class='delete'>
+     <button class='dustbox'><a href='service_delete.php?id={$record["id"]}'><img src='img/dustbox.jpg'></a></button>
+    </div>
+   </div>
+  
+  </div>
+</tr>
   ";
     }
     ?>
@@ -65,19 +77,12 @@
                 </div>
             </legend>
             <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?= $output ?>
-                </tbody>
+                <?= $output ?>
             </table>
         </fieldset>
     </div>
-    <a href="service_input.php">NursingService Input</a><br>
-    <a href="n_logout.php">Logout</a>
+    <a href="service_input.php">サービス入力</a><br>
+    <a href="n_logout.php">ログアウト</a>
 </body>
 
 <!--css-->
@@ -88,29 +93,28 @@
         justify-content: center;
     }
 
-    /* .n_prof {
-        display: flex;
-        text-align: center;
-        justify-content: center;
-    } */
-
     .face {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+        margin: 0 10px;
+    }
+
+    .n_prof button {
+        border: none;
+        background: transparent;
+    }
+
+    .tag_box {
+        background-color: white;
+        margin: 5px;
+        display: flex;
+        align-items: center;
     }
 
     img {
         width: 30px;
     }
-
-    button {
-        /* border: 3px solid; */
-        /* border-color: black; */
-        border: none;
-        background: none;
-    }
-
 
     *,
     *:before,
@@ -134,27 +138,51 @@
     }
 
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
     }
 
-    input {
-        font-size: 0.3rem;
-        font-weight: 700;
-        line-height: 0.3;
-        position: relative;
-        padding: 1rem 4rem;
-        cursor: pointer;
-        text-align: center;
-        letter-spacing: 0.5em;
-        color: #212529;
-        border-radius: 0.5rem;
+
+    .label {
+        background-color: white;
         margin: 5px;
-        border: 2px solid;
-        border-color: black;
-        width: 200px;
+        display: flex;
+        align-items: center;
+        border-radius: 5px;
+    }
+
+    button {
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 10px;
+    }
+
+    .service_title {
+        width: 300px;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: whitesmoke;
+    }
+
+    .service_comment {
+        height: 10%;
+        margin: 10px;
+    }
+
+    .button_box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .delete {
+        margin: 0 10px 0px 0;
+    }
+
+    .dustbox {
+        background-color: white;
+        border: 0px;
     }
 </style>
 <!--css-->

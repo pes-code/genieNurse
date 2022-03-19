@@ -46,29 +46,23 @@
     $output = "";
     foreach ($result as $record) {
         $output .= "
-<tr class=''>
-    <div class=''>
-<div class='tag'>
-    <div class='p_prof'>
-        <form action='p_prof.php' method='POST'>
-        <button class='handlename'>{$record["handlename"]} [{$record["sex"]}]</button>
-        <input type='hidden' name='u_id' value='{$record["u_id"]}' readonly> 
-        </form>
-    </div>
-
+<tr class='tag_box'>
+<div class='label'>
     <div class='needs_comment'>
      <form action='needs_comment.php' method='POST'>
       <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
-      <button class='need_title'>{$record["need_title"]}
-    <div class='reward'>
-     <h6>reward<br>{$record["reward"]}</h6>
-    </div>
-    <div class='deadline'>
-     <h6>deadline<br>{$record["deadline"]}</h6>
-    </div>
+      <button class='need_title'>
+         <p>{$record["handlename"]}[{$record["sex"]}]</p>
+         <h4>{$record["need_title"]}</h4>
+            <div class='reward'>
+            <h6>最高報酬<br></h6><p>～￥{$record["reward"]}</p>
+            </div>
+            <div class='deadline'>
+            <h6>日時<br></h6><p>{$record["deadline"]}</p>
+            </div>
       </button>
-      </form>
-    </div>
+     </form>
+    </div>    
 
     <div class='appo'>
      <form action='appo_create.php' method='POST'>
@@ -77,6 +71,7 @@
       <input type='hidden' name='n_id' value='{$_SESSION["n_id"]}' readonly>
      </form>
     </div>
+</div>
 </tr> 
 
   ";
@@ -87,20 +82,15 @@
             <legend>genieNurse[UsersNeeds]</legend>
 
             <table>
-                <thead>
-                    <tr class="">
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <?= $output ?>
-                </tbody>
+                <!-- <tr class="">
+                    <th></th>
+                </tr> -->
+                <?= $output ?>
             </table>
         </fieldset>
     </div>
-    <a href="service_input.php">ServiceInput</a><br>
-    <a href="p_logout.php">Logout</a>
+    <a href="service_input.php">サービス入力</a><br>
+    <a href="p_logout.php">ログアウト</a>
 </body>
 
 <!--css-->
@@ -126,34 +116,33 @@
         flex-direction: column;
     }
 
-    .input_form {
-        width: 30%;
+    fieldset {
+        border: solid 5px black;
+        border-radius: 5px;
     }
 
-
-    .handlename {
-        border-radius: 30px;
-    }
-
-    .tag {
+    .label {
         background-color: white;
         margin: 5px;
         display: flex;
         align-items: center;
+        border-radius: 5px;
+        /* width: 500px; */
     }
 
     button {
         cursor: pointer;
+        border-radius: 5px;
     }
 
-    .p_prof {
+    /* .p_prof {
         margin: 0 0 0 10px;
-    }
+    } */
 
     .need_title {
-        width: 50%;
-        min-width: 250px;
-        max-width: 600px;
+        width: 300px;
+        /* min-width: 250px;
+        max-width: 600px; */
         padding: 10px;
         box-sizing: border-box;
         background-color: whitesmoke;
@@ -161,28 +150,19 @@
     }
 
     .needs_comment {
-        width: 50%;
+        /* width: 50%; */
+        height: 10%;
         margin: 10px;
 
     }
 
     .appo {
-        margin: 0 10px 0 40px;
+        margin: 210px 10px 0 0;
     }
 
     .lamp {
         background-color: white;
         border: 0px;
-    }
-
-    .delete {
-        margin: 0 10px 0 0;
-    }
-
-    .dustbox {
-        background-color: white;
-        border: 0px;
-
     }
 
     img {
@@ -198,7 +178,6 @@
     <?php } ?> */
 </style>
 <!--css-->
-
 
 
 

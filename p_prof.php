@@ -54,22 +54,29 @@
 
     <fieldset>
         <legend><?= $record["handlename"] ?></legend>
-        <table>
-            <thead>
-            </thead>
-            <tbody>
-                <label>年齢</label>
-                <?= $age ?><br>
-                <label>性別</label>
-                <?= $record["sex"] ?><br>
-                <label>ADL</label>
-                <?= $record["adl"] ?><br>
-                <label>Mail</label>
-                <?= "<a href='mailto:{$record["mail"]}'><img src='img/mail.jpg'></a>" ?>
-            </tbody>
-        </table>
+        <div class="label">
+            <div class="age_box">
+                <h6>年齢:</h6>
+                <p><?= $age ?></p>
+            </div>
+
+            <div class="sex_box">
+                <h6>性別:</h6>
+                <p><?= $record["sex"] ?></p>
+            </div>
+
+            <div class="adl_box">
+                <h6>ADL:</h6>
+                <p><?= $record["adl"] ?></p>
+            </div>
+
+            <div class="mail_box">
+                <h6>Mail</h6>
+                <p><?= "<a href='mailto:{$record["mail"]}'><img src='img/mail.jpg'></a>" ?></p>
+            </div>
+        </div>
     </fieldset>
-    <a href="needs_input.php">UserNeeds Input</a>
+    <a href="needs_browsing.php">Back</a>
     <a href="n_logout.php">Logout</a>
 </body>
 
@@ -90,22 +97,55 @@
     body {
         background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
+    }
+
+    .label {
+        background-color: white;
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+    .age_box,
+    .sex_box,
+    .adl_box,
+    .mail_box {
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
+
+
+    .age_box h6,
+    .sex_box h6,
+    .adl_box h6,
+    .mail_box h6 {
+        font-size: 15px;
+        margin: 10px;
+        padding-left: 20px;
+    }
+
+
+    .age_box p,
+    .sex_box p,
+    .adl_box p,
+    .mail_box p {
+        font-size: 20px;
+        margin: 10px;
     }
 
     img {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
         margin: 5px;
     }
 </style>

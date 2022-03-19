@@ -10,19 +10,20 @@
 
 <body>
     <h1>genieNurse</h1>
-    <p>どちらでご利用ですか？</p>
+    <fieldset>
+        <legend>ログイン</legend>
+        <p>どちらでご利用ですか？</p>
+        <div class="btn-wrap">
+            <a href="p_login.php" class="btn btn-border-shadow">
+                <img class="aladdin" src="img/Aladdin.jpg">USERS
+            </a>
 
-    <div class="btn-wrap">
-        <a href="p_login.php" class="btn btn-border-shadow">
-            <img class="aladdin" src="img/Aladdin.jpg">USERS
-        </a>
+            <a href="n_login.php" class="btn btn-border-shadow">
+                <img class="genie" src='img/genie1.jpg'>NURSE
+            </a>
 
-        <a href="n_login.php" class="btn btn-border-shadow">
-            <img class="genie" src='img/genie1.jpg'>NURSE
-        </a>
-
-    </div>
-
+        </div>
+    </fieldset>
     <a href="index.html">Top</a>
 </body>
 
@@ -47,6 +48,13 @@
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+    fieldset {
+        width: 350px;
+        height: 600px;
+        border: solid black 5px;
+        border-radius: 5px;
     }
 
     a {

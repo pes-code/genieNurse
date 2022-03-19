@@ -38,44 +38,42 @@
     $output = "";
     foreach ($result as $record) {
         $output .= "
-<tr>
-<div class='tag'>
-    <div class='p_prof'>
-        <form action='p_prof.php' method='POST'>
-        <button class='handlename'>{$record["handlename"]} [{$record["sex"]}]</button>
-        <input type='hidden' name='u_id' value='{$record["u_id"]}' readonly> 
-        </form>
-    </div>
-    
+<tr class='tag_box'>
+<div class='label'>
     <div class='needs_comment'>
      <form action='needs_comment.php' method='POST'>
       <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
-      <button class='need_title'>{$record["need_title"]}
-    <div class='reward'>
-     <h6>reward<br>{$record["reward"]}</h6>
-    </div>
-    <div class='deadline'>
-     <h6>deadline<br>{$record["deadline"]}</h6>
-    </div>
+      <button class='need_title'>
+         <p>{$record["handlename"]}[{$record["sex"]}]</p>
+         <h4>{$record["need_title"]}</h4>
+            <div class='reward'>
+            <h6>最高報酬<br></h6><p>～￥{$record["reward"]}</p>
+            </div>
+            <div class='deadline'>
+            <h6>日時<br></h6><p>{$record["deadline"]}</p>
+            </div>
       </button>
-      </form>
-    </div>
+     </form>
+    </div>    
+
+ <div class='button_box'>
+    <div class='delete'>
+     <button class='dustbox'><a href='needs_delete.php?needs_id={$record["needs_id"]}'><img src='img/dustbox.jpg'></a></button>
+    </div>   
 
     <div class='appo'>
-     <form action='appo_brows.php' method='POST'><button class='lamp'><img src='img/lamp-icon.jpg'></button>
+     <form action='appo_brows.php' method='POST'>
+      <button class='lamp'><img src='img/lamp-icon.jpg'></button>
       <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly> 
      </form> 
     </div>
-    
-    <div class='delete'>
-     <button class='dustbox'><a href='needs_delete.php?needs_id={$record["needs_id"]}'><img src='img/dustbox.jpg'></a></button>
-    </div>
-</div>
+ </div>
+
+ </div>
 </tr>
   ";
     }
     ?>
-
     <fieldset>
         <legend>UserNeeds</legend>
 
@@ -91,8 +89,8 @@
             </tbody>
         </table>
     </fieldset>
-    <a href="needs_input.php">Needs Input</a><br>
-    <a href="p_logout.php">Logout</a>
+    <a href="needs_input.php">ニーズ入力</a><br>
+    <a href="p_logout.php">ログアウト</a>
 </body>
 
 <style>
@@ -118,65 +116,44 @@
     }
 
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
     }
 
-    input {
-        font-size: 0.3rem;
-        font-weight: 700;
-        line-height: 0.3;
-        position: relative;
-        padding: 1rem 4rem;
-        cursor: pointer;
-        text-align: center;
-        letter-spacing: 0.5em;
-        color: #212529;
-        border-radius: 0.5rem;
-        margin: 5px;
-        border: 2px solid;
-        border-color: black;
-        width: 200px;
-    }
-
-    .handlename {
-        border-radius: 30px;
-    }
-
-
-    .tag {
+    .label {
         background-color: white;
         margin: 5px;
         display: flex;
         align-items: center;
+        border-radius: 5px;
     }
 
     button {
         cursor: pointer;
-    }
-
-    .p_prof {
-        margin: 0 0 0 10px;
+        border-radius: 5px;
     }
 
     .need_title {
-        width: 50%;
-        min-width: 250px;
-        max-width: 600px;
+        width: 300px;
         padding: 10px;
         box-sizing: border-box;
         background-color: whitesmoke;
     }
 
     .needs_comment {
-        width: 50%;
+        height: 10%;
         margin: 10px;
     }
 
+    .button_box {
+        display: flex;
+        flex-direction: column;
+    }
+
     .appo {
-        margin: 0 10px 0 0;
+        margin: 210px 10px 0 0;
     }
 
     .lamp {
@@ -185,7 +162,7 @@
     }
 
     .delete {
-        margin: 0 10px 0 0;
+        margin: 0 10px 0px 0;
     }
 
     .dustbox {
@@ -198,49 +175,5 @@
     }
 </style>
 
-<!--<td>付きバージョン
-     <tr class='tag'>
-    <div class=''>
-
-        <td>
-            <form action='p_prof.php' method='POST'>
-        <td class=''>
-            <button>{$record["handlename"]}</button>
-            <input type='hidden' name='u_id' value='{$record["u_id"]}' readonly>
-        </td>
-        </form>
-        </td>
-        <td class=''>
-            <h6>sex<br></h6>{$record["sex"]}
-        </td>
-
-        <td class=''>
-            <form action='needs_comment.php' method='POST'>
-                <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
-                <h6>title<br></h6><button>{$record["need_title"]}</button>
-            </form>
-        </td>
-
-        <td class=''>
-            <h6>reward<br></h6>{$record["reward"]}
-        </td>
-        <td class=''>
-            <h6>deadline<br></h6>{$record["deadline"]}
-        </td>
-        </td>
-
-        <td>
-            <form action='appo_brows.php' method='POST'><button>appoNurse</button>
-        <td class=''>
-            <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
-        </td>
-        </form>
-        </td>
-
-    </div>
-    <td>
-        <a href='needs_delete.php?needs_id={$record["needs_id"]}'>delete</a>
-    </td>
-</tr> -->
 
 </html>

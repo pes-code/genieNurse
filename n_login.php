@@ -13,23 +13,23 @@
         <form action="n_login_act.php" method="POST">
             <fieldset>
                 <legend>NurseLogin</legend>
-                <!-- <div>
-                    <input type="text" name="office_name" placeholder="office_name">
-                </div> -->
-                <div>
-                    <input type="text" name="mail" placeholder="mail">
-                </div>
-                <div>
-                    <input type="text" name="pass" placeholder="pass">
-                </div>
-                <div>
-                    <button>Login</button>
+                <dl>
+                    <div>
+                        <dt><label>メールアドレス</label></dt>
+                        <dd><input type="text" name="mail" placeholder="mail"></dd>
+                    </div>
+                    <div>
+                        <dt><label>パスワード</label></dt>
+                        <dd><input type="text" name="pass" placeholder="pass"></dd>
+                    </div>
+                </dl>
+                <div class="login_button">
+                    <button>ログイン</button>
                 </div>
             </fieldset>
-            <p><a href="n_entry.php">NurseEntry</a></p>
-            <p><a href="n_edit_login.php">NurseEdit</a></p>
-            <p><a href="index.html">Top</a></p>
-
+            <p><a href="n_entry.php">看護師登録</a></p>
+            <p><a href="n_edit_login.php">登録情報編集</a></p>
+            <p><a href="index.html">トップ</a></p>
         </form>
     </div>
 </body>
@@ -52,21 +52,28 @@
     body {
         background-color: #FFCC99;
         background-repeat: no-repeat;
-
         display: flex;
         align-items: center;
         flex-direction: column;
     }
 
-    .input_form {
-        width: 30%;
+    form dl dt {
+        width: 70px;
+        padding: 20px 0;
+        margin-left: 20px;
+        float: left;
+        clear: both;
+    }
+
+    form dl dd {
+        padding: 10px 0 5px 5px;
     }
 
     fieldset {
-        padding: 20px;
-        border: 4px solid;
-        border-color: black;
-        border-radius: 1.3rem;
+        width: 350px;
+        /* height: 600px; */
+        border: solid black 5px;
+        border-radius: 5px;
     }
 
     input {
@@ -74,22 +81,24 @@
         font-weight: 700;
         line-height: 0.3;
         position: relative;
-        padding: 1rem 4rem;
+        padding: 7px 10px;
         cursor: pointer;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.5em;
         color: #212529;
         border-radius: 0.5rem;
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 100%;
-
+        width: 200px;
     }
 
-    /* .name {
-        background-image: url(img/name.jpg);
-    } */
+    .login_button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 33px;
+    }
 </style>
 <!--css-->
 
