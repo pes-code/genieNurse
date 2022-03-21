@@ -80,7 +80,7 @@
              </div>
              
              <div class='reward'>
-              <h6>reward<br>{$record['reward']}</h6>
+              <h6>最低報酬<br></h6><p>￥{$record['reward']}～</p>
              </div>
              
             </div>
@@ -89,9 +89,12 @@
         " ?>
             </tbody>
         </table>
+
     </fieldset>
-    <a href="needs_input.php">Needs Input</a><br>
-    <a href="p_logout.php">Logout</a>
+    <FORM>
+        <INPUT type="button" value="戻る" onClick="history.back()">
+    </FORM>
+    <a href="p_logout.php">ログアウト</a>
 </body>
 
 <style>

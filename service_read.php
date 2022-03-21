@@ -42,9 +42,9 @@
    <div class='service_comment'>
      <form action='service_comment.php' method='POST'>
       <input type='hidden' name='id' value='{$record["id"]}' readonly>
-      <button class='service_title'>{$record["title"]}
+      <button class='service_title'><h4>{$record["title"]}</h4>
       <div class='reward'>
-       <h6>最低報酬<br>￥{$record["reward"]}～</h6>
+       <h6>最低報酬<br></h6><p>￥{$record["reward"]}～</p>
       </div>
       </button>
      </form>

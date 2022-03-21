@@ -117,16 +117,16 @@
         font-weight: 700;
         line-height: 0.3;
         position: relative;
-        padding: 1rem 4rem;
+        padding: 7px 10px;
         cursor: pointer;
-        text-align: center;
+        /* text-align: center; */
         letter-spacing: 0.5em;
         color: #212529;
         border-radius: 0.5rem;
         margin: 5px;
         border: 2px solid;
         border-color: black;
-        width: 100%;
+        width: 200px;
 
     }
 

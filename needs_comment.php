@@ -87,8 +87,9 @@
         " ?>
         </table>
     </fieldset>
-    <a href="needs_browsing.php">Back</a>
-    <a href="p_logout.php">Logout</a>
+    <FORM>
+        <INPUT type="button" value="戻る" onClick="history.back()">
+    </FORM> <a href="p_logout.php">Logout</a>
 </body>
 
 <style>

@@ -48,9 +48,9 @@
                             <dt><label>メール</label></dt>
                             <dd><input type="text" name="mail" placeholder="goshigoshi@gmail.com"></dd>
                         </div>
-                        <div title="お好きなハンドルネームを設定してください。
-    【注】サイト内ではこのハンドルネームが表示されます。">
-                            <dt><label>ハンドルネーム</label></dt>
+                        <div title="サイト内で使用するお好きな名前を設定してください。
+    【注】サイト内ではこのアラジンネームが表示されます。">
+                            <dt><label>アラジンネーム</label></dt>
                             <dd><input type="text" name="handlename" placeholder="アラジン"></dd>
                         </div>
                         <div title="お好きなパスワードを設定してください。
