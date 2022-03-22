@@ -61,6 +61,8 @@ CREATE TABLE `nurse_service` (
   `n_id` int(12) NOT NULL,
   `face_img` varchar(128) COLLATE utf8mb4_bin NOT NULL,
   `office_name` varchar(128) COLLATE utf8mb4_bin NOT NULL,
+  `title` varchar(128) COLLATE utf8mb4_bin NOT NULL,
+  `reward` varchar(100) COLLATE utf8mb4_bin NOT NULL,
   `comment` varchar(500) COLLATE utf8mb4_bin NOT NULL,
   `link` varchar(128) COLLATE utf8mb4_bin NOT NULL,
   `tel` varchar(128) COLLATE utf8mb4_bin NOT NULL,
@@ -75,13 +77,13 @@ CREATE TABLE `nurse_service` (
 -- テーブルのデータのダンプ `nurse_service`
 --
 
-INSERT INTO `nurse_service` (`id`, `n_id`, `face_img`, `office_name`, `comment`, `link`, `tel`, `mail`, `time`, `is_deleted`, `created_at`, `updated_at`) VALUES
-(31, 16, 'face_upload/20220218155730d41d8cd98f00b204e9800998ecf8427e.jpg', 'genieNurse', '旅行に同行して介護や必要な健康管理を行ないます。', 'https://www.youtube.com/channel/UClvWDSieE1xCHf4ooNdw5gQ', '09082488255', 'saoiosyu@gmail.com', '0000-00-00', 0, '2022-02-18 23:58:58', '2022-02-18 23:58:58'),
-(32, 16, 'face_upload/20220218155730d41d8cd98f00b204e9800998ecf8427e.jpg', 'genieNurse', '通院に同行して医師の説明を解説します。', 'https://www.youtube.com/channel/UClvWDSieE1xCHf4ooNdw5gQ', '09082488255', 'saoiosyu@gmail.com', '0000-00-00', 0, '2022-02-19 00:00:37', '2022-02-19 00:00:37'),
-(33, 17, 'face_upload/20220218171631d41d8cd98f00b204e9800998ecf8427e.png', 'ベラトールチャンピオン', '空手の踏み込み技術をレクチャーします。', 'https://techacademy.jp/magazine/5587', '0836222773', 'att@gmail.com', '0000-00-00', 0, '2022-02-19 01:17:27', '2022-02-19 01:17:27'),
-(35, 18, 'face_upload/20220221144506d41d8cd98f00b204e9800998ecf8427e.png', 'UFCチャンピオン', '豪邸に招待します。', 'https://techacademy.jp/magazine/5587', '012345', 'money@gmail.com', '0000-00-00', 0, '2022-02-21 22:45:36', '2022-02-21 22:45:36'),
-(36, 18, 'face_upload/20220221144506d41d8cd98f00b204e9800998ecf8427e.png', 'UFCチャンピオン', '打撃の技術指導します。', 'https://techacademy.jp/magazine/5587', '012345', 'money@gmail.com', '0000-00-00', 0, '2022-02-21 22:47:13', '2022-02-21 22:47:13'),
-(37, 16, 'face_upload/20220218160409f4d166f084547291f82849b0b41f6730.jpg', 'genieNurse', 'アマチュア修斗に出場支援します。', 'https://www.youtube.com/channel/UClvWDSieE1xCHf4ooNdw5gQ', '09082488255', 'saoiosyu@gmail.com', '0000-00-00', 0, '2022-02-22 08:21:21', '2022-02-22 08:21:21');
+INSERT INTO `nurse_service` (`id`, `n_id`, `face_img`, `office_name`, `title`, `reward`, `comment`, `link`, `tel`, `mail`, `time`, `is_deleted`, `created_at`, `updated_at`) VALUES
+(31, 16, 'face_upload/20220218155730d41d8cd98f00b204e9800998ecf8427e.jpg', 'genieNurse', '旅行に同行します', '10000', '旅行に同行して介護や必要な健康管理を行ないます。', 'https://www.youtube.com/channel/UClvWDSieE1xCHf4ooNdw5gQ', '09082488255', 'saoiosyu@gmail.com', '0000-00-00', 0, '2022-02-18 23:58:58', '2022-02-18 23:58:58'),
+(32, 16, 'face_upload/20220218155730d41d8cd98f00b204e9800998ecf8427e.jpg', 'genieNurse', '通院に同行します', '10000', '通院に同行して医師の説明を解説します。', 'https://www.youtube.com/channel/UClvWDSieE1xCHf4ooNdw5gQ', '09082488255', 'saoiosyu@gmail.com', '0000-00-00', 0, '2022-02-19 00:00:37', '2022-02-19 00:00:37'),
+(33, 17, 'face_upload/20220218171631d41d8cd98f00b204e9800998ecf8427e.png', 'ベラトールチャンピオン', '技術セミナーします', '10000', '空手の踏み込み技術をレクチャーします。', 'https://techacademy.jp/magazine/5587', '0836222773', 'att@gmail.com', '0000-00-00', 0, '2022-02-19 01:17:27', '2022-02-19 01:17:27'),
+(35, 18, 'face_upload/20220221144506d41d8cd98f00b204e9800998ecf8427e.png', 'UFCチャンピオン', '豪邸に招待します', '10000', '豪邸に招待します。', 'https://techacademy.jp/magazine/5587', '012345', 'money@gmail.com', '0000-00-00', 0, '2022-02-21 22:45:36', '2022-02-21 22:45:36'),
+(36, 18, 'face_upload/20220221144506d41d8cd98f00b204e9800998ecf8427e.png', 'UFCチャンピオン', '技術レクチャーします', '10000', '打撃の技術指導します。', 'https://techacademy.jp/magazine/5587', '012345', 'money@gmail.com', '0000-00-00', 0, '2022-02-21 22:47:13', '2022-02-21 22:47:13'),
+(37, 16, 'face_upload/20220218160409f4d166f084547291f82849b0b41f6730.jpg', 'genieNurse', 'アマ修支援します', '20000', 'アマチュア修斗に出場支援します。', 'https://www.youtube.com/channel/UClvWDSieE1xCHf4ooNdw5gQ', '09082488255', 'saoiosyu@gmail.com', '0000-00-00', 0, '2022-02-22 08:21:21', '2022-02-22 08:21:21');
 
 -- --------------------------------------------------------
 
