@@ -68,8 +68,8 @@
             </div>
         </fieldset>
     </div>
-    <a href="needs_input.php">UserNeeds Input</a>
-    <a href="n_logout.php">Logout</a>
+    <a href="needs_input.php">依頼入力</a>
+    <a href="n_logout.php">ログアウト</a>
 </body>
 
 

@@ -75,7 +75,7 @@
     }
     ?>
     <fieldset>
-        <legend>UserNeeds</legend>
+        <legend>投稿内容</legend>
 
 
         <table>

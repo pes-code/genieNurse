@@ -72,8 +72,10 @@
             </table>
         </fieldset>
     </div>
-    <a href="needs_input.php">UserNeeds Input</a>
-    <a href="n_logout.php">Logout</a>
+    <FORM>
+        <INPUT type="button" value="戻る" onClick="history.back()">
+    </FORM>
+    <a href="n_logout.php">ログアウト</a>
 </body>
 
 <!--css-->

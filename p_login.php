@@ -11,7 +11,7 @@
     <h1>genieNurse</h1>
     <form action="p_login_act.php" method="POST">
         <fieldset>
-            <legend>UsersLogin</legend>
+            <legend>利用者ログイン</legend>
             <dl>
                 <div>
                     <dt><label>メールアドレス</label></dt>

@@ -12,7 +12,7 @@
     <div class="input_form">
         <form action="n_login_act.php" method="POST">
             <fieldset>
-                <legend>NurseLogin</legend>
+                <legend>看護師ログイン</legend>
                 <dl>
                     <div>
                         <dt><label>メールアドレス</label></dt>

@@ -89,7 +89,7 @@
     </fieldset>
     <FORM>
         <INPUT type="button" value="戻る" onClick="history.back()">
-    </FORM> <a href="p_logout.php">Logout</a>
+    </FORM> <a href="p_logout.php">ログアウト</a>
 </body>
 
 <style>

@@ -12,7 +12,7 @@
     <div class="input_form">
         <form action="n_edit_login_act.php" method="POST">
             <fieldset>
-                <legend>NurseEdit</legend>
+                <legend>看護師登録情報編集</legend>
                 <dl>
                     <div>
                         <dt><label>メールアドレス</label></dt>

@@ -12,7 +12,7 @@
     <div class="input_form">
         <form action="n_entry_act.php" method="POST" enctype="multipart/form-data">
             <fieldset>
-                <legend>NurseEntry</legend>
+                <legend>看護師登録</legend>
                 <dl>
                     <div title="アナタのお名前を全角，フルネームでご記入ください。">
                         <dt><label>名前</label></dt>
