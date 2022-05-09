@@ -48,7 +48,7 @@ check_session_id();
                 </div>
 
                 <div class="login_button">
-                    <button>ログイン</button>
+                    <button>投稿</button>
                 </div>
         </fieldset>
         <a href="needs_read.php">投稿内容確認</a><br>
