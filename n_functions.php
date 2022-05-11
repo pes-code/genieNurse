@@ -8,7 +8,7 @@ function connect_to_db()
     // $user = 'root';
     // $pwd = '';
 
-    $dbn = 'mysql:dbname=genienurse_db;charset=utf8mb4;port=3309;host=localhost';
+    $dbn = 'mysql:dbname=genienurse_db01;charset=utf8mb4;port=3309;host=localhost';
     $user = 'root';
     $pwd = '';
 
