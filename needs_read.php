@@ -52,6 +52,9 @@
             <div class='deadline'>
             <h6>日時<br></h6><p>{$record["deadline"]}</p>
             </div>
+    <div class='category'>
+        <h6>カテゴリー<br></h6><p>{$record["category"]}</p>
+    </div>
       </button>
      </form>
     </div>    
@@ -76,7 +79,6 @@
     ?>
     <fieldset>
         <legend>投稿内容</legend>
-
 
         <table>
             <thead>

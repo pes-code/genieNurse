@@ -10,6 +10,7 @@ if (
     !isset($_POST['comment']) || $_POST['comment'] == '' ||
     !isset($_POST['reward']) || $_POST['reward'] == '' ||
     !isset($_POST['deadline']) || $_POST['deadline'] == '' ||
+    !isset($_POST['category']) || $_POST['category'] == '' ||
     !isset($_POST['mail']) || $_POST['mail'] == ''
 ) {
     echo json_encode(["error_msg" => "no input"]);
@@ -23,6 +24,7 @@ $need_title = $_POST['need_title'];
 $comment = $_POST['comment'];
 $reward = $_POST['reward'];
 $deadline = $_POST['deadline'];
+$category = $_POST['category'];
 $mail = $_POST['mail'];
 
 // var_dump($_POST);
@@ -31,7 +33,7 @@ $mail = $_POST['mail'];
 // ファイル保存処理など
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO patient_needs(needs_id, u_id, handlename, sex, need_title, comment, reward, deadline, mail, created_at, updated_at) VALUES(null, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :mail, now(), now())';
+$sql = 'INSERT INTO patient_needs(needs_id, u_id, handlename, sex, need_title, comment, reward, deadline, category, mail, created_at, updated_at) VALUES(null, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :category, :mail, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 
@@ -46,6 +48,7 @@ $stmt->bindValue(':need_title', $need_title, PDO::PARAM_STR);
 $stmt->bindValue(':comment', $comment, PDO::PARAM_STR);
 $stmt->bindValue(':reward', $reward, PDO::PARAM_STR);
 $stmt->bindValue(':deadline', $deadline, PDO::PARAM_STR);
+$stmt->bindValue(':category', $category, PDO::PARAM_STR);
 $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
 
 

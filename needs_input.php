@@ -21,20 +21,40 @@ check_session_id();
             <legend><a href="p_edit_login.php"><?= $_SESSION["handlename"] ?></a></legend>
 
             <dl>
-                <dt><label>タイトル</label></dt>
-                <dd><input type="text" name="need_title" placeholder="例】入浴介助をして下さい">
-                </dd>
+                <div>
+                    <dt><label>タイトル</label></dt>
+                    <dd><input type="text" name="need_title" placeholder="例】入浴介助をして下さい">
+                    </dd>
                 </div>
-                <dt><label>最大報酬</label></dt>
-                <dd><input type="text" name="reward" placeholder="例】5000円">
-                </dd>
+                <div>
+                    <dt><label>最大報酬</label></dt>
+                    <dd><input type="text" name="reward" placeholder="例】5000円">
+                    </dd>
                 </div>
-                <dt><label>詳細内容</label></dt>
-                <dd><textarea rows="30" cols="30" name="comment" placeholder="例】今週の火曜日に入浴介助してくださる方を探しています。女性の方でお願いします。"></textarea>
-                </dd>
+                <div>
+                    <dt><label>詳細内容</label></dt>
+                    <dd><textarea rows="30" cols="30" name="comment" placeholder="例】今週の火曜日に入浴介助してくださる方を探しています。女性の方でお願いします。"></textarea>
+                    </dd>
                 </div>
-                <dt><label>日時</label></dt>
-                <dd><input type="date" name="deadline"></dd>
+                <div>
+                    <dt><label>日時</label></dt>
+                    <dd><input type="date" name="deadline"></dd>
+                </div>
+                <div>
+                    <dt><label>カテゴリー</label></dt>
+                    <dd> <select name="category">
+                            <option>---</option>
+                            <option>日常生活介助</option>
+                            <option>外泊支援</option>
+                            <option>外出支援</option>
+                            <option>入院支援</option>
+                            <option>受診支援</option>
+                            <option>リハビリ</option>
+                            <option>服薬管理</option>
+                            <option>見守り支援</option>
+                            <option>健康相談</option>
+                            <option>その他</option>
+                        </select></dd>
                 </div>
 
                 <div class="hidden_box">

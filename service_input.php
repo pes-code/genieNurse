@@ -64,6 +64,22 @@ check_session_id();
                     <dt><label>詳細内容</label></dt>
                     <dd><textarea rows="30" cols="30" name="comment" placeholder="補足情報を自由に記載してください。"></textarea></dd>
                 </div>
+                <div>
+                    <dt><label>カテゴリー</label></dt>
+                    <dd> <select name="category">
+                            <option>---</option>
+                            <option>日常生活介助</option>
+                            <option>外泊支援</option>
+                            <option>外出支援</option>
+                            <option>入院支援</option>
+                            <option>受診支援</option>
+                            <option>リハビリ</option>
+                            <option>服薬管理</option>
+                            <option>見守り支援</option>
+                            <option>健康相談</option>
+                            <option>その他</option>
+                        </select></dd>
+                </div>
             </dl>
 
             <div>
