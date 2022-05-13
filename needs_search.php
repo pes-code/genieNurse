@@ -8,6 +8,17 @@
 </head>
 
 <body>
+
+    <?php
+    session_start();
+    include("functions.php");
+    check_session_id();
+
+    $n_id = $_SESSION['n_id'];
+
+    ?>
+
+
     <h1>genieNurse</h1>
     <!------------------------------------------------------------------------------------->
     <fieldset>
@@ -76,19 +87,51 @@
                     console.log(response.data);
                     const array = [];
                     response.data.forEach(function(x) {
-                        array.push(`<tr><td>${x.need_title}</td><td>${x.reward}</td><tr>`);
-                        // array.push(``);
+                        // array.push(`<tr><td>${x.need_title}</td><td>${x.reward}</td><tr>`);
+                        array.push(`<tr class='tag_box'><td>
+<div class='label'>
+    <div class='needs_comment'>
+     <form action='needs_comment.php' method='POST'>
+      <input type='hidden' name='needs_id' value='${x.needs_id}' readonly>
+      <button class='need_title'>
+         <p>${x.handlename}${x.sex}</p>
+         <h4>${x.need_title}</h4>
+            <div class='reward'>
+            <h6>最高報酬<br></h6><p>～￥${x.reward}</p>
+            </div>
+            <div class='deadline'>
+            <h6>日時<br></h6><p>${x.deadline}</p>
+            </div>
+        <div class='category'>
+            <h6>カテゴリー<br></h6><p>${x.needs_category}</p>
+        </div>
+      </button>
+     </form>
+    </div>    
+
+    <div class='appo'>
+     <form action='appo_create.php' method='POST'>
+      <button class='lamp'><img src='img/genie1.jpg'></button>${x.appo_count}
+      <input type='hidden' name='needs_id' value='${x.needs_id}' readonly>
+
+
+      <input type='hidden' name='n_id' value='<?php echo $n_id ?>' readonly>
+           
+
+      </form>
+    </div>
+</div>
+</td></tr> `);
 
                     });
 
+                    console.log(array);
+
                     $("#result").html(array);
-
                 })
-
                 .catch(function(error) {
                     console.log(error);
                 })
-
         });
     </script>
     <!------------------------------------------------------------------------------------------->
