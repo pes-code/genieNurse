@@ -9,6 +9,93 @@
 
 <body>
     <h1>genieNurse</h1>
+    <!------------------------------------------------------------------------------------->
+    <fieldset>
+        <legend>カテゴリー検索</legend>
+        <!-- <div>
+            <input type="text" id="search">
+        </div> -->
+        <!-- <div>
+            <input type="button" value="その他" id="search">
+        </div> -->
+        <div class="button" id="search">
+            <div>
+                <input type="button" value="日常生活介助">
+            </div>
+            <div>
+                <input type="button" value="外泊支援">
+            </div>
+            <div>
+                <input type="button" value="外出支援">
+            </div>
+            <div>
+                <input type="button" value="入院支援">
+            </div>
+            <div>
+                <input type="button" value="受診支援">
+            </div>
+            <div>
+                <input type="button" value="リハビリ">
+            </div>
+            <div>
+                <input type="button" value="服薬管理">
+            </div>
+            <div>
+                <input type="button" value="見守り支援">
+            </div>
+            <div>
+                <input type="button" value="健康相談">
+            </div>
+            <div>
+                <input type="button" value="その他">
+            </div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="result">
+                <!-- ここに<tr><td>deadline</td><td>todo</td><tr>の形でデータが入る -->
+            </tbody>
+        </table>
+    </fieldset>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // $("#search").on("keyup", function(e) {
+        $("#search").on("click", function(e) {
+            console.log(e.target.value);
+            const searchWord = e.target.value;
+            const requestUrl = "ajax_get.php";
+
+            // ここからhttp通信を行うコード
+            axios.get(`${requestUrl}?searchword=${searchWord}`)
+                .then(function(response) {
+                    console.log(response.data);
+                    const array = [];
+                    response.data.forEach(function(x) {
+                        array.push(`<tr><td>${x.need_title}</td><td>${x.reward}</td><tr>`);
+                    });
+
+                    $("#result").html(array);
+
+                })
+
+                .catch(function(error) {
+                    console.log(error);
+                })
+
+        });
+    </script>
+    <!------------------------------------------------------------------------------------------->
+
+
+
+
     <?php
     session_start();
     include("functions.php");
@@ -22,7 +109,7 @@
     // exit();
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    $sql = 'SELECT handlename, u_id, sex, need_title, comment, reward, deadline, mail, n_id, patient_needs.needs_id AS needs_id,COUNT(appo_table.id) AS appo_count FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.needs_id = appo_table.needs_id GROUP BY patient_needs.needs_id';
+    $sql = 'SELECT handlename, u_id, sex, need_title, comment, reward, deadline, needs_category, mail, n_id, patient_needs.needs_id AS needs_id,COUNT(appo_table.id) AS appo_count FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.needs_id = appo_table.needs_id GROUP BY patient_needs.needs_id';
 
     //$sql = 'SELECT * FROM patient_needs LEFT OUTER JOIN (SELECT needs_id, COUNT(id) AS appo_count FROM appo_table GROUP BY needs_id) AS appo_count_table ON patient_needs.needs_id = appo_count_table.needs_id';
 
@@ -60,6 +147,9 @@
             <div class='deadline'>
             <h6>日時<br></h6><p>{$record["deadline"]}</p>
             </div>
+        <div class='category'>
+            <h6>カテゴリー<br></h6><p>{$record["needs_category"]}</p>
+        </div>
       </button>
      </form>
     </div>    

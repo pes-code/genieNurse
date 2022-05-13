@@ -53,7 +53,7 @@
             <h6>日時<br></h6><p>{$record["deadline"]}</p>
             </div>
     <div class='category'>
-        <h6>カテゴリー<br></h6><p>{$record["category"]}</p>
+        <h6>カテゴリー<br></h6><p>{$record["needs_category"]}</p>
     </div>
       </button>
      </form>

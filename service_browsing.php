@@ -66,6 +66,10 @@
      <div class='reward'>
        <h6>最低報酬<br></h6><p>￥{$record["reward"]}～</p>
      </div>
+
+    <div class='category'>
+        <h6>カテゴリー<br></h6><p>{$record["service_category"]}</p>
+    </div>
     </button>
    </form>
   </div>

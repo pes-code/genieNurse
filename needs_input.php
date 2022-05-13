@@ -42,7 +42,7 @@ check_session_id();
                 </div>
                 <div>
                     <dt><label>カテゴリー</label></dt>
-                    <dd> <select name="category">
+                    <dd> <select name="needs_category">
                             <option>---</option>
                             <option>日常生活介助</option>
                             <option>外泊支援</option>
