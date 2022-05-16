@@ -42,7 +42,7 @@
 <div class='label'>
     <div class='needs_comment'>
      <form action='needs_comment.php' method='POST'>
-      <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
+      <input type='hidden' name='id' value='{$record["id"]}' readonly>
       <button class='need_title'>
          <p>{$record["handlename"]}[{$record["sex"]}]</p>
          <h4>{$record["need_title"]}</h4>
@@ -61,7 +61,7 @@
 
  <div class='button_box'>
     <div class='delete'>
-     <button class='dustbox'><a href='needs_delete.php?needs_id={$record["needs_id"]}'><img src='img/dustbox.jpg'></a></button>
+     <button class='dustbox'><a href='needs_delete.php?id={$record["id"]}'><img src='img/dustbox.jpg'></a></button>
     </div>   
 
     <div class='appo'>
@@ -94,6 +94,47 @@
     <a href="needs_input.php">ニーズ入力</a><br>
     <a href="p_logout.php">ログアウト</a>
 </body>
+
+<!-- $outputの中身 -->
+<!-- <tr class='tag_box'>
+    <div class='label'>
+        <div class='needs_comment'>
+            <form action='needs_comment.php' method='POST'>
+                <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
+                <button class='need_title'>
+                    <p>{$record["handlename"]}[{$record["sex"]}]</p>
+                    <h4>{$record["need_title"]}</h4>
+                    <div class='reward'>
+                        <h6>最高報酬<br></h6>
+                        <p>～￥{$record["reward"]}</p>
+                    </div>
+                    <div class='deadline'>
+                        <h6>日時<br></h6>
+                        <p>{$record["deadline"]}</p>
+                    </div>
+                    <div class='category'>
+                        <h6>カテゴリー<br></h6>
+                        <p>{$record["needs_category"]}</p>
+                    </div>
+                </button>
+            </form>
+        </div>
+
+        <div class='button_box'>
+            <div class='delete'>
+                <button class='dustbox'><a href='needs_delete.php?needs_id={$record["needs_id"]}'><img src='img/dustbox.jpg'></a></button>
+            </div>
+
+            <div class='appo'>
+                <form action='appo_brows.php' method='POST'>
+                    <button class='lamp'><img src='img/lamp-icon.jpg'></button>
+                    <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</tr> -->
 
 <style>
     *,

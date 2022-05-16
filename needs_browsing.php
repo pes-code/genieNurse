@@ -23,7 +23,15 @@
     // exit();
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    $sql = 'SELECT handlename, u_id, sex, need_title, comment, reward, deadline, needs_category, mail, n_id, patient_needs.needs_id AS needs_id,COUNT(appo_table.id) AS appo_count FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.needs_id = appo_table.needs_id GROUP BY patient_needs.needs_id';
+    // $sql = 'SELECT handlename, u_id, sex, need_title, comment, reward, deadline, needs_category, mail, n_id, patient_needs.id AS needs_id,COUNT(appo_table.id) AS appo_count FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.id = appo_table.needs_id GROUP BY patient_needs.id';
+
+    // $sql = 'SELECT handlename, u_id, sex, need_title, comment, reward, deadline, needs_category, mail, n_id, patient_needs.id AS needs_id, COUNT(appo_table.id) AS appo_count FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.id = appo_table.needs_id GROUP BY patient_needs.id';
+
+    $sql = 'SELECT handlename, u_id, sex, need_title, comment, reward, deadline, needs_category, mail, n_id, patient_needs.id, COUNT(appo_table.id) AS appo_count FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.id = appo_table.needs_id GROUP BY patient_needs.id';
+
+
+    // $sql = 'SELECT handlename, u_id, sex, need_title, comment, reward, deadline, needs_category, mail, n_id, patient_needs.needs_id AS needs_id,COUNT(appo_table.id) AS appo_count FROM patient_needs LEFT OUTER JOIN appo_table ON patient_needs.needs_id = appo_table.needs_id GROUP BY patient_needs.needs_id';
+
 
     //$sql = 'SELECT * FROM patient_needs LEFT OUTER JOIN (SELECT needs_id, COUNT(id) AS appo_count FROM appo_table GROUP BY needs_id) AS appo_count_table ON patient_needs.needs_id = appo_count_table.needs_id';
 
@@ -34,7 +42,6 @@
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     $stmt = $pdo->prepare($sql);
-
     try {
         $status = $stmt->execute();
     } catch (PDOException $e) {
@@ -44,6 +51,9 @@
 
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    // var_dump($result);
+    // exit();
+
     $output = "";
     foreach ($result as $record) {
         $output .= "
@@ -51,7 +61,7 @@
 <div class='label'>
     <div class='needs_comment'>
      <form action='needs_comment.php' method='POST'>
-      <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
+      <input type='hidden' name='id' value='{$record["id"]}' readonly>
       <button class='need_title'>
          <p>{$record["handlename"]}[{$record["sex"]}]</p>
          <h4>{$record["need_title"]}</h4>
@@ -71,7 +81,7 @@
     <div class='appo'>
      <form action='appo_create.php' method='POST'>
       <button class='lamp'><img src='img/genie1.jpg'></button>{$record["appo_count"]}
-      <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
+      <input type='hidden' name='id' value='{$record["id"]}' readonly>
       <input type='hidden' name='n_id' value='{$_SESSION["n_id"]}' readonly>
      </form>
     </div>
@@ -80,6 +90,7 @@
 
   ";
     }
+
     ?>
     <div class="input_form">
         <fieldset>
@@ -96,6 +107,48 @@
     <a href="service_input.php">サービス入力</a><br>
     <a href="p_logout.php">ログアウト</a>
 </body>
+
+
+
+<!-- $outputの中身 -->
+<!-- <tr class='tag_box'>
+    <div class='label'>
+        <div class='needs_comment'>
+            <form action='needs_comment.php' method='POST'>
+                <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
+                <button class='need_title'>
+                    <p>{$record["handlename"]}[{$record["sex"]}]</p>
+                    <h4>{$record["need_title"]}</h4>
+                    <div class='reward'>
+                        <h6>最高報酬<br></h6>
+                        <p>～￥{$record["reward"]}</p>
+                    </div>
+                    <div class='deadline'>
+                        <h6>日時<br></h6>
+                        <p>{$record["deadline"]}</p>
+                    </div>
+                    <div class='category'>
+                        <h6>カテゴリー<br></h6>
+                        <p>{$record["needs_category"]}</p>
+                    </div>
+                </button>
+            </form>
+        </div>
+
+        <div class='appo'>
+            <form action='appo_create.php' method='POST'>
+                <button class='lamp'><img src='img/genie1.jpg'></button>{$record["appo_count"]}
+                <input type='hidden' name='needs_id' value='{$record["needs_id"]}' readonly>
+                <input type='hidden' name='n_id' value='{$_SESSION["n_id"]}' readonly>
+            </form>
+        </div>
+    </div>
+</tr> -->
+
+
+
+
+
 
 <!--css-->
 <style>
@@ -182,7 +235,5 @@
     <?php } ?> */
 </style>
 <!--css-->
-
-
 
 </html>

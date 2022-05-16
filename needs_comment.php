@@ -14,7 +14,10 @@
     include("functions.php");
     check_session_id();
 
-    $needs_id = $_POST["needs_id"];
+    $id = $_POST["id"];
+    // $needs_id = $_POST["needs_id"];
+
+
 
     $pdo = connect_to_db();
 
@@ -22,16 +25,20 @@
     // exit();
 
 
-    $sql = 'SELECT * FROM patient_needs WHERE needs_id=:needs_id AND is_deleted=0';
+    $sql = 'SELECT * FROM patient_needs WHERE id=:id AND is_deleted=0';
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_INT);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 
+
+    // $sql = 'SELECT * FROM patient_needs WHERE needs_id=:needs_id AND is_deleted=0';
+    // $stmt = $pdo->prepare($sql);
+    // $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_INT);
 
 
     try {
         $status = $stmt->execute();
     } catch (PDOException $e) {
-        echo json_encode(["sql error" => "{$e->getMessage()}"]);
+        echo json_encode(["sql error1111" => "{$e->getMessage()}"]);
         exit();
     }
 

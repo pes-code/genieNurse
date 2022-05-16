@@ -33,12 +33,12 @@ $mail = $_POST['mail'];
 // ファイル保存処理など
 $pdo = connect_to_db();
 
-$sql = 'INSERT INTO patient_needs(needs_id, u_id, handlename, sex, need_title, comment, reward, deadline, needs_category, mail, created_at, updated_at) VALUES(null, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :needs_category, :mail, now(), now())';
+$sql = 'INSERT INTO patient_needs(id, u_id, handlename, sex, need_title, comment, reward, deadline, needs_category, mail, created_at, updated_at) VALUES(null, :u_id, :handlename, :sex, :need_title, :comment, :reward, :deadline, :needs_category, :mail, now(), now())';
 
 $stmt = $pdo->prepare($sql);
 
 /////////////////////////////////////////////////////////////
-//$stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);//
+// $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);
 /////////////////////////////////////////////////////////////
 
 $stmt->bindValue(':u_id', $u_id, PDO::PARAM_STR);

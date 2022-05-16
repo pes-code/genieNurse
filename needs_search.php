@@ -92,7 +92,7 @@
 <div class='label'>
     <div class='needs_comment'>
      <form action='needs_comment.php' method='POST'>
-      <input type='hidden' name='needs_id' value='${x.needs_id}' readonly>
+      <input type='hidden' name='id' value='${x.id}' readonly>
       <button class='need_title'>
          <p>${x.handlename}${x.sex}</p>
          <h4>${x.need_title}</h4>
@@ -112,8 +112,7 @@
     <div class='appo'>
      <form action='appo_create.php' method='POST'>
       <button class='lamp'><img src='img/genie1.jpg'></button>${x.appo_count}
-      <input type='hidden' name='needs_id' value='${x.needs_id}' readonly>
-
+      <input type='hidden' name='id' value='${x.id}' readonly>
 
       <input type='hidden' name='n_id' value='<?php echo $n_id ?>' readonly>
            
@@ -139,6 +138,47 @@
     <a href="service_input.php">サービス入力</a><br>
     <a href="p_logout.php">ログアウト</a>
 </body>
+<!-- array.push(``)の中身 -->
+<!-- <tr class='tag_box'>
+    <td>
+        <div class='label'>
+            <div class='needs_comment'>
+                <form action='needs_comment.php' method='POST'>
+                    <input type='hidden' name='needs_id' value='${x.needs_id}' readonly>
+                    <button class='need_title'>
+                        <p>${x.handlename}${x.sex}</p>
+                        <h4>${x.need_title}</h4>
+                        <div class='reward'>
+                            <h6>最高報酬<br></h6>
+                            <p>～￥${x.reward}</p>
+                        </div>
+                        <div class='deadline'>
+                            <h6>日時<br></h6>
+                            <p>${x.deadline}</p>
+                        </div>
+                        <div class='category'>
+                            <h6>カテゴリー<br></h6>
+                            <p>${x.needs_category}</p>
+                        </div>
+                    </button>
+                </form>
+            </div>
+
+            <div class='appo'>
+                <form action='appo_create.php' method='POST'>
+                    <button class='lamp'><img src='img/genie1.jpg'></button>${x.appo_count}
+                    <input type='hidden' name='needs_id' value='${x.needs_id}' readonly>
+
+
+                    <input type='hidden' name='n_id' value='<?php echo $n_id ?>' readonly>
+
+
+                </form>
+            </div>
+        </div>
+    </td>
+</tr> -->
+
 
 <!--css-->
 <style>

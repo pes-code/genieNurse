@@ -5,7 +5,9 @@ include('n_functions.php');
 // exit();
 
 $n_id = $_POST['n_id'];
-$needs_id = $_POST['needs_id'];
+// $id = $_POST['id'];
+$id = $_POST['id'];
+
 
 //$needs_id = $_GET['needs_id'];
 
@@ -14,11 +16,16 @@ $pdo = connect_to_db();
 
 ///////////////////////////////////////////////////////////
 
+// $sql = 'SELECT COUNT(*) FROM appo_table WHERE n_id=:n_id AND id=:id';
 $sql = 'SELECT COUNT(*) FROM appo_table WHERE n_id=:n_id AND needs_id=:needs_id';
+
+
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':n_id', $n_id, PDO::PARAM_STR);
-$stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);
+// $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+$stmt->bindValue(':needs_id', $id, PDO::PARAM_STR);
+
 
 try {
     $status = $stmt->execute();
@@ -45,7 +52,10 @@ if ($appo_count != 0) {
 
 $stmt = $pdo->prepare($sql);
 $stmt->bindValue(':n_id', $n_id, PDO::PARAM_STR);
-$stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);
+$stmt->bindValue(':needs_id', $id, PDO::PARAM_STR);
+// $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);
+
+
 
 try {
     $status = $stmt->execute();
