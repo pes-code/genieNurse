@@ -16,7 +16,7 @@
     check_session_id();
 
     $u_id = $_SESSION['u_id'];
-    $needs_id = $_POST["needs_id"];
+    $id = $_POST["id"];
     // var_dump($_POST);
     // var_dump($_SESSION);
     // exit();
@@ -26,7 +26,7 @@
     $sql = 'SELECT * FROM appo_table LEFT OUTER JOIN nurse_table ON appo_table.n_id=nurse_table.n_id WHERE needs_id=:needs_id';
 
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':needs_id', $needs_id, PDO::PARAM_STR);
+    $stmt->bindValue(':needs_id', $id, PDO::PARAM_STR);
 
     try {
         $status = $stmt->execute();

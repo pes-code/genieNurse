@@ -12,7 +12,9 @@ function connect_to_db()
     $user = 'root';
     $pwd = '';
 
-
+    // $dbn = 'mysql:dbname=genienurse_db01;charset=utf8mb4;host=mysql57.genienurse.sakura.ne.jp';
+    // $user = 'genienurse';
+    // $pwd = 'GVp6reLQFrXS';
 
     // $dbn = 'mysql:dbname=heroku_13302bc9a14c02b;charset=utf8mb4;port=3306;host=us-cdbr-east-05.cleardb.net';
     // $user = 'b03cb806d86b33';
